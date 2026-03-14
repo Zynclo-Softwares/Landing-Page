@@ -32,13 +32,12 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center">
-            <span className="text-white text-xs font-bold">Z</span>
-          </div>
-          <span className="text-lg font-semibold text-slate-900 tracking-tight">
-            Zynclo
-          </span>
+        <a href="#" className="flex items-center">
+          <img
+            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b591daf6da87ce28f820e7/eba9347e8_zynclo-logo.png"
+            alt="Zynclo"
+            className="h-8 w-auto"
+          />
         </a>
 
         <div className="flex items-center gap-8">
