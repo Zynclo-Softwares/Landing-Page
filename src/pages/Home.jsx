@@ -4,7 +4,7 @@ import About from "../components/landing/About";
 import Support from "../components/landing/Support";
 import Footer from "../components/landing/Footer";
 
-const APP_ICON_URL = "/__generating__/img_4424a1a885e6.png";
+const APP_ICON_URL = "/api/images/img_4424a1a885e6.png";
 
 export default function Home() {
   return (
