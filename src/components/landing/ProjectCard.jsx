@@ -82,7 +82,7 @@ export default function ProjectCard({ iconUrl }) {
               An AI-powered accountability app that uses a patent-pending lock-and-schedule system to keep you disciplined. Create image locks verified by AI, build flexible schedules, track streaks, and prove your progress.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 mb-6">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
               <div className="flex items-center gap-2">
                 <Smartphone className="w-4 h-4 text-slate-400" />
                 <span className="text-sm text-slate-400 font-medium">Available on iOS and Android</span>
