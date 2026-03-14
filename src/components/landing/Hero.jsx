@@ -61,13 +61,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          Building Tools
+          Software That
           <br />
           <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-            That Keep You
+            Surprises.
           </span>
-          <br />
-          Accountable.
         </motion.h1>
 
         <motion.p
@@ -76,7 +74,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
         >
-          Zynclo builds AI-powered apps that turn intentions into actions.
+          Zynclo builds creative, one-of-a-kind apps that actually make a difference.
         </motion.p>
 
         <motion.div

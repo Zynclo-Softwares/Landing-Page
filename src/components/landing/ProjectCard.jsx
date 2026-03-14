@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { Smartphone, Sparkles, Shield, Calendar, Flame, Camera } from "lucide-react";
+import { Smartphone, Sparkles, Shield, Calendar, Flame, Camera, Brain, Utensils } from "lucide-react";
 
 const features = [
   { icon: Camera, label: "AI Image Verification" },
+  { icon: Brain, label: "LLM Based Judge" },
   { icon: Shield, label: "Patent-Pending Lock System" },
   { icon: Calendar, label: "Flexible Scheduling" },
   { icon: Flame, label: "Streak Tracking" },
@@ -56,9 +57,15 @@ export default function ProjectCard({ iconUrl }) {
               An AI-powered accountability app that uses a patent-pending lock-and-schedule system to keep you disciplined. Create image locks verified by AI, build flexible schedules, track streaks, and prove your progress.
             </p>
 
-            <div className="flex items-center gap-2 mb-6">
-              <Smartphone className="w-4 h-4 text-slate-400" />
-              <span className="text-sm text-slate-400 font-medium">Available on iOS and Android</span>
+            <div className="flex flex-wrap items-center gap-4 mb-6">
+              <div className="flex items-center gap-2">
+                <Smartphone className="w-4 h-4 text-slate-400" />
+                <span className="text-sm text-slate-400 font-medium">Available on iOS and Android</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-600">
+                <Utensils className="w-3 h-3" />
+                Food Lock — Coming Soon
+              </div>
             </div>
 
             {/* Feature pills */}
