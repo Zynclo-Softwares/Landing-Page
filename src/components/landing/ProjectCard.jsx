@@ -32,14 +32,39 @@ export default function ProjectCard({ iconUrl }) {
             </div>
             
             <div className="flex flex-col gap-2">
-              <a href="#" className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 rounded-lg text-white text-xs font-medium hover:bg-slate-800 transition-colors">
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                App Store
+              {/* App Store - black official style */}
+              <a href="#" className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-black rounded-xl text-white text-xs font-medium hover:bg-gray-900 transition-colors border border-gray-800 min-w-[140px]">
+                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white shrink-0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <div className="flex flex-col leading-tight">
+                  <span className="text-[9px] text-gray-300 font-light">Download on the</span>
+                  <span className="text-sm font-semibold">App Store</span>
+                </div>
               </a>
-              <a href="#" className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 rounded-lg text-white text-xs font-medium hover:bg-slate-800 transition-colors">
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.3 2.3-8.636-8.632z"/></svg>
-                Google Play
+              {/* Google Play - colorful official style */}
+              <a href="#" className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-black rounded-xl text-white text-xs font-medium hover:bg-gray-900 transition-colors border border-gray-800 min-w-[140px]">
+                <svg viewBox="0 0 24 24" className="w-5 h-5 shrink-0" fill="none">
+                  <path d="M3.18 23.76a2 2 0 001.09-.31l11.83-6.76L13 13.5 3.18 23.76z" fill="#EA4335"/>
+                  <path d="M20.82 10.32L16.1 7.62 12.76 10.7l3.34 3.08 4.72-2.7a1.5 1.5 0 000-2.76z" fill="#FBBC04"/>
+                  <path d="M4.27.55A2 2 0 003.18.24L13 10.5l3.1-2.88L4.27.55z" fill="#4285F4"/>
+                  <path d="M3.18.24a2 2 0 00-1.09 1.8v19.92a2 2 0 001.09 1.8L13 13.5 3.18.24z" fill="#34A853"/>
+                </svg>
+                <div className="flex flex-col leading-tight">
+                  <span className="text-[9px] text-gray-300 font-light">Get it on</span>
+                  <span className="text-sm font-semibold">Google Play</span>
+                </div>
               </a>
+
+              {/* Legal buttons */}
+              <div className="flex flex-wrap gap-2 mt-1">
+                <a href="/TermsAndConditions" target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-colors">
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                  Terms
+                </a>
+                <a href="/PrivacyPolicy" target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-colors">
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                  Privacy & Data
+                </a>
+              </div>
             </div>
           </div>
 
