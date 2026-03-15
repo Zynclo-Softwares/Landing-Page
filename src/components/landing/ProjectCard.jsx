@@ -125,9 +125,12 @@ export default function ProjectCard({ iconUrl }) {
             style={{ background: "radial-gradient(circle, #ede9fe, transparent 70%)" }} />
 
           <div className="flex-1 px-6 py-5 flex flex-col relative z-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-indigo-500 mb-3">Features</p>
+            <div className="text-center mb-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-indigo-500 mb-2">Features</p>
+              <div className="h-1 w-16 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-400 mx-auto"></div>
+            </div>
 
-            <div className="flex-1 overflow-y-auto pr-2 space-y-1.5">
+            <div className="flex-1 overflow-y-auto pr-2 space-y-3 mb-4">
               {features.map((f) => (
                 <div
                   key={f.label}
