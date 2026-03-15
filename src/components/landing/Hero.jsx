@@ -2,15 +2,6 @@ import { motion, useMotionValue, useTransform, animate, AnimatePresence } from "
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-// Rocket trail sparks
-const TRAIL_SPARKS = Array.from({ length: 18 }, (_, i) => ({
-  id: i,
-  offsetX: (Math.random() - 0.5) * 60,
-  offsetY: Math.random() * 80 + 20,
-  size: Math.random() * 5 + 2,
-  delay: Math.random() * 0.3,
-  color: ["#6366f1", "#8b5cf6", "#a78bfa", "#fbbf24", "#f97316"][Math.floor(Math.random() * 5)],
-}));
 
 const PARTICLES = Array.from({ length: 22 }, (_, i) => ({
   id: i,
@@ -76,130 +67,122 @@ const stagger = {
 };
 
 function RocketLaunch() {
-  const [phase, setPhase] = useState("idle"); // idle | launch | gone
+  const [active, setActive] = useState(false);
+  const [gone, setGone] = useState(false);
+  const [shockwave, setShockwave] = useState(false);
 
   useEffect(() => {
-    // Start launch shortly after mount
-    const t1 = setTimeout(() => setPhase("launch"), 1200);
-    const t2 = setTimeout(() => setPhase("gone"), 3800);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    // Start trip after text has revealed
+    const t1 = setTimeout(() => setActive(true), 900);
+    // Shockwave when rocket arrives at "Surprises." (~0.86 of 6s trip + 0.9s delay = 6.06s)
+    const t2 = setTimeout(() => setShockwave(true), 6100);
+    const t3 = setTimeout(() => setGone(true), 8000);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
-  if (phase === "gone") return null;
+  if (gone) return null;
 
   return (
-    <AnimatePresence>
-      {phase === "launch" && (
-        <motion.div
-          key="rocket"
-          className="absolute pointer-events-none z-20"
-          style={{ left: "12%", bottom: "15%" }}
-          initial={{ y: 0, x: 0, opacity: 0, rotate: -30 }}
-          animate={{
-            y: [0, -30, -900],
-            x: [0, 60, 400],
-            opacity: [0, 1, 1, 0],
-            rotate: [-30, -35, -42],
-          }}
-          transition={{
-            duration: 2.2,
-            ease: [0.22, 1, 0.36, 1],
-            opacity: { times: [0, 0.08, 0.85, 1] },
-          }}
-        >
-          {/* Rocket SVG */}
-          <svg width="52" height="90" viewBox="0 0 52 90" fill="none">
-            {/* Body */}
-            <ellipse cx="26" cy="40" rx="12" ry="28" fill="url(#rocketBody)" />
-            {/* Nose */}
-            <path d="M14 22 Q26 0 38 22Z" fill="url(#rocketNose)" />
-            {/* Window */}
-            <circle cx="26" cy="36" r="6" fill="#e0e7ff" stroke="#6366f1" strokeWidth="1.5" />
-            <circle cx="26" cy="36" r="3" fill="url(#windowGlow)" />
-            {/* Left fin */}
-            <path d="M14 56 L6 72 L14 68Z" fill="url(#fin)" />
-            {/* Right fin */}
-            <path d="M38 56 L46 72 L38 68Z" fill="url(#fin)" />
-            {/* Exhaust cone */}
-            <path d="M18 68 L26 78 L34 68Z" fill="#fbbf24" opacity="0.8" />
-
-            {/* Animated flame */}
-            <motion.ellipse
-              cx="26" cy="82" rx="7" ry="10"
-              fill="url(#flame)"
-              animate={{ ry: [10, 16, 8, 14, 10], opacity: [0.9, 1, 0.7, 1, 0.9] }}
-              transition={{ duration: 0.25, repeat: Infinity }}
-            />
-            <motion.ellipse
-              cx="26" cy="83" rx="4" ry="7"
-              fill="#fff"
-              animate={{ ry: [7, 11, 5, 9, 7], opacity: [0.6, 0.9, 0.4, 0.8, 0.6] }}
+    <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
+      <AnimatePresence>
+        {active && (
+          <motion.div
+            key="rocket"
+            className="absolute"
+            // Positioned at the gap between "Software" and "That" — center of headline row 1
+            style={{ left: "50%", top: "41%", marginLeft: -26, marginTop: -45 }}
+            initial={{ x: 0, y: 0, scale: 0.08, rotate: 0, opacity: 0 }}
+            animate={{
+              // Round trip arc: right → bottom-right → bottom → bottom-left → left → back to center → "Surprises." → BLAST OFF
+              x:       [0,   270,  330,  150, -150, -330, -270,    0,  150,  1000],
+              y:       [0,    50,  170,  290,  290,  170,   50,   95, -250, -1100],
+              scale:   [0.08, 0.15, 0.27, 0.42, 0.56, 0.71, 0.87, 1.0, 1.5,  0.05],
+              rotate:  [0,    82,  148,  188,  228,  282,  342,    0,  -28,   -38],
+              opacity: [0,     1,    1,    1,    1,    1,    1,    1,    1,     0],
+            }}
+            transition={{
+              duration: 7.0,
+              times: [0, 0.11, 0.23, 0.37, 0.51, 0.65, 0.78, 0.86, 0.93, 1.0],
+              ease: [
+                "easeInOut","easeInOut","easeInOut","easeInOut",
+                "easeInOut","easeInOut","easeInOut",
+                [0.4, 0, 1, 1], [0.8, 0, 1, 1],
+              ],
+            }}
+          >
+            {/* Comet trail glow behind flame */}
+            <motion.div
+              className="absolute rounded-full"
+              style={{
+                width: 12, height: 60,
+                background: "linear-gradient(to bottom, transparent, rgba(249,115,22,0.7), rgba(251,191,36,0.3), transparent)",
+                filter: "blur(6px)",
+                left: 20, top: 72,
+                transformOrigin: "top center",
+              }}
+              animate={{ scaleY: [1, 1.7, 0.6, 1.5, 1], opacity: [0.7, 1, 0.4, 0.9, 0.7] }}
               transition={{ duration: 0.18, repeat: Infinity }}
             />
 
-            <defs>
-              <linearGradient id="rocketBody" x1="14" y1="12" x2="38" y2="68" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#e0e7ff" />
-                <stop offset="1" stopColor="#6366f1" />
-              </linearGradient>
-              <linearGradient id="rocketNose" x1="14" y1="22" x2="38" y2="0" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#818cf8" />
-                <stop offset="1" stopColor="#4f46e5" />
-              </linearGradient>
-              <linearGradient id="fin" x1="0" y1="56" x2="0" y2="72" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#6366f1" />
-                <stop offset="1" stopColor="#4338ca" />
-              </linearGradient>
-              <radialGradient id="windowGlow" cx="50%" cy="50%" r="50%">
-                <stop stopColor="#a5f3fc" />
-                <stop offset="1" stopColor="#6366f1" />
-              </radialGradient>
-              <linearGradient id="flame" x1="19" y1="72" x2="33" y2="92" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#f97316" />
-                <stop offset="0.5" stopColor="#fbbf24" />
-                <stop offset="1" stopColor="#fde68a" />
-              </linearGradient>
-            </defs>
-          </svg>
+            {/* Rocket SVG */}
+            <svg width="52" height="90" viewBox="0 0 52 90" fill="none">
+              <ellipse cx="26" cy="40" rx="12" ry="28" fill="url(#rb3)" />
+              <path d="M14 22 Q26 0 38 22Z" fill="url(#rn3)" />
+              <circle cx="26" cy="36" r="6" fill="#e0e7ff" stroke="#6366f1" strokeWidth="1.5" />
+              <circle cx="26" cy="36" r="3" fill="url(#wg3)" />
+              <path d="M14 56 L6 72 L14 68Z" fill="url(#fn3)" />
+              <path d="M38 56 L46 72 L38 68Z" fill="url(#fn3)" />
+              <path d="M18 68 L26 78 L34 68Z" fill="#fbbf24" opacity="0.8" />
+              <motion.ellipse cx="26" cy="82" rx="7" ry="12" fill="url(#fl3)"
+                animate={{ ry: [12, 19, 7, 17, 12] }}
+                transition={{ duration: 0.2, repeat: Infinity }}
+              />
+              <motion.ellipse cx="26" cy="83" rx="4" ry="8" fill="#fff"
+                animate={{ ry: [8, 13, 4, 11, 8], opacity: [0.6, 0.9, 0.3, 0.85, 0.6] }}
+                transition={{ duration: 0.15, repeat: Infinity }}
+              />
+              <defs>
+                <linearGradient id="rb3" x1="14" y1="12" x2="38" y2="68" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#e0e7ff" /><stop offset="1" stopColor="#6366f1" />
+                </linearGradient>
+                <linearGradient id="rn3" x1="14" y1="22" x2="38" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#818cf8" /><stop offset="1" stopColor="#4f46e5" />
+                </linearGradient>
+                <linearGradient id="fn3" x1="0" y1="56" x2="0" y2="72" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#6366f1" /><stop offset="1" stopColor="#4338ca" />
+                </linearGradient>
+                <radialGradient id="wg3" cx="50%" cy="50%" r="50%">
+                  <stop stopColor="#a5f3fc" /><stop offset="1" stopColor="#6366f1" />
+                </radialGradient>
+                <linearGradient id="fl3" x1="19" y1="72" x2="33" y2="92" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#f97316" />
+                  <stop offset="0.5" stopColor="#fbbf24" />
+                  <stop offset="1" stopColor="#fde68a" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-          {/* Trail sparks */}
-          {TRAIL_SPARKS.map((s) => (
-            <motion.div
-              key={s.id}
-              className="absolute rounded-full"
-              style={{
-                width: s.size, height: s.size,
-                background: s.color,
-                left: 26 + s.offsetX,
-                top: 78 + s.offsetY,
-              }}
-              animate={{
-                opacity: [0.9, 0.4, 0],
-                scale: [1, 0.5, 0],
-                y: [0, s.offsetY * 0.6],
-              }}
-              transition={{ duration: 0.6, delay: s.delay, repeat: Infinity, repeatDelay: 0.05 }}
-            />
-          ))}
-
-          {/* Shockwave ring at launch */}
-          <motion.div
-            className="absolute rounded-full border-2 border-indigo-400/60"
-            style={{ width: 60, height: 60, left: -4, top: 20 }}
-            initial={{ scale: 0.4, opacity: 0.8 }}
-            animate={{ scale: 3.5, opacity: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-          />
-          <motion.div
-            className="absolute rounded-full border border-violet-400/40"
-            style={{ width: 40, height: 40, left: 6, top: 30 }}
-            initial={{ scale: 0.4, opacity: 0.6 }}
-            animate={{ scale: 4, opacity: 0 }}
-            transition={{ duration: 1.1, delay: 0.1, ease: "easeOut" }}
-          />
-        </motion.div>
-      )}
-    </AnimatePresence>
+      {/* Shockwave burst at "Surprises." arrival */}
+      <AnimatePresence>
+        {shockwave && (
+          <>
+            {[0, 1, 2].map((i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full border border-indigo-500/50"
+                style={{ left: "50%", top: "calc(41% + 95px)", marginLeft: -4, marginTop: -4, width: 8, height: 8 }}
+                initial={{ scale: 1, opacity: 0.9 }}
+                animate={{ scale: 12 + i * 6, opacity: 0 }}
+                transition={{ duration: 1.0, delay: i * 0.15, ease: "easeOut" }}
+              />
+            ))}
+          </>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
