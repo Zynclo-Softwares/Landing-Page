@@ -221,9 +221,9 @@ export default function TermsAndConditions() {
       {/* Header */}
       <div className="bg-white border-b border-slate-100 sticky top-0 z-10 backdrop-blur-xl bg-white/80">
         <div className="max-w-3xl mx-auto px-6 h-14 flex items-center gap-4">
-          <Link to="/" className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 transition-colors">
+          <Link to="/" className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 active:text-slate-800 transition-colors px-2 py-1 -mx-2 rounded touch-target">
             <ArrowLeft className="w-4 h-4" />
-            Back
+            <span className="hidden sm:inline">Back</span>
           </Link>
           <span className="text-slate-200">|</span>
           <span className="text-sm font-medium text-slate-700">Terms & Conditions</span>
