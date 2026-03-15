@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useMobile } from "@/components/hooks/useMobile";
 
+
 const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
   id: i,
   x: Math.random() * 100,
