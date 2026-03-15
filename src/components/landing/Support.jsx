@@ -19,6 +19,66 @@ const successParticles = Array.from({ length: 14 }, (_, i) => ({
   distance: 55 + Math.random() * 35,
 }));
 
+/* ── Shooting Stars ── */
+function ShootingStars() {
+  const stars = [
+    { id: 1, x: "15%", delay: 0, duration: 2.5, angle: 45 },
+    { id: 2, x: "35%", delay: 3, duration: 2.5, angle: 35 },
+    { id: 3, x: "60%", delay: 6, duration: 2.5, angle: 55 },
+    { id: 4, x: "80%", delay: 9, duration: 2.5, angle: 40 },
+    { id: 5, x: "25%", delay: 12, duration: 2.5, angle: 50 },
+    { id: 6, x: "70%", delay: 15, duration: 2.5, angle: 45 },
+  ];
+
+  return (
+    <>
+      {stars.map((star) => (
+        <motion.svg
+          key={star.id}
+          className="absolute top-0 pointer-events-none"
+          style={{ left: star.x, width: 80, height: 80 }}
+          viewBox="0 0 80 80"
+          initial={{ opacity: 0, y: 0, x: 0 }}
+          animate={{
+            opacity: [0, 1, 0],
+            y: [0, 200],
+            x: [0, Math.tan((star.angle * Math.PI) / 180) * 200],
+          }}
+          transition={{
+            duration: star.duration,
+            delay: star.delay,
+            repeat: Infinity,
+            repeatDelay: 18,
+            ease: "easeIn",
+          }}
+        >
+          {/* Star core */}
+          <circle cx="40" cy="40" r="2.5" fill="#fbbf24" opacity="0.9" />
+          
+          {/* Trailing glow */}
+          <line
+            x1="40"
+            y1="40"
+            x2="40"
+            y2="80"
+            stroke="url(#starGradient)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            opacity="0.8"
+          />
+          
+          <defs>
+            <linearGradient id="starGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+        </motion.svg>
+      ))}
+    </>
+  );
+}
+
 /* ── Sea Creatures ── */
 function SeaProps() {
   return (
