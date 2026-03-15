@@ -278,12 +278,10 @@ export default function Support() {
         </>
       )}
 
-      {!isMobile && (
-        <>
-          <ShootingStars />
-          <SeaProps />
-        </>
-      )}
+      <>
+        <ShootingStars />
+        <SeaProps />
+      </>
 
       <div className="relative max-w-2xl mx-auto px-6">
         {/* Header */}
