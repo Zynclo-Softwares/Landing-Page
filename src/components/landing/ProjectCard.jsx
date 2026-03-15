@@ -118,8 +118,11 @@ export default function ProjectCard({ iconUrl }) {
           className="absolute inset-0 rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl shadow-indigo-100 bg-white flex flex-col"
         >
           {/* Top accent */}
-          <div className="h-[3px] rounded-t-3xl"
-            style={{ background: "linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa)" }} />
+          <motion.div className="h-[2px]"
+            style={{ background: "linear-gradient(90deg, transparent, #6366f1, #8b5cf6, transparent)" }}
+            animate={{ opacity: [0.4, 1, 0.4], scaleX: [0.7, 1, 0.7] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          />
 
           {/* Soft blob */}
           <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-20 pointer-events-none"
