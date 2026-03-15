@@ -32,11 +32,11 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-5xl mx-auto px-8 h-16 md:h-20 md:px-12 flex items-center justify-between">
-        <a href="#" className="flex items-center">
+        <a href="#" className="flex items-center shrink-0">
           <img
             src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b591daf6da87ce28f820e7/11f9eb1d1_zynclo-logo.png"
             alt="Zynclo"
-            className="h-14 w-auto md:h-20"
+            className="h-10 w-auto md:h-16"
           />
         </a>
 
