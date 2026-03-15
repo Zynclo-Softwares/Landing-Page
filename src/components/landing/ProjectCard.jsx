@@ -9,7 +9,7 @@ const features = [
   { icon: Shield, label: "Pending Locks" },
   { icon: Calendar, label: "Flexible Scheduling" },
   { icon: Flame, label: "Streak Tracking" },
-  { icon: Utensils, label: "Food Lock — Soon", soon: true },
+  { icon: Utensils, label: "Food Lock", soon: true },
 ];
 
 export default function ProjectCard({ iconUrl }) {
