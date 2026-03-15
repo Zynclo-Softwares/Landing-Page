@@ -2,6 +2,16 @@ import { motion, useMotionValue, useTransform, animate, AnimatePresence } from "
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
+// Rocket trail sparks
+const TRAIL_SPARKS = Array.from({ length: 18 }, (_, i) => ({
+  id: i,
+  offsetX: (Math.random() - 0.5) * 60,
+  offsetY: Math.random() * 80 + 20,
+  size: Math.random() * 5 + 2,
+  delay: Math.random() * 0.3,
+  color: ["#6366f1", "#8b5cf6", "#a78bfa", "#fbbf24", "#f97316"][Math.floor(Math.random() * 5)],
+}));
+
 const PARTICLES = Array.from({ length: 22 }, (_, i) => ({
   id: i,
   x: Math.random() * 100,
