@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Shield, Calendar, Flame, Camera, Brain, Utensils, Smartphone } from "lucide-react";
+import { Sparkles, Shield, Calendar, Flame, Camera, Brain, Utensils, Smartphone, ScrollText, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const features = [
