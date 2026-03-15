@@ -21,8 +21,10 @@ export default function ProjectCard({ iconUrl }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="w-full max-w-xs"
+      className="w-full max-w-xs cursor-pointer"
       style={{ perspective: 1000 }}
+      whileHover={{ scale: 1.03, y: -6 }}
+      transition={{ type: "spring", stiffness: 300, damping: 22 }}
       onClick={() => setFlipped((f) => !f)}
     >
       <motion.div
