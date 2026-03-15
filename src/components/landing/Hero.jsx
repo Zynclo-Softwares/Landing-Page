@@ -12,6 +12,13 @@ const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
   delay: Math.random() * 5,
 }));
 
+const STARS = Array.from({ length: 18 }, (_, i) => ({
+  id: i,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  delay: Math.random() * 5,
+}));
+
 const WORDS = ["Software", "That"];
 const GRADIENT_WORD = "Surprises.";
 
