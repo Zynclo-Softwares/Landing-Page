@@ -104,12 +104,11 @@ export default function About({ appIconUrl }) {
           className="text-center mb-16 relative"
         >
           {/* Astronaut decoration */}
-          <div className="absolute -right-8 -top-16 opacity-30" style={{ width: 140, height: 140 }}>
+          <div className="absolute left-0 top-0 opacity-40" style={{ width: 100, height: 100 }}>
             <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b591daf6da87ce28f820e7/9de7f6d2b_astronaut.png"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b591daf6da87ce28f820e7/93ac9cbfe_astronaut1.png"
               alt="Astronaut"
               className="w-full h-full"
-              style={{ filter: "hue-rotate(-50deg) saturate(1.2) brightness(0.9)", transform: "rotate(90deg)" }}
             />
           </div>
         
