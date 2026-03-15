@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform, animate, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 
 const PARTICLES = Array.from({ length: 22 }, (_, i) => ({
