@@ -21,10 +21,10 @@ const successParticles = Array.from({ length: 8 }, (_, i) => ({
 
 /* ── Shooting Stars ── */
 function ShootingStars() {
-  const stars = Array.from({ length: 12 }, (_, i) => ({
+  const stars = Array.from({ length: 16 }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    delay: Math.random() * 3,
+    x: (i % 8) * 12.5,
+    delay: Math.floor(i / 8) * 1.5,
     duration: 2.5,
     angle: Math.random() * 90 - 45,
   }));
