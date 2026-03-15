@@ -1,4 +1,5 @@
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useMobile } from "@/components/hooks/useMobile";
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
 import { Send, CheckCircle2, Mail, User, MessageSquare } from "lucide-react";
