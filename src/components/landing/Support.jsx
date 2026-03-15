@@ -46,13 +46,13 @@ function ShootingStars() {
             duration: 5,
             delay: star.delay,
             repeat: Infinity,
-            repeatDelay: 15,
+            repeatDelay: 8,
             ease: "easeIn",
           }}
-        >
+          >
           {/* Star core - oval shaped */}
-          <ellipse cx="40" cy="40" rx="4" ry="6" fill="#fbbf24" opacity="0.95" />
-          
+          <ellipse cx="40" cy="40" rx="4" ry="6" fill="#ec4899" opacity="0.95" />
+
           {/* Trailing glow */}
           <line
             x1="40"
@@ -64,11 +64,11 @@ function ShootingStars() {
             strokeLinecap="round"
             opacity="0.85"
           />
-          
+
           <defs>
             <linearGradient id="starGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
+              <stop offset="0%" stopColor="#ec4899" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#db2777" stopOpacity="0" />
             </linearGradient>
           </defs>
         </motion.svg>
