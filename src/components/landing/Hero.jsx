@@ -136,7 +136,7 @@ export default function Hero() {
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       />
 
-      <ParticleField />
+      {!isMobile && <ParticleField />}
 
       {/* ── SPACE OBJECTS ── */}
 
