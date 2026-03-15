@@ -127,18 +127,16 @@ export default function ProjectCard({ iconUrl }) {
           <div className="flex-1 px-6 py-5 flex flex-col relative z-10">
             <p className="text-xs font-bold uppercase tracking-widest text-indigo-500 mb-3">Features</p>
 
-            <div className="flex-1 overflow-y-auto pr-2 space-y-2">
+            <div className="h-24 overflow-y-auto pr-2 space-y-1.5">
               {features.map((f, idx) => (
                 <div
                   key={f.label}
-                  className={`flex items-start gap-3 p-2.5 rounded-lg border text-xs font-medium transition-colors ${f.soon ? "bg-amber-50 border-amber-100 text-amber-600" : "bg-indigo-50/60 border-indigo-100 text-slate-700"}`}
+                  className="flex items-start gap-2 text-xs"
                 >
-                  <span className="font-bold text-sm mt-0.5 w-5 shrink-0">{idx + 1}</span>
-                  <div className="flex items-start gap-2 flex-1 min-w-0">
-                    <div className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 mt-0.5 ${f.soon ? "bg-amber-100" : "bg-indigo-100"}`}>
-                      <f.icon className={`w-3 h-3 ${f.soon ? "text-amber-500" : "text-indigo-500"}`} />
-                    </div>
-                    <span className="leading-snug break-words">{f.label}</span>
+                  <span className={`font-bold text-sm shrink-0 ${f.soon ? "text-amber-600" : "text-indigo-600"}`}>{idx + 1}</span>
+                  <div className="flex items-start gap-1.5 flex-1 min-w-0">
+                    <f.icon className={`w-3 h-3 shrink-0 mt-0.5 ${f.soon ? "text-amber-500" : "text-indigo-500"}`} />
+                    <span className={`leading-snug break-words ${f.soon ? "text-amber-600" : "text-slate-700"}`}>{f.label}</span>
                   </div>
                 </div>
               ))}
