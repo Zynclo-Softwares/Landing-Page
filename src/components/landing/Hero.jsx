@@ -136,19 +136,129 @@ export default function Hero() {
 
       <ParticleField />
 
-      {/* Floating rocket — top right, slow drift like other shapes */}
-      <motion.svg
-        className="absolute top-[8%] right-[7%] opacity-[0.13] pointer-events-none"
-        width="36" height="60" viewBox="0 0 36 60" fill="none"
-        animate={{ y: [0, -18, 0], rotate: [-8, 8, -8] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-      >
+      {/* ── SPACE OBJECTS ── */}
+
+      {/* Rocket — top right */}
+      <motion.svg className="absolute top-[8%] right-[7%] opacity-[0.13] pointer-events-none" width="36" height="60" viewBox="0 0 36 60" fill="none"
+        animate={{ y: [0, -18, 0], rotate: [-8, 8, -8] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}>
         <ellipse cx="18" cy="28" rx="8" ry="18" stroke="#6366f1" strokeWidth="1.5" />
         <path d="M10 16 Q18 2 26 16Z" stroke="#6366f1" strokeWidth="1.5" fill="none" />
         <circle cx="18" cy="26" r="4" stroke="#6366f1" strokeWidth="1.2" fill="none" />
         <path d="M10 38 L4 50 L10 46Z" stroke="#6366f1" strokeWidth="1.2" fill="none" />
         <path d="M26 38 L32 50 L26 46Z" stroke="#6366f1" strokeWidth="1.2" fill="none" />
         <line x1="18" y1="46" x2="18" y2="56" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" />
+      </motion.svg>
+
+      {/* Planet with rings — left center */}
+      <motion.svg className="absolute top-[38%] left-[3%] opacity-[0.11] pointer-events-none" width="64" height="40" viewBox="0 0 64 40" fill="none"
+        animate={{ y: [0, -14, 0], x: [0, 6, 0] }} transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}>
+        <ellipse cx="32" cy="20" rx="14" ry="14" stroke="#8b5cf6" strokeWidth="1.5" />
+        <ellipse cx="32" cy="20" rx="30" ry="8" stroke="#6366f1" strokeWidth="1.2" />
+        <ellipse cx="32" cy="20" rx="22" ry="5.5" stroke="#a78bfa" strokeWidth="1" strokeDasharray="3 3" />
+      </motion.svg>
+
+      {/* Small planet — top left */}
+      <motion.svg className="absolute top-[22%] left-[15%] opacity-[0.1] pointer-events-none" width="34" height="34" viewBox="0 0 34 34" fill="none"
+        animate={{ y: [0, 12, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}>
+        <circle cx="17" cy="17" r="13" stroke="#6366f1" strokeWidth="1.5" />
+        <path d="M6 12 Q17 8 28 14" stroke="#a78bfa" strokeWidth="1" strokeLinecap="round" />
+        <path d="M5 18 Q17 14 29 20" stroke="#a78bfa" strokeWidth="1" strokeLinecap="round" />
+        <path d="M7 24 Q17 20 27 25" stroke="#a78bfa" strokeWidth="1" strokeLinecap="round" />
+      </motion.svg>
+
+      {/* Satellite — top center */}
+      <motion.svg className="absolute top-[12%] left-[42%] opacity-[0.11] pointer-events-none" width="56" height="24" viewBox="0 0 56 24" fill="none"
+        animate={{ rotate: [0, 360] }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }}>
+        <rect x="20" y="8" width="16" height="8" rx="2" stroke="#6366f1" strokeWidth="1.5" />
+        <rect x="2" y="9" width="16" height="6" rx="1" stroke="#8b5cf6" strokeWidth="1.2" />
+        <rect x="38" y="9" width="16" height="6" rx="1" stroke="#8b5cf6" strokeWidth="1.2" />
+        <line x1="18" y1="12" x2="20" y2="12" stroke="#6366f1" strokeWidth="1.5" />
+        <line x1="36" y1="12" x2="38" y2="12" stroke="#6366f1" strokeWidth="1.5" />
+        <circle cx="28" cy="12" r="2" stroke="#a78bfa" strokeWidth="1" />
+      </motion.svg>
+
+      {/* UFO — bottom center-right */}
+      <motion.svg className="absolute bottom-[28%] right-[20%] opacity-[0.1] pointer-events-none" width="52" height="30" viewBox="0 0 52 30" fill="none"
+        animate={{ y: [0, -10, 0], x: [0, 8, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+        <ellipse cx="26" cy="20" rx="24" ry="8" stroke="#6366f1" strokeWidth="1.5" />
+        <ellipse cx="26" cy="16" rx="12" ry="10" stroke="#8b5cf6" strokeWidth="1.5" />
+        <ellipse cx="26" cy="21" rx="8" ry="3" stroke="#a78bfa" strokeWidth="1" strokeDasharray="2 2" />
+        {[10, 20, 30, 40].map((x) => (
+          <line key={x} x1={x} y1="26" x2={x - 2} y2="30" stroke="#6366f1" strokeWidth="1" strokeLinecap="round" />
+        ))}
+      </motion.svg>
+
+      {/* Shooting star — top right area */}
+      <motion.svg className="absolute top-[5%] right-[25%] opacity-[0.12] pointer-events-none" width="60" height="14" viewBox="0 0 60 14" fill="none"
+        animate={{ x: [0, 20, 0], opacity: [0.12, 0.22, 0.12] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
+        <circle cx="52" cy="7" r="3" stroke="#a78bfa" strokeWidth="1.5" />
+        <line x1="48" y1="7" x2="2" y2="7" stroke="url(#shootGrad)" strokeWidth="1.5" strokeLinecap="round" />
+        <defs>
+          <linearGradient id="shootGrad" x1="48" y1="7" x2="2" y2="7" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#a78bfa" /><stop offset="1" stopColor="#a78bfa" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </motion.svg>
+
+      {/* Space shuttle — bottom left */}
+      <motion.svg className="absolute bottom-[15%] left-[5%] opacity-[0.1] pointer-events-none" width="44" height="50" viewBox="0 0 44 50" fill="none"
+        animate={{ y: [0, -16, 0], rotate: [5, -5, 5] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M22 2 L30 18 L30 36 L22 42 L14 36 L14 18Z" stroke="#6366f1" strokeWidth="1.5" fill="none" />
+        <path d="M14 22 L4 30 L14 32Z" stroke="#8b5cf6" strokeWidth="1.2" fill="none" />
+        <path d="M30 22 L40 30 L30 32Z" stroke="#8b5cf6" strokeWidth="1.2" fill="none" />
+        <circle cx="22" cy="20" r="4" stroke="#a78bfa" strokeWidth="1.2" fill="none" />
+        <line x1="22" y1="42" x2="22" y2="50" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" />
+      </motion.svg>
+
+      {/* Asteroid — right side */}
+      <motion.svg className="absolute top-[60%] right-[4%] opacity-[0.09] pointer-events-none" width="38" height="32" viewBox="0 0 38 32" fill="none"
+        animate={{ rotate: [0, 360], y: [0, -10, 0] }} transition={{ rotate: { duration: 20, repeat: Infinity, ease: "linear" }, y: { duration: 7, repeat: Infinity, ease: "easeInOut" } }}>
+        <path d="M8 16 Q4 6 14 4 Q22 2 30 8 Q38 14 34 22 Q30 30 20 30 Q10 30 8 22 Z" stroke="#8b5cf6" strokeWidth="1.5" fill="none" />
+        <circle cx="14" cy="12" r="2" stroke="#6366f1" strokeWidth="1" fill="none" />
+        <circle cx="24" cy="20" r="1.5" stroke="#6366f1" strokeWidth="1" fill="none" />
+      </motion.svg>
+
+      {/* Moon — bottom right */}
+      <motion.svg className="absolute bottom-[10%] right-[10%] opacity-[0.1] pointer-events-none" width="36" height="36" viewBox="0 0 36 36" fill="none"
+        animate={{ y: [0, -12, 0], rotate: [-10, 10, -10] }} transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M20 4 A14 14 0 1 0 20 32 A10 10 0 1 1 20 4Z" stroke="#a78bfa" strokeWidth="1.5" fill="none" />
+      </motion.svg>
+
+      {/* Comet — center top */}
+      <motion.svg className="absolute top-[30%] left-[28%] opacity-[0.08] pointer-events-none" width="50" height="18" viewBox="0 0 50 18" fill="none"
+        animate={{ x: [0, -15, 0], opacity: [0.08, 0.15, 0.08] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}>
+        <circle cx="42" cy="9" r="5" stroke="#6366f1" strokeWidth="1.5" fill="none" />
+        <path d="M37 9 L2 9" stroke="url(#cometGrad)" strokeWidth="2" strokeLinecap="round" />
+        <path d="M37 7 L10 4" stroke="url(#cometGrad2)" strokeWidth="1" strokeLinecap="round" />
+        <path d="M37 11 L10 14" stroke="url(#cometGrad2)" strokeWidth="1" strokeLinecap="round" />
+        <defs>
+          <linearGradient id="cometGrad" x1="37" y1="9" x2="2" y2="9" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#6366f1" /><stop offset="1" stopColor="#6366f1" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="cometGrad2" x1="37" y1="9" x2="10" y2="9" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#a78bfa" stopOpacity="0.5" /><stop offset="1" stopColor="#a78bfa" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </motion.svg>
+
+      {/* Small satellite dish — bottom center-left */}
+      <motion.svg className="absolute bottom-[32%] left-[22%] opacity-[0.09] pointer-events-none" width="32" height="32" viewBox="0 0 32 32" fill="none"
+        animate={{ rotate: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M16 28 L16 18" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M8 28 L24 28" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M6 18 Q16 6 26 18" stroke="#8b5cf6" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M9 18 Q16 10 23 18" stroke="#a78bfa" strokeWidth="1" fill="none" strokeLinecap="round" />
+        <circle cx="16" cy="18" r="2" stroke="#6366f1" strokeWidth="1" fill="none" />
+      </motion.svg>
+
+      {/* Orbiting dots (mini solar system) — right upper */}
+      <motion.svg className="absolute top-[28%] right-[16%] opacity-[0.09] pointer-events-none" width="50" height="50" viewBox="0 0 50 50" fill="none"
+        animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}>
+        <circle cx="25" cy="25" r="5" stroke="#8b5cf6" strokeWidth="1.5" fill="none" />
+        <ellipse cx="25" cy="25" rx="20" ry="8" stroke="#6366f1" strokeWidth="1" strokeDasharray="3 3" />
+        <circle cx="45" cy="25" r="2.5" stroke="#a78bfa" strokeWidth="1" fill="none" />
+        <ellipse cx="25" cy="25" rx="14" ry="5" stroke="#8b5cf6" strokeWidth="0.8" strokeDasharray="2 3" />
+        <circle cx="39" cy="25" r="1.5" stroke="#6366f1" strokeWidth="1" fill="none" />
       </motion.svg>
 
       {/* Floating geometric props */}
