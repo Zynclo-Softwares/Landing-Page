@@ -103,16 +103,14 @@ export default function About({ appIconUrl }) {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16 relative"
         >
-          {/* Astronaut helmet decoration */}
-          <div className="absolute -right-12 -top-4 opacity-25">
-            <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Helmet main */}
-              <circle cx="50" cy="50" r="40" stroke="#6366f1" strokeWidth="2.5" fill="none"/>
-              {/* Helmet shine/glass effect */}
-              <ellipse cx="38" cy="35" rx="12" ry="16" fill="#6366f1" opacity="0.15"/>
-              {/* Helmet ring/collar */}
-              <ellipse cx="50" cy="88" rx="42" ry="8" stroke="#6366f1" strokeWidth="2" fill="none"/>
-            </svg>
+          {/* Astronaut decoration */}
+          <div className="absolute -right-8 -top-6 opacity-30" style={{ width: 140, height: 140 }}>
+            <img 
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b591daf6da87ce28f820e7/9de7f6d2b_astronaut.png"
+              alt="Astronaut"
+              className="w-full h-full"
+              style={{ filter: "hue-rotate(-50deg) saturate(1.2) brightness(0.9)" }}
+            />
           </div>
         
           <motion.span
