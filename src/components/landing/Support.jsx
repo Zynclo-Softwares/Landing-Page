@@ -18,119 +18,162 @@ const successParticles = Array.from({ length: 14 }, (_, i) => ({
   distance: 55 + Math.random() * 35,
 }));
 
-/* ── Floating Prop Shapes ── */
-function FloatingProps() {
+/* ── Sea Creatures ── */
+function SeaProps() {
   return (
     <>
-      {/* Spiral / arc — top left */}
-      <motion.svg
-        className="absolute top-[5%] left-[3%] opacity-[0.1] pointer-events-none"
-        width="60" height="60" viewBox="0 0 60 60"
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-      >
-        <path d="M30 5 A25 25 0 1 1 5 30" fill="none" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="30" cy="5" r="3" fill="#6366f1" />
+      {/* Shark — top left, slow glide */}
+      <motion.svg className="absolute top-[6%] left-[2%] opacity-[0.11] pointer-events-none" width="80" height="40" viewBox="0 0 80 40" fill="none"
+        animate={{ x: [0, 18, 0], y: [0, -6, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M4 24 Q20 10 50 20 Q65 24 76 20 Q60 28 50 26 Q30 32 4 24Z" stroke="#6366f1" strokeWidth="1.5" fill="none" />
+        <path d="M30 20 L36 6 L42 20Z" stroke="#6366f1" strokeWidth="1.2" fill="none" />
+        <path d="M70 20 L76 12 L76 28Z" stroke="#6366f1" strokeWidth="1.2" fill="none" />
+        <circle cx="18" cy="22" r="1.5" stroke="#6366f1" strokeWidth="1" fill="none" />
       </motion.svg>
 
-      {/* Wavy brackets — top right */}
-      <motion.svg
-        className="absolute top-[8%] right-[4%] opacity-[0.09] pointer-events-none"
-        width="36" height="60" viewBox="0 0 36 60"
-        animate={{ y: [0, -14, 0], scaleY: [1, 1.1, 1] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <path d="M26 4 C14 4 14 28 14 30 C14 32 14 56 26 56" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" />
-        <path d="M10 4 C22 4 22 28 22 30 C22 32 22 56 10 56" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" />
+      {/* Whale — right side */}
+      <motion.svg className="absolute top-[18%] right-[2%] opacity-[0.1] pointer-events-none" width="90" height="50" viewBox="0 0 90 50" fill="none"
+        animate={{ x: [0, -12, 0], y: [0, 10, 0] }} transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M10 28 Q30 10 60 22 Q72 26 80 20 Q72 34 60 30 Q30 40 10 28Z" stroke="#8b5cf6" strokeWidth="1.5" fill="none" />
+        <path d="M6 28 L2 18 L10 24Z" stroke="#8b5cf6" strokeWidth="1.2" fill="none" />
+        <path d="M6 28 L2 38 L10 32Z" stroke="#8b5cf6" strokeWidth="1.2" fill="none" />
+        <circle cx="26" cy="24" r="2" stroke="#8b5cf6" strokeWidth="1" fill="none" />
+        <path d="M36 14 Q38 8 40 6 Q42 8 44 14" stroke="#a78bfa" strokeWidth="1" fill="none" strokeLinecap="round" />
       </motion.svg>
 
-      {/* Orbiting planet system — left mid */}
-      <motion.div
-        className="absolute left-[2%] top-[42%] pointer-events-none"
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <motion.svg width="56" height="56" viewBox="0 0 56 56" className="opacity-[0.1]">
-          <circle cx="28" cy="28" r="7" fill="#6366f1" />
-          <circle cx="28" cy="28" r="20" fill="none" stroke="#6366f1" strokeWidth="1" strokeDasharray="3 4" />
-          <motion.circle
-            cx="28" cy="8" r="3.5" fill="#a78bfa"
-            style={{ transformOrigin: "28px 28px" }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-          />
-        </motion.svg>
-      </motion.div>
-
-      {/* Starburst — right mid */}
-      <motion.svg
-        className="absolute right-[3%] top-[38%] opacity-[0.09] pointer-events-none"
-        width="44" height="44" viewBox="0 0 44 44"
-        animate={{ rotate: [0, 180, 360], scale: [1, 1.15, 1] }}
-        transition={{ rotate: { duration: 20, repeat: Infinity, ease: "linear" }, scale: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
-      >
-        {[0, 45, 90, 135].map((angle) => (
-          <line
-            key={angle}
-            x1="22" y1="4" x2="22" y2="40"
-            stroke="#8b5cf6" strokeWidth="1.5" strokeLinecap="round"
-            transform={`rotate(${angle} 22 22)`}
-          />
-        ))}
-        <circle cx="22" cy="22" r="4" fill="#8b5cf6" />
-      </motion.svg>
-
-      {/* DNA / zigzag wave — bottom left */}
-      <motion.svg
-        className="absolute bottom-[10%] left-[4%] opacity-[0.08] pointer-events-none"
-        width="50" height="80" viewBox="0 0 50 80"
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <path d="M10 5 Q40 20 10 35 Q40 50 10 65 Q40 80 10 80" fill="none" stroke="#6366f1" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M40 5 Q10 20 40 35 Q10 50 40 65 Q10 80 40 80" fill="none" stroke="#a78bfa" strokeWidth="1.8" strokeLinecap="round" />
-        {[20, 50].map((y) => (
-          <line key={y} x1="10" y1={y} x2="40" y2={y} stroke="#8b5cf6" strokeWidth="1" strokeDasharray="2 3" />
+      {/* Octopus — bottom left */}
+      <motion.svg className="absolute bottom-[8%] left-[3%] opacity-[0.1] pointer-events-none" width="60" height="70" viewBox="0 0 60 70" fill="none"
+        animate={{ y: [0, -14, 0], scale: [1, 1.05, 1] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}>
+        <ellipse cx="30" cy="24" rx="18" ry="16" stroke="#6366f1" strokeWidth="1.5" fill="none" />
+        <circle cx="22" cy="20" r="2.5" stroke="#a78bfa" strokeWidth="1" fill="none" />
+        <circle cx="38" cy="20" r="2.5" stroke="#a78bfa" strokeWidth="1" fill="none" />
+        {[8, 16, 24, 32, 40, 52].map((x, i) => (
+          <path key={i} d={`M${x} 38 Q${x + (i % 2 === 0 ? -5 : 5)} 52 ${x + (i % 2 === 0 ? -2 : 2)} 65`} stroke="#6366f1" strokeWidth="1.2" fill="none" strokeLinecap="round" />
         ))}
       </motion.svg>
 
-      {/* Floating envelope icon — bottom right */}
-      <motion.svg
-        className="absolute bottom-[12%] right-[5%] opacity-[0.1] pointer-events-none"
-        width="40" height="32" viewBox="0 0 40 32"
-        animate={{ y: [0, -10, 0], rotate: [-5, 5, -5] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <rect x="2" y="2" width="36" height="28" rx="4" fill="none" stroke="#6366f1" strokeWidth="1.8" />
-        <path d="M2 8 L20 18 L38 8" fill="none" stroke="#6366f1" strokeWidth="1.8" strokeLinecap="round" />
+      {/* Starfish — top right area */}
+      <motion.svg className="absolute top-[10%] right-[18%] opacity-[0.1] pointer-events-none" width="44" height="44" viewBox="0 0 44 44" fill="none"
+        animate={{ rotate: [0, 30, -30, 0], y: [0, -8, 0] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}>
+        {[0, 72, 144, 216, 288].map((angle) => (
+          <path key={angle} d={`M22 22 L${22 + 19 * Math.sin((angle * Math.PI) / 180)} ${22 - 19 * Math.cos((angle * Math.PI) / 180)}`} stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+        ))}
+        <circle cx="22" cy="22" r="5" stroke="#f59e0b" strokeWidth="1.5" fill="none" />
       </motion.svg>
 
-      {/* Floating asterisk — top center-left */}
-      <motion.svg
-        className="absolute top-[20%] left-[18%] opacity-[0.07] pointer-events-none"
-        width="30" height="30" viewBox="0 0 30 30"
-        animate={{ rotate: [0, 360], scale: [1, 1.3, 1] }}
-        transition={{ rotate: { duration: 12, repeat: Infinity, ease: "linear" }, scale: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
-      >
-        {[0, 60, 120].map((a) => (
-          <line key={a} x1="15" y1="2" x2="15" y2="28" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" transform={`rotate(${a} 15 15)`} />
+      {/* Jellyfish — center left */}
+      <motion.svg className="absolute top-[38%] left-[1%] opacity-[0.1] pointer-events-none" width="44" height="60" viewBox="0 0 44 60" fill="none"
+        animate={{ y: [0, -16, 0], scaleX: [1, 1.06, 1] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M4 20 Q4 4 22 4 Q40 4 40 20 Q40 30 22 30 Q4 30 4 20Z" stroke="#a78bfa" strokeWidth="1.5" fill="none" />
+        {[10, 16, 22, 28, 34].map((x, i) => (
+          <path key={i} d={`M${x} 30 Q${x + (i % 2 === 0 ? 4 : -4)} 44 ${x} 58`} stroke="#a78bfa" strokeWidth="1" fill="none" strokeLinecap="round" strokeDasharray="2 2" />
         ))}
       </motion.svg>
 
-      {/* Glowing dot trail — right top */}
-      <div className="absolute top-[25%] right-[8%] pointer-events-none flex flex-col gap-2">
-        {[0, 1, 2, 3, 4].map((i) => (
-          <motion.div
-            key={i}
-            className="rounded-full bg-indigo-500"
-            style={{ width: 4 - i * 0.5, height: 4 - i * 0.5, opacity: 0.08 }}
-            animate={{ opacity: [0.05, 0.18, 0.05], x: [0, i % 2 === 0 ? 5 : -5, 0] }}
-            transition={{ duration: 3, delay: i * 0.3, repeat: Infinity, ease: "easeInOut" }}
-          />
-        ))}
-      </div>
+      {/* Normal fish — top center */}
+      <motion.svg className="absolute top-[5%] left-[40%] opacity-[0.1] pointer-events-none" width="50" height="30" viewBox="0 0 50 30" fill="none"
+        animate={{ x: [0, 15, 0], y: [0, -5, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
+        <ellipse cx="22" cy="15" rx="16" ry="9" stroke="#06b6d4" strokeWidth="1.5" fill="none" />
+        <path d="M38 15 L50 5 L50 25Z" stroke="#06b6d4" strokeWidth="1.2" fill="none" />
+        <circle cx="12" cy="13" r="2" stroke="#06b6d4" strokeWidth="1" fill="none" />
+        <path d="M16 12 Q22 10 26 12" stroke="#06b6d4" strokeWidth="0.8" strokeLinecap="round" />
+        <path d="M16 17 Q22 19 26 17" stroke="#06b6d4" strokeWidth="0.8" strokeLinecap="round" />
+      </motion.svg>
 
-      {/* Corner bracket decorations on the card */}
+      {/* Small fish 2 — middle right */}
+      <motion.svg className="absolute top-[52%] right-[5%] opacity-[0.09] pointer-events-none" width="36" height="22" viewBox="0 0 36 22" fill="none"
+        animate={{ x: [0, -10, 0], y: [0, 6, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}>
+        <ellipse cx="18" cy="11" rx="12" ry="7" stroke="#0ea5e9" strokeWidth="1.3" fill="none" />
+        <path d="M6 11 L0 3 L0 19Z" stroke="#0ea5e9" strokeWidth="1.2" fill="none" />
+        <circle cx="26" cy="9" r="1.5" stroke="#0ea5e9" strokeWidth="1" fill="none" />
+      </motion.svg>
+
+      {/* Seahorse — right center */}
+      <motion.svg className="absolute top-[30%] right-[3%] opacity-[0.1] pointer-events-none" width="30" height="60" viewBox="0 0 30 60" fill="none"
+        animate={{ rotate: [-8, 8, -8], y: [0, -10, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M15 8 Q22 8 22 14 Q22 20 15 22 Q8 24 8 30 Q8 40 12 50 Q14 56 15 58" stroke="#10b981" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M15 58 Q18 54 22 56" stroke="#10b981" strokeWidth="1.3" fill="none" strokeLinecap="round" />
+        <circle cx="15" cy="8" r="5" stroke="#10b981" strokeWidth="1.3" fill="none" />
+        <circle cx="12" cy="6" r="1.2" stroke="#10b981" strokeWidth="1" fill="none" />
+        <path d="M20 8 L26 4" stroke="#10b981" strokeWidth="1" strokeLinecap="round" />
+        {[22, 26, 30, 34, 38].map((y, i) => (
+          <path key={i} d={`M${i % 2 === 0 ? 14 : 16} ${y} L${i % 2 === 0 ? 22 : 6} ${y + 1}`} stroke="#10b981" strokeWidth="0.8" strokeLinecap="round" />
+        ))}
+      </motion.svg>
+
+      {/* Crab — bottom right */}
+      <motion.svg className="absolute bottom-[6%] right-[8%] opacity-[0.1] pointer-events-none" width="60" height="40" viewBox="0 0 60 40" fill="none"
+        animate={{ x: [0, 8, -8, 0], y: [0, -4, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
+        <ellipse cx="30" cy="24" rx="14" ry="10" stroke="#ef4444" strokeWidth="1.5" fill="none" />
+        <path d="M16 20 L6 12 M16 24 L4 26 M16 28 L8 36" stroke="#ef4444" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+        <path d="M44 20 L54 12 M44 24 L56 26 M44 28 L52 36" stroke="#ef4444" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+        <path d="M24 16 L22 8 M36 16 L38 8" stroke="#ef4444" strokeWidth="1.2" strokeLinecap="round" />
+        <circle cx="23" cy="21" r="2" stroke="#ef4444" strokeWidth="1" fill="none" />
+        <circle cx="37" cy="21" r="2" stroke="#ef4444" strokeWidth="1" fill="none" />
+      </motion.svg>
+
+      {/* Lobster — bottom center */}
+      <motion.svg className="absolute bottom-[12%] left-[35%] opacity-[0.09] pointer-events-none" width="40" height="70" viewBox="0 0 40 70" fill="none"
+        animate={{ y: [0, -10, 0], rotate: [-5, 5, -5] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}>
+        <ellipse cx="20" cy="30" rx="10" ry="18" stroke="#f97316" strokeWidth="1.5" fill="none" />
+        <path d="M10 20 L2 10 M10 16 L4 8" stroke="#f97316" strokeWidth="1.2" strokeLinecap="round" />
+        <path d="M30 20 L38 10 M30 16 L36 8" stroke="#f97316" strokeWidth="1.2" strokeLinecap="round" />
+        {[38, 44, 50, 56].map((y, i) => (
+          <path key={i} d={`M${i % 2 === 0 ? 12 : 28} ${y} L${i % 2 === 0 ? 4 : 36} ${y + 3}`} stroke="#f97316" strokeWidth="1" strokeLinecap="round" />
+        ))}
+        <path d="M14 62 L10 70 M26 62 L30 70" stroke="#f97316" strokeWidth="1.2" strokeLinecap="round" />
+        <circle cx="15" cy="22" r="1.5" stroke="#f97316" strokeWidth="1" fill="none" />
+        <circle cx="25" cy="22" r="1.5" stroke="#f97316" strokeWidth="1" fill="none" />
+      </motion.svg>
+
+      {/* Shrimp — left top-mid */}
+      <motion.svg className="absolute top-[25%] left-[5%] opacity-[0.09] pointer-events-none" width="30" height="50" viewBox="0 0 30 50" fill="none"
+        animate={{ y: [0, -12, 0], rotate: [5, -5, 5] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M15 6 Q22 12 20 22 Q18 32 22 42" stroke="#f43f5e" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M22 42 L16 48 M22 42 L28 48" stroke="#f43f5e" strokeWidth="1.2" strokeLinecap="round" />
+        <circle cx="15" cy="6" r="4" stroke="#f43f5e" strokeWidth="1.3" fill="none" />
+        <path d="M11 4 L4 2 M11 6 L4 8" stroke="#f43f5e" strokeWidth="1" strokeLinecap="round" />
+        {[16, 20, 24, 28, 32].map((y, i) => (
+          <path key={i} d={`M${i % 2 === 0 ? 18 : 22} ${y} L${i % 2 === 0 ? 26 : 10} ${y + 2}`} stroke="#f43f5e" strokeWidth="0.8" strokeLinecap="round" />
+        ))}
+      </motion.svg>
+
+      {/* Dolphin — top center-right */}
+      <motion.svg className="absolute top-[14%] left-[55%] opacity-[0.1] pointer-events-none" width="70" height="40" viewBox="0 0 70 40" fill="none"
+        animate={{ x: [0, 12, 0], y: [0, -8, 0] }} transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M8 22 Q20 6 44 18 Q56 22 62 16 Q56 28 44 24 Q20 32 8 22Z" stroke="#0ea5e9" strokeWidth="1.5" fill="none" />
+        <path d="M62 16 L70 8 L70 24Z" stroke="#0ea5e9" strokeWidth="1.2" fill="none" />
+        <path d="M34 18 L36 6 L44 16" stroke="#0ea5e9" strokeWidth="1.2" fill="none" />
+        <circle cx="20" cy="20" r="2" stroke="#0ea5e9" strokeWidth="1" fill="none" />
+      </motion.svg>
+
+      {/* Bubble cluster — right bottom area */}
+      {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full border border-cyan-400/30 pointer-events-none"
+          style={{
+            right: `${8 + (i % 3) * 4}%`,
+            bottom: `${25 + Math.floor(i / 3) * 8}%`,
+            width: 6 + i * 2,
+            height: 6 + i * 2,
+          }}
+          animate={{ y: [0, -(20 + i * 8), 0], opacity: [0.15, 0.35, 0.15] }}
+          transition={{ duration: 4 + i, delay: i * 0.5, repeat: Infinity, ease: "easeInOut" }}
+        />
+      ))}
+
+      {/* Seaweed — far left */}
+      <motion.svg className="absolute bottom-0 left-[8%] opacity-[0.08] pointer-events-none" width="20" height="80" viewBox="0 0 20 80" fill="none"
+        animate={{ scaleX: [1, 1.3, 0.7, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M10 80 Q2 60 10 50 Q18 40 10 30 Q2 20 10 10 Q14 4 10 0" stroke="#10b981" strokeWidth="2" fill="none" strokeLinecap="round" style={{ transformOrigin: "10px 80px" }} />
+      </motion.svg>
+
+      {/* Seaweed 2 — far right */}
+      <motion.svg className="absolute bottom-0 right-[10%] opacity-[0.08] pointer-events-none" width="20" height="60" viewBox="0 0 20 60" fill="none"
+        animate={{ scaleX: [1, 0.7, 1.3, 1] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M10 60 Q18 44 10 34 Q2 24 10 14 Q14 8 10 0" stroke="#10b981" strokeWidth="2" fill="none" strokeLinecap="round" style={{ transformOrigin: "10px 60px" }} />
+      </motion.svg>
     </>
   );
 }
