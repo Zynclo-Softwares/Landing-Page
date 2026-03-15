@@ -105,7 +105,7 @@ export default function ProjectCard({ iconUrl }) {
               </Link>
             </div>
 
-            <p className="absolute bottom-4 text-[10px] text-slate-300 tracking-widest uppercase z-10">tap to see features</p>
+
           </div>
         </div>
 
