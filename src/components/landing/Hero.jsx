@@ -105,6 +105,7 @@ export default function Hero() {
       {!isMobile && (
         <>
           <ParticleField />
+          <StarField />
 
           <motion.div className="absolute w-64 h-64 rounded-full border border-indigo-300/10" style={{ top: "15%", right: "10%" }}
             animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} />
