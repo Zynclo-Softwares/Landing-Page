@@ -133,6 +133,103 @@ export default function Hero() {
 
       <ParticleField />
 
+      {/* Floating geometric props */}
+
+      {/* Top-left triangle */}
+      <motion.svg
+        className="absolute top-[12%] left-[8%] opacity-[0.12] pointer-events-none"
+        width="40" height="40" viewBox="0 0 40 40"
+        initial={{ opacity: 0, rotate: 0 }}
+        animate={{ opacity: 0.12, rotate: 360, y: [0, -18, 0] }}
+        transition={{ rotate: { duration: 28, repeat: Infinity, ease: "linear" }, y: { duration: 6, repeat: Infinity, ease: "easeInOut" } }}
+      >
+        <polygon points="20,2 38,36 2,36" fill="none" stroke="#6366f1" strokeWidth="2" />
+      </motion.svg>
+
+      {/* Top-right diamond */}
+      <motion.svg
+        className="absolute top-[18%] right-[12%] opacity-[0.1] pointer-events-none"
+        width="32" height="32" viewBox="0 0 32 32"
+        animate={{ rotate: [0, 180, 360], x: [0, 10, 0], y: [0, -12, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <rect x="8" y="8" width="16" height="16" fill="none" stroke="#8b5cf6" strokeWidth="2" transform="rotate(45 16 16)" />
+      </motion.svg>
+
+      {/* Left mid — dotted circle */}
+      <motion.svg
+        className="absolute top-[45%] left-[4%] opacity-[0.08] pointer-events-none"
+        width="80" height="80" viewBox="0 0 80 80"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+      >
+        <circle cx="40" cy="40" r="35" fill="none" stroke="#6366f1" strokeWidth="1.5" strokeDasharray="5 6" />
+      </motion.svg>
+
+      {/* Right mid — plus sign */}
+      <motion.svg
+        className="absolute top-[50%] right-[6%] opacity-[0.1] pointer-events-none"
+        width="28" height="28" viewBox="0 0 28 28"
+        animate={{ scale: [1, 1.3, 1], rotate: [0, 90, 0], opacity: [0.1, 0.18, 0.1] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <line x1="14" y1="2" x2="14" y2="26" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" />
+        <line x1="2" y1="14" x2="26" y2="14" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" />
+      </motion.svg>
+
+      {/* Bottom-left hexagon */}
+      <motion.svg
+        className="absolute bottom-[18%] left-[10%] opacity-[0.08] pointer-events-none"
+        width="50" height="50" viewBox="0 0 50 50"
+        animate={{ rotate: [0, -360], y: [0, -15, 0] }}
+        transition={{ rotate: { duration: 30, repeat: Infinity, ease: "linear" }, y: { duration: 8, repeat: Infinity, ease: "easeInOut" } }}
+      >
+        <polygon points="25,3 46,14 46,36 25,47 4,36 4,14" fill="none" stroke="#6366f1" strokeWidth="1.5" />
+      </motion.svg>
+
+      {/* Bottom-right small square */}
+      <motion.svg
+        className="absolute bottom-[22%] right-[14%] opacity-[0.09] pointer-events-none"
+        width="24" height="24" viewBox="0 0 24 24"
+        animate={{ rotate: [0, 90, 180, 270, 360], scale: [1, 1.2, 1] }}
+        transition={{ rotate: { duration: 18, repeat: Infinity, ease: "linear" }, scale: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
+      >
+        <rect x="3" y="3" width="18" height="18" fill="none" stroke="#8b5cf6" strokeWidth="2" rx="2" />
+      </motion.svg>
+
+      {/* Floating horizontal line — top center */}
+      <motion.div
+        className="absolute top-[8%] left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-indigo-400/30 to-transparent pointer-events-none"
+        animate={{ scaleX: [1, 1.6, 1], opacity: [0.3, 0.7, 0.3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Floating dot cluster — right side */}
+      <div className="absolute right-[9%] top-[35%] pointer-events-none">
+        {[0, 1, 2, 3, 4, 5].map((i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 rounded-full bg-violet-400"
+            style={{ left: (i % 3) * 10, top: Math.floor(i / 3) * 10 }}
+            animate={{ opacity: [0.1, 0.35, 0.1], scale: [1, 1.4, 1] }}
+            transition={{ duration: 2.5, delay: i * 0.3, repeat: Infinity, ease: "easeInOut" }}
+          />
+        ))}
+      </div>
+
+      {/* Floating dot cluster — left side */}
+      <div className="absolute left-[7%] top-[30%] pointer-events-none">
+        {[0, 1, 2, 3].map((i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1.5 h-1.5 rounded-full bg-indigo-400"
+            style={{ left: (i % 2) * 12, top: Math.floor(i / 2) * 12 }}
+            animate={{ opacity: [0.08, 0.25, 0.08], scale: [1, 1.5, 1] }}
+            transition={{ duration: 3, delay: i * 0.4, repeat: Infinity, ease: "easeInOut" }}
+          />
+        ))}
+      </div>
+
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
 
