@@ -146,6 +146,33 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
 
+        {/* Astronaut decoration */}
+        <div className="absolute -left-20 top-0 opacity-10 pointer-events-none hidden lg:block">
+          <svg width="100" height="140" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Helmet */}
+            <circle cx="50" cy="35" r="25" stroke="#6366f1" strokeWidth="2" fill="none"/>
+            {/* Helmet shine */}
+            <ellipse cx="40" cy="25" rx="8" ry="10" fill="#6366f1" opacity="0.2"/>
+            {/* Body */}
+            <rect x="35" y="58" width="30" height="35" stroke="#6366f1" strokeWidth="2" fill="none" rx="4"/>
+            {/* Arms */}
+            <line x1="35" y1="65" x2="15" y2="55" stroke="#6366f1" strokeWidth="2"/>
+            <line x1="65" y1="65" x2="85" y2="55" stroke="#6366f1" strokeWidth="2"/>
+            {/* Gloves */}
+            <circle cx="15" cy="55" r="4" stroke="#6366f1" strokeWidth="2" fill="none"/>
+            <circle cx="85" cy="55" r="4" stroke="#6366f1" strokeWidth="2" fill="none"/>
+            {/* Legs */}
+            <line x1="40" y1="93" x2="40" y2="120" stroke="#6366f1" strokeWidth="2"/>
+            <line x1="60" y1="93" x2="60" y2="120" stroke="#6366f1" strokeWidth="2"/>
+            {/* Boots */}
+            <circle cx="40" cy="125" r="4" stroke="#6366f1" strokeWidth="2" fill="none"/>
+            <circle cx="60" cy="125" r="4" stroke="#6366f1" strokeWidth="2" fill="none"/>
+            {/* Antenna */}
+            <line x1="50" y1="10" x2="50" y2="2" stroke="#8B5CF6" strokeWidth="1.5"/>
+            <circle cx="50" cy="1" r="1.5" fill="#8B5CF6"/>
+          </svg>
+        </div>
+
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
