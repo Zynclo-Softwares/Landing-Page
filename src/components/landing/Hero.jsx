@@ -66,42 +66,32 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
-// Mosquito-coil spiral: 2 full turns, Archimedean, radius 30→212, sampled at each 90°
-// In CSS coords (y-down): θ=0→right, 90→down, 180→left, 270→up
-const SPIRAL_X  = [30,   0, -82,   0, 134,   0, -186,    0];
-const SPIRAL_Y  = [ 0,  56,   0, -108,   0, 160,    0, -212];
-// Rotation: rocket nose should face direction of travel along spiral tangent
-// At each quadrant, tangent direction rotates ~90° clockwise per quarter-turn
-const SPIRAL_R  = [115, 205, 295,  25, 115,  205,  295,   25];
-const SPIRAL_S  = [0.38, 0.52, 0.66, 0.80, 0.94, 1.08, 1.22, 1.58];
-// Blast-off from top of spiral toward top-right of screen
-const BLAST_X   = [400,  900];
-const BLAST_Y   = [-750, -1800];
-const BLAST_R   = [-28,  -38];
-const BLAST_S   = [3.2,  0.08];
-
 function RocketLaunch() {
   const [active, setActive] = useState(false);
   const [gone, setGone]     = useState(false);
   const [boom, setBoom]     = useState(false);
 
+  // Duration = 7s, start delay = 1400ms
+  // Boom fires at 1400 + 7000*0.86 ≈ 7420ms
   useEffect(() => {
-    const t1 = setTimeout(() => setActive(true), 900);
-    // boom ~0.87 of 7.5s into the animation = ~7.4s total from start
-    const t2 = setTimeout(() => setBoom(true), 8100);
-    const t3 = setTimeout(() => setGone(true), 9500);
+    const t1 = setTimeout(() => setActive(true), 1400);
+    const t2 = setTimeout(() => setBoom(true), 7500);
+    const t3 = setTimeout(() => setGone(true), 9200);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
   if (gone) return null;
 
-  const allX      = [...SPIRAL_X, ...BLAST_X];
-  const allY      = [...SPIRAL_Y, ...BLAST_Y];
-  const allR      = [...SPIRAL_R, ...BLAST_R];
-  const allS      = [...SPIRAL_S, ...BLAST_S];
-  const allO      = [0, 1, 1, 1, 1, 1, 1, 1, 1, 0];
-  // 10 points → 9 segments, evenly spaced first 8, then 2 fast ones
-  const times     = [0, 0.12, 0.24, 0.36, 0.48, 0.60, 0.72, 0.84, 0.92, 1.0];
+  // Arc path: starts tiny from far top-right, follows a smooth downward smile arc
+  // across the hero toward center, growing in perspective, then ZOOMS toward viewer.
+  // All coords are offsets from anchor (50%, 45%).
+  // rotate = direction rocket nose faces (0=up, clockwise positive).
+  const kx = [520,  310,   80,  -90, -190, -110,  -10,   -10];
+  const ky = [-250, -90,   40,  100,   30, -110,  -60,   -60];
+  const ks = [0.035,0.08, 0.19, 0.38,  0.72, 1.2, 2.0,  9.0];
+  const kr = [225,  218,  228,  258,   300,  335,  330,  330];
+  const ko = [0,    1,    1,    1,     1,    1,    1,    0  ];
+  const kt = [0, 0.15, 0.30, 0.46, 0.60, 0.74, 0.86, 1.0];
 
   return (
     <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
@@ -110,70 +100,64 @@ function RocketLaunch() {
           <motion.div
             key="rocket"
             className="absolute"
-            style={{ left: "50%", top: "44%", marginLeft: -26, marginTop: -45 }}
-            initial={{ x: SPIRAL_X[0], y: SPIRAL_Y[0], scale: SPIRAL_S[0], rotate: SPIRAL_R[0], opacity: 0 }}
-            animate={{ x: allX, y: allY, scale: allS, rotate: allR, opacity: allO }}
+            style={{ left: "50%", top: "45%", marginLeft: -26, marginTop: -45 }}
+            initial={{ x: kx[0], y: ky[0], scale: ks[0], rotate: kr[0], opacity: 0 }}
+            animate={{ x: kx, y: ky, scale: ks, rotate: kr, opacity: ko }}
             transition={{
-              duration: 7.8,
-              times,
+              duration: 7.0,
+              times: kt,
               ease: "easeInOut",
-              scale: { times, ease: "linear" },
-              rotate: { times, ease: "easeInOut" },
-              opacity: { times: [0, 0.04, 0.83, 0.95, 1], values: [0, 1, 1, 0.7, 0] },
+              scale: {
+                times: kt,
+                // last segment is explosive zoom
+                ease: ["easeInOut","easeInOut","easeInOut","easeInOut","easeInOut","easeInOut",[0.6,0,1,1]],
+              },
+              opacity: { times: [0, 0.04, 0.80, 0.93, 1], values: [0, 1, 1, 0.5, 0] },
             }}
           >
-            {/* Exhaust trail glow */}
+            {/* Exhaust glow trail */}
             <motion.div
               className="absolute"
               style={{
-                width: 14, height: 70,
-                background: "linear-gradient(to bottom, rgba(249,115,22,0.9), rgba(251,191,36,0.5), transparent)",
-                filter: "blur(7px)",
-                left: 19, top: 74,
-                transformOrigin: "top center",
+                width: 12, height: 65,
+                background: "linear-gradient(to bottom, rgba(249,115,22,0.95), rgba(251,191,36,0.6), transparent)",
+                filter: "blur(6px)",
+                left: 20, top: 76,
                 borderRadius: "50%",
+                transformOrigin: "top center",
               }}
-              animate={{ scaleY: [1, 1.9, 0.5, 1.7, 1], opacity: [0.8, 1, 0.3, 1, 0.8] }}
-              transition={{ duration: 0.16, repeat: Infinity }}
+              animate={{ scaleY: [1, 2.1, 0.5, 1.8, 1], opacity: [0.85, 1, 0.2, 1, 0.85] }}
+              transition={{ duration: 0.15, repeat: Infinity }}
             />
 
-            {/* Rocket SVG — dark body matching hero text */}
+            {/* Rocket SVG */}
             <svg width="52" height="90" viewBox="0 0 52 90" fill="none">
-              {/* Body */}
-              <ellipse cx="26" cy="40" rx="12" ry="28" fill="url(#rbDark)" />
-              {/* Nose */}
-              <path d="M14 22 Q26 0 38 22Z" fill="url(#rnDark)" />
-              {/* Window */}
+              <ellipse cx="26" cy="40" rx="12" ry="28" fill="url(#rkBody)" />
+              <path d="M14 22 Q26 0 38 22Z" fill="url(#rkNose)" />
               <circle cx="26" cy="36" r="6" fill="#cbd5e1" stroke="#475569" strokeWidth="1.5" />
-              <circle cx="26" cy="36" r="3" fill="url(#wgDark)" />
-              {/* Fins */}
+              <circle cx="26" cy="36" r="3" fill="url(#rkWin)" />
               <path d="M14 56 L5 73 L14 68Z" fill="#1e293b" />
               <path d="M38 56 L47 73 L38 68Z" fill="#1e293b" />
-              {/* Exhaust cone */}
               <path d="M18 68 L26 79 L34 68Z" fill="#fbbf24" opacity="0.9" />
-              {/* Flame */}
-              <motion.ellipse cx="26" cy="83" rx="7" ry="13" fill="url(#flDark)"
-                animate={{ ry: [13, 20, 7, 18, 13] }}
-                transition={{ duration: 0.19, repeat: Infinity }}
+              <motion.ellipse cx="26" cy="83" rx="7" ry="13" fill="url(#rkFlame)"
+                animate={{ ry: [13, 21, 6, 19, 13] }}
+                transition={{ duration: 0.17, repeat: Infinity }}
               />
               <motion.ellipse cx="26" cy="84" rx="4" ry="8" fill="#fef3c7"
-                animate={{ ry: [8, 14, 4, 12, 8], opacity: [0.7, 1, 0.3, 0.9, 0.7] }}
-                transition={{ duration: 0.14, repeat: Infinity }}
+                animate={{ ry: [8, 14, 3, 12, 8], opacity: [0.7, 1, 0.2, 0.95, 0.7] }}
+                transition={{ duration: 0.13, repeat: Infinity }}
               />
               <defs>
-                <linearGradient id="rbDark" x1="14" y1="12" x2="38" y2="68" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#334155" />
-                  <stop offset="1" stopColor="#0f172a" />
+                <linearGradient id="rkBody" x1="14" y1="12" x2="38" y2="68" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#334155" /><stop offset="1" stopColor="#0f172a" />
                 </linearGradient>
-                <linearGradient id="rnDark" x1="14" y1="22" x2="38" y2="0" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#475569" />
-                  <stop offset="1" stopColor="#0f172a" />
+                <linearGradient id="rkNose" x1="14" y1="22" x2="38" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#475569" /><stop offset="1" stopColor="#0f172a" />
                 </linearGradient>
-                <radialGradient id="wgDark" cx="50%" cy="50%" r="50%">
-                  <stop stopColor="#bae6fd" />
-                  <stop offset="1" stopColor="#64748b" />
+                <radialGradient id="rkWin" cx="50%" cy="50%" r="50%">
+                  <stop stopColor="#bae6fd" /><stop offset="1" stopColor="#64748b" />
                 </radialGradient>
-                <linearGradient id="flDark" x1="19" y1="72" x2="33" y2="96" gradientUnits="userSpaceOnUse">
+                <linearGradient id="rkFlame" x1="19" y1="72" x2="33" y2="96" gradientUnits="userSpaceOnUse">
                   <stop stopColor="#f97316" />
                   <stop offset="0.5" stopColor="#fbbf24" />
                   <stop offset="1" stopColor="#fde68a" />
@@ -184,7 +168,7 @@ function RocketLaunch() {
         )}
       </AnimatePresence>
 
-      {/* Shockwave rings at boost point */}
+      {/* Shockwave rings when rocket reaches center */}
       <AnimatePresence>
         {boom && (
           <>
@@ -193,14 +177,14 @@ function RocketLaunch() {
                 key={i}
                 className="absolute rounded-full"
                 style={{
-                  left: "50%", top: "44%",
-                  marginLeft: -6, marginTop: -6,
-                  width: 12, height: 12,
-                  border: `1.5px solid ${i % 2 === 0 ? "rgba(99,102,241,0.6)" : "rgba(251,191,36,0.5)"}`,
+                  left: "50%", top: "45%",
+                  marginLeft: -5, marginTop: -5,
+                  width: 10, height: 10,
+                  border: `1.5px solid ${i % 2 === 0 ? "rgba(99,102,241,0.55)" : "rgba(251,191,36,0.45)"}`,
                 }}
                 initial={{ scale: 1, opacity: 1 }}
-                animate={{ scale: 14 + i * 7, opacity: 0 }}
-                transition={{ duration: 1.1, delay: i * 0.12, ease: "easeOut" }}
+                animate={{ scale: 16 + i * 8, opacity: 0 }}
+                transition={{ duration: 1.2, delay: i * 0.13, ease: "easeOut" }}
               />
             ))}
           </>
