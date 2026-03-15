@@ -47,7 +47,7 @@ export default function ProjectCard({ iconUrl }) {
               <img src={iconUrl} alt="PledgeProof app icon" className="w-24 h-24 object-cover" />
             </div>
 
-            <h3 className="text-3xl font-bold text-white tracking-tight mb-2 relative z-10">PledgeProof</h3>
+            <h3 className="text-3xl font-bold text-white tracking-tight mb-1 relative z-10">PledgeProof</h3>
 
             <div className="flex items-center gap-2 mb-2 relative z-10">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/15 border border-white/20 text-xs font-semibold text-white">
