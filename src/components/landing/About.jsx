@@ -97,12 +97,12 @@ export default function About({ appIconUrl }) {
           </h2>
           {/* Purple underline accent */}
           <motion.div
-            className="mt-3 h-1.5 w-28 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-400 opacity-60"
-            initial={{ scaleX: 0, originX: 0 }}
+            className="mt-3 h-1.5 w-28 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-400 opacity-60 mx-auto"
+            initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformOrigin: "left" }}
+            style={{ transformOrigin: "center" }}
           />
         </motion.div>
 
