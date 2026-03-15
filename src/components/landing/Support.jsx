@@ -180,6 +180,7 @@ function SeaProps() {
 }
 
 export default function Support() {
+  const isMobile = useMobile();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
