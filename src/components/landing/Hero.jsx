@@ -1,6 +1,7 @@
-import { motion, useMotionValue, useTransform, animate, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { useMobile } from "@/components/hooks/useMobile";
 
 
 const PARTICLES = Array.from({ length: 22 }, (_, i) => ({
