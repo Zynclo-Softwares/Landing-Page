@@ -36,7 +36,7 @@ export default function ProjectCard({ iconUrl }) {
           className="absolute inset-0 rounded-3xl overflow-hidden shadow-xl shadow-indigo-500/10 border border-slate-200/80"
         >
           {/* Header gradient */}
-          <div className="relative bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-indigo-500/90 via-violet-500/85 to-purple-600/90 h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden">
             <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-white/5 blur-2xl" />
             <div className="absolute bottom-0 left-0 w-64 h-32 rounded-full bg-black/10 blur-2xl" />
 
