@@ -27,7 +27,7 @@ export default function ProjectCard({ iconUrl }) {
       onClick={() => setFlipped((f) => !f)}
     >
       <motion.div
-        style={{ transformStyle: "preserve-3d", position: "relative", width: "100%", height: 360 }}
+        style={{ transformStyle: "preserve-3d", position: "relative", width: "100%", height: 360, willChange: "transform" }}
         animate={{ rotateY: flipped ? 180 : 0 }}
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >

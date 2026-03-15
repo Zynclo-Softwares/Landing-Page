@@ -22,7 +22,7 @@ function ParticleField() {
         <motion.div
           key={p.id}
           className="absolute rounded-full bg-indigo-500"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, opacity: 0.1 }}
+          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, opacity: 0.1, willChange: "transform, opacity" }}
           animate={{ y: [0, -25, 0], opacity: [0.05, 0.18, 0.05] }}
           transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
         />
