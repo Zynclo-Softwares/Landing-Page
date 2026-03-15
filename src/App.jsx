@@ -48,6 +48,14 @@ const AuthenticatedApp = () => {
 
 
 function App() {
+  useEffect(() => {
+    document.title = "Zynclo";
+    const link = document.querySelector("link[rel='icon']");
+    if (link) {
+      link.href = "https://media.base44.com/images/public/69b591daf6da87ce28f820e7/8b4312ef9_generated_image.png";
+      link.type = "image/png";
+    }
+  }, []);
 
   return (
     <AuthProvider>
