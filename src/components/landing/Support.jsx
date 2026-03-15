@@ -41,14 +41,14 @@ function ShootingStars() {
           initial={{ opacity: 0, y: 0, x: 0 }}
           animate={{
             opacity: [0, 1, 0],
-            y: [0, 200],
-            x: [0, Math.tan((star.angle * Math.PI) / 180) * 200],
+            y: [0, 800],
+            x: [0, Math.tan((star.angle * Math.PI) / 180) * 800],
           }}
           transition={{
-            duration: star.duration,
+            duration: 5,
             delay: star.delay,
             repeat: Infinity,
-            repeatDelay: 18,
+            repeatDelay: 15,
             ease: "easeIn",
           }}
         >
