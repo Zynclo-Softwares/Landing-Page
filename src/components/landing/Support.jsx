@@ -35,13 +35,13 @@ function ShootingStars() {
         <motion.svg
           key={star.id}
           className="absolute top-0 pointer-events-none"
-          style={{ left: `${star.x}%`, width: 80, height: 80 }}
+          style={{ left: `${star.x}%`, width: 80, height: 80, transform: "translateX(-50%)" }}
           viewBox="0 0 80 80"
-          initial={{ opacity: 0, y: -100, x: 0 }}
+          initial={{ opacity: 0, y: -100 }}
           animate={{
             opacity: [0, 1, 0],
             y: [0, window.innerHeight + 200],
-            x: [0, star.sway],
+            x: star.sway,
           }}
           transition={{
             duration: 4 + Math.random() * 2,
