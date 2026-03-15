@@ -74,14 +74,14 @@ export default function About({ appIconUrl }) {
         </motion.div>
       ))}
 
-      <div className="relative max-w-4xl mx-auto px-6">
+      <div className="relative max-w-2xl mx-auto px-6">
         {/* Section header with scroll animation */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16"
+          className="text-center mb-16"
         >
           <motion.span
             className="text-xs font-semibold tracking-widest text-indigo-500 uppercase mb-4 block"
@@ -112,11 +112,9 @@ export default function About({ appIconUrl }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="px-2"
+          className="flex justify-center"
         >
-          <div className="flex flex-wrap gap-6 justify-start">
-            <ProjectCard iconUrl={appIconUrl} />
-          </div>
+          <ProjectCard iconUrl={appIconUrl} />
         </motion.div>
       </div>
     </section>
