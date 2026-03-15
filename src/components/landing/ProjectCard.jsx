@@ -43,8 +43,8 @@ export default function ProjectCard({ iconUrl }) {
             <div className="absolute bottom-0 left-0 w-64 h-32 rounded-full bg-black/10 blur-2xl" />
 
             {/* App icon */}
-            <div className="w-24 h-24 rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/20 mb-6 relative z-10">
-              <img src={iconUrl} alt="PledgeProof app icon" className="w-full h-full object-cover" />
+            <div className="w-24 h-24 rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/20 mb-6 relative z-10 shrink-0">
+              <img src={iconUrl} alt="PledgeProof app icon" className="w-24 h-24 object-cover" />
             </div>
 
             <h3 className="text-3xl font-bold text-white tracking-tight mb-2 relative z-10">PledgeProof</h3>
