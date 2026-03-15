@@ -166,8 +166,7 @@ export default function Hero() {
                 transition={{ duration: 3, delay: i * 0.4, repeat: Infinity, ease: "easeInOut" }} />
             ))}
           </div>
-        </>
-      )}
+          </>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
@@ -259,16 +258,14 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          {!isMobile && (
-            <motion.div
-              className="absolute inset-0 rounded-full bg-indigo-500/20 blur-md"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0, 0.4] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            />
-          )}
+          <motion.div
+            className="absolute inset-0 rounded-full bg-indigo-500/20 blur-md"
+            animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0, 0.4] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          />
           <motion.button
             onClick={scrollToAbout}
-            whileHover={!isMobile ? { scale: 1.04, y: -2 } : {}}
+            whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-900 text-white text-sm font-medium tracking-wide shadow-xl shadow-indigo-500/10 transition-colors duration-300 hover:bg-slate-800"
           >
