@@ -270,6 +270,7 @@ export default function Hero() {
       />
 
       <ParticleField />
+      <RocketLaunch />
 
       {/* Floating geometric props */}
 
