@@ -75,6 +75,134 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
+function RocketLaunch() {
+  const [phase, setPhase] = useState("idle"); // idle | launch | gone
+
+  useEffect(() => {
+    // Start launch shortly after mount
+    const t1 = setTimeout(() => setPhase("launch"), 1200);
+    const t2 = setTimeout(() => setPhase("gone"), 3800);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
+  if (phase === "gone") return null;
+
+  return (
+    <AnimatePresence>
+      {phase === "launch" && (
+        <motion.div
+          key="rocket"
+          className="absolute pointer-events-none z-20"
+          style={{ left: "12%", bottom: "15%" }}
+          initial={{ y: 0, x: 0, opacity: 0, rotate: -30 }}
+          animate={{
+            y: [0, -30, -900],
+            x: [0, 60, 400],
+            opacity: [0, 1, 1, 0],
+            rotate: [-30, -35, -42],
+          }}
+          transition={{
+            duration: 2.2,
+            ease: [0.22, 1, 0.36, 1],
+            opacity: { times: [0, 0.08, 0.85, 1] },
+          }}
+        >
+          {/* Rocket SVG */}
+          <svg width="52" height="90" viewBox="0 0 52 90" fill="none">
+            {/* Body */}
+            <ellipse cx="26" cy="40" rx="12" ry="28" fill="url(#rocketBody)" />
+            {/* Nose */}
+            <path d="M14 22 Q26 0 38 22Z" fill="url(#rocketNose)" />
+            {/* Window */}
+            <circle cx="26" cy="36" r="6" fill="#e0e7ff" stroke="#6366f1" strokeWidth="1.5" />
+            <circle cx="26" cy="36" r="3" fill="url(#windowGlow)" />
+            {/* Left fin */}
+            <path d="M14 56 L6 72 L14 68Z" fill="url(#fin)" />
+            {/* Right fin */}
+            <path d="M38 56 L46 72 L38 68Z" fill="url(#fin)" />
+            {/* Exhaust cone */}
+            <path d="M18 68 L26 78 L34 68Z" fill="#fbbf24" opacity="0.8" />
+
+            {/* Animated flame */}
+            <motion.ellipse
+              cx="26" cy="82" rx="7" ry="10"
+              fill="url(#flame)"
+              animate={{ ry: [10, 16, 8, 14, 10], opacity: [0.9, 1, 0.7, 1, 0.9] }}
+              transition={{ duration: 0.25, repeat: Infinity }}
+            />
+            <motion.ellipse
+              cx="26" cy="83" rx="4" ry="7"
+              fill="#fff"
+              animate={{ ry: [7, 11, 5, 9, 7], opacity: [0.6, 0.9, 0.4, 0.8, 0.6] }}
+              transition={{ duration: 0.18, repeat: Infinity }}
+            />
+
+            <defs>
+              <linearGradient id="rocketBody" x1="14" y1="12" x2="38" y2="68" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#e0e7ff" />
+                <stop offset="1" stopColor="#6366f1" />
+              </linearGradient>
+              <linearGradient id="rocketNose" x1="14" y1="22" x2="38" y2="0" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#818cf8" />
+                <stop offset="1" stopColor="#4f46e5" />
+              </linearGradient>
+              <linearGradient id="fin" x1="0" y1="56" x2="0" y2="72" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#6366f1" />
+                <stop offset="1" stopColor="#4338ca" />
+              </linearGradient>
+              <radialGradient id="windowGlow" cx="50%" cy="50%" r="50%">
+                <stop stopColor="#a5f3fc" />
+                <stop offset="1" stopColor="#6366f1" />
+              </radialGradient>
+              <linearGradient id="flame" x1="19" y1="72" x2="33" y2="92" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#f97316" />
+                <stop offset="0.5" stopColor="#fbbf24" />
+                <stop offset="1" stopColor="#fde68a" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* Trail sparks */}
+          {TRAIL_SPARKS.map((s) => (
+            <motion.div
+              key={s.id}
+              className="absolute rounded-full"
+              style={{
+                width: s.size, height: s.size,
+                background: s.color,
+                left: 26 + s.offsetX,
+                top: 78 + s.offsetY,
+              }}
+              animate={{
+                opacity: [0.9, 0.4, 0],
+                scale: [1, 0.5, 0],
+                y: [0, s.offsetY * 0.6],
+              }}
+              transition={{ duration: 0.6, delay: s.delay, repeat: Infinity, repeatDelay: 0.05 }}
+            />
+          ))}
+
+          {/* Shockwave ring at launch */}
+          <motion.div
+            className="absolute rounded-full border-2 border-indigo-400/60"
+            style={{ width: 60, height: 60, left: -4, top: 20 }}
+            initial={{ scale: 0.4, opacity: 0.8 }}
+            animate={{ scale: 3.5, opacity: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+          />
+          <motion.div
+            className="absolute rounded-full border border-violet-400/40"
+            style={{ width: 40, height: 40, left: 6, top: 30 }}
+            initial={{ scale: 0.4, opacity: 0.6 }}
+            animate={{ scale: 4, opacity: 0 }}
+            transition={{ duration: 1.1, delay: 0.1, ease: "easeOut" }}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export default function Hero() {
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
