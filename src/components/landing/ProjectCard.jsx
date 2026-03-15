@@ -52,8 +52,11 @@ export default function ProjectCard({ iconUrl }) {
               }} />
 
             {/* Top accent line */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-3xl"
-              style={{ background: "linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa)" }} />
+            <motion.div className="absolute top-0 left-0 right-0 h-[2px]"
+              style={{ background: "linear-gradient(90deg, transparent, #6366f1, #8b5cf6, transparent)" }}
+              animate={{ opacity: [0.4, 1, 0.4], scaleX: [0.7, 1, 0.7] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
 
             {/* App icon */}
             <div className="relative z-10 mb-4 shrink-0">
