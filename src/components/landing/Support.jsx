@@ -232,9 +232,17 @@ export default function Support() {
           >
             Support
           </motion.span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-3">
             Get In Touch.
           </h2>
+          <motion.div
+            className="h-1.5 w-24 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-400 opacity-60 mx-auto mb-4"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            style={{ transformOrigin: "center" }}
+          />
           <p className="text-lg text-slate-500 font-light">
             Have questions about our apps? Reach out and we'll get back to you.
           </p>
