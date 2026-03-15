@@ -44,7 +44,7 @@ function ShootingStars() {
             x: star.sway,
           }}
           transition={{
-            duration: 4 + Math.random() * 2,
+            duration: 7 + Math.random() * 3,
             delay: star.delay,
             repeat: Infinity,
             repeatDelay: 0,
@@ -52,7 +52,7 @@ function ShootingStars() {
           }}
           >
           {/* Star core - oval shaped */}
-          <ellipse cx="40" cy="40" rx="4" ry="6" fill="#ec4899" opacity="0.95" />
+          <ellipse cx="40" cy="40" rx="4" ry="6" fill="#a855f7" opacity="0.95" />
 
           {/* Trailing glow */}
           <line
@@ -68,8 +68,8 @@ function ShootingStars() {
 
           <defs>
             <linearGradient id="starGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#ec4899" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#db2777" stopOpacity="0" />
+              <stop offset="0%" stopColor="#a855f7" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#7e22ce" stopOpacity="0" />
             </linearGradient>
           </defs>
         </motion.svg>
