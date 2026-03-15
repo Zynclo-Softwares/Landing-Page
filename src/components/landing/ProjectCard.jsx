@@ -49,7 +49,7 @@ export default function ProjectCard({ iconUrl }) {
 
             <h3 className="text-3xl font-bold text-white tracking-tight mb-2 relative z-10">PledgeProof</h3>
 
-            <div className="flex items-center gap-2 mb-4 relative z-10">
+            <div className="flex items-center gap-2 mb-2 relative z-10">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/15 border border-white/20 text-xs font-semibold text-white">
                 <Sparkles className="w-3 h-3" /> AI-Powered
               </span>
