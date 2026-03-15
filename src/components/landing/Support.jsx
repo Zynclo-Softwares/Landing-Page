@@ -404,8 +404,8 @@ export default function Support() {
                       />
                       {/* Shimmer highlight */}
                       <motion.div
-                        className="absolute top-0 left-0 h-full w-12 bg-white/10 skew-x-[-20deg] pointer-events-none"
-                        animate={{ x: ["-100%", "500%"] }}
+                        className="absolute top-0 left-0 h-full w-1/3 bg-white/10 skew-x-[-20deg] pointer-events-none"
+                        animate={{ x: ["-200%", "400%"] }}
                         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
                       />
                       <span className="relative flex items-center gap-2">
