@@ -135,7 +135,21 @@ export default function Hero() {
       />
 
       <ParticleField />
-      <RocketLaunch />
+
+      {/* Floating rocket — top right, slow drift like other shapes */}
+      <motion.svg
+        className="absolute top-[8%] right-[7%] opacity-[0.13] pointer-events-none"
+        width="36" height="60" viewBox="0 0 36 60" fill="none"
+        animate={{ y: [0, -18, 0], rotate: [-8, 8, -8] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <ellipse cx="18" cy="28" rx="8" ry="18" stroke="#6366f1" strokeWidth="1.5" />
+        <path d="M10 16 Q18 2 26 16Z" stroke="#6366f1" strokeWidth="1.5" fill="none" />
+        <circle cx="18" cy="26" r="4" stroke="#6366f1" strokeWidth="1.2" fill="none" />
+        <path d="M10 38 L4 50 L10 46Z" stroke="#6366f1" strokeWidth="1.2" fill="none" />
+        <path d="M26 38 L32 50 L26 46Z" stroke="#6366f1" strokeWidth="1.2" fill="none" />
+        <line x1="18" y1="46" x2="18" y2="56" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" />
+      </motion.svg>
 
       {/* Floating geometric props */}
 
