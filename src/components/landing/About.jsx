@@ -103,30 +103,15 @@ export default function About({ appIconUrl }) {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16 relative"
         >
-          {/* Astronaut decoration */}
-          <div className="absolute -right-16 -top-8 opacity-20">
-            <svg width="140" height="180" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Helmet */}
-              <circle cx="50" cy="35" r="25" stroke="#6366f1" strokeWidth="2" fill="none"/>
-              {/* Helmet shine */}
-              <ellipse cx="40" cy="25" rx="8" ry="10" fill="#6366f1" opacity="0.2"/>
-              {/* Body */}
-              <rect x="35" y="58" width="30" height="35" stroke="#6366f1" strokeWidth="2" fill="none" rx="4"/>
-              {/* Arms */}
-              <line x1="35" y1="65" x2="15" y2="55" stroke="#6366f1" strokeWidth="2"/>
-              <line x1="65" y1="65" x2="85" y2="55" stroke="#6366f1" strokeWidth="2"/>
-              {/* Gloves */}
-              <circle cx="15" cy="55" r="4" stroke="#6366f1" strokeWidth="2" fill="none"/>
-              <circle cx="85" cy="55" r="4" stroke="#6366f1" strokeWidth="2" fill="none"/>
-              {/* Legs */}
-              <line x1="40" y1="93" x2="40" y2="120" stroke="#6366f1" strokeWidth="2"/>
-              <line x1="60" y1="93" x2="60" y2="120" stroke="#6366f1" strokeWidth="2"/>
-              {/* Boots */}
-              <circle cx="40" cy="125" r="4" stroke="#6366f1" strokeWidth="2" fill="none"/>
-              <circle cx="60" cy="125" r="4" stroke="#6366f1" strokeWidth="2" fill="none"/>
-              {/* Antenna */}
-              <line x1="50" y1="10" x2="50" y2="2" stroke="#8B5CF6" strokeWidth="1.5"/>
-              <circle cx="50" cy="1" r="1.5" fill="#8B5CF6"/>
+          {/* Astronaut helmet decoration */}
+          <div className="absolute -right-12 -top-4 opacity-25">
+            <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Helmet main */}
+              <circle cx="50" cy="50" r="40" stroke="#6366f1" strokeWidth="2.5" fill="none"/>
+              {/* Helmet shine/glass effect */}
+              <ellipse cx="38" cy="35" rx="12" ry="16" fill="#6366f1" opacity="0.15"/>
+              {/* Helmet ring/collar */}
+              <ellipse cx="50" cy="88" rx="42" ry="8" stroke="#6366f1" strokeWidth="2" fill="none"/>
             </svg>
           </div>
         
