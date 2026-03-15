@@ -114,7 +114,7 @@ export default function ProjectCard({ iconUrl }) {
 
         {/* ── BACK ── */}
         <div
-          style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+          style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)", WebkitTransform: "translate3d(0,0,0)" }}
           className="absolute inset-0 rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl shadow-indigo-100 bg-white flex flex-col"
         >
           {/* Top accent */}
