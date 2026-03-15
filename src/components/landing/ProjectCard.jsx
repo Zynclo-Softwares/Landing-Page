@@ -27,13 +27,13 @@ export default function ProjectCard({ iconUrl }) {
       onClick={() => setFlipped((f) => !f)}
     >
       <motion.div
-        style={{ transformStyle: "preserve-3d", position: "relative", width: "100%", height: 360, willChange: "transform" }}
+        style={{ transformStyle: "preserve-3d", perspective: "1200px", position: "relative", width: "100%", height: 360, willChange: "transform" }}
         animate={{ rotateY: flipped ? 180 : 0 }}
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* ── FRONT ── */}
         <div
-          style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+          style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", WebkitTransform: "translate3d(0,0,0)" }}
           className="absolute inset-0 rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl shadow-indigo-100"
         >
           <div className="relative h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden bg-white">
