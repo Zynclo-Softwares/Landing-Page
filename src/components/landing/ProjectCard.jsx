@@ -128,12 +128,12 @@ export default function ProjectCard({ iconUrl }) {
             <p className="text-xs font-bold uppercase tracking-widest text-indigo-500 mb-3">Features</p>
 
             <div className="flex-1 overflow-y-auto pr-2 space-y-1.5">
-              {features.map((f, idx) => (
+              {features.map((f) => (
                 <div
                   key={f.label}
                   className="flex items-start gap-2 text-xs"
                 >
-                  <span className={`font-bold text-sm shrink-0 ${f.soon ? "text-amber-600" : "text-indigo-600"}`}>{idx + 1}</span>
+                  <Sparkles className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${f.soon ? "text-amber-500" : "text-indigo-400"}`} />
                   <div className="flex items-start gap-1.5 flex-1 min-w-0">
                     <f.icon className={`w-3 h-3 shrink-0 mt-0.5 ${f.soon ? "text-amber-500" : "text-indigo-500"}`} />
                     <span className={`leading-snug break-words ${f.soon ? "text-amber-600" : "text-slate-700"}`}>{f.label}</span>
