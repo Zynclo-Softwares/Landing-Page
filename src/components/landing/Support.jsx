@@ -51,8 +51,14 @@ function ShootingStars() {
             ease: "easeIn",
           }}
           >
-          {/* Star core - oval shaped */}
-          <ellipse cx="40" cy="40" rx="4" ry="6" fill="#a855f7" opacity="0.95" />
+          {/* Snowflake core */}
+          <g>
+            <line x1="40" y1="35" x2="40" y2="45" stroke="#a855f7" strokeWidth="1" opacity="0.95" />
+            <line x1="35" y1="40" x2="45" y2="40" stroke="#a855f7" strokeWidth="1" opacity="0.95" />
+            <line x1="36.5" y1="36.5" x2="43.5" y2="43.5" stroke="#a855f7" strokeWidth="1" opacity="0.95" />
+            <line x1="43.5" y1="36.5" x2="36.5" y2="43.5" stroke="#a855f7" strokeWidth="1" opacity="0.95" />
+            <circle cx="40" cy="40" r="2" fill="#a855f7" opacity="0.95" />
+          </g>
 
           {/* Trailing glow */}
           <line
