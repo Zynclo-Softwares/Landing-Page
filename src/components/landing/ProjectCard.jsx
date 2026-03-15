@@ -72,8 +72,7 @@ export default function ProjectCard({ iconUrl }) {
               </Link>
             </div>
 
-            {/* Flip hint */}
-            <p className="absolute bottom-3 text-white/30 text-[10px] tracking-wider">HOVER TO SEE FEATURES</p>
+
           </div>
         </div>
 
