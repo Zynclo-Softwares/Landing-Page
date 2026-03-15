@@ -200,19 +200,23 @@ export default function Support() {
 
   return (
     <section id="support" className="relative py-32 sm:py-40 overflow-hidden">
-      {/* Animated background orbs */}
-      <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(79,70,229,0.07) 0%, transparent 70%)", left: "-10%", top: "10%" }}
-        animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)", right: "-5%", bottom: "10%" }}
-        animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* Animated background orbs — desktop only */}
+      {!isMobile && (
+        <>
+          <motion.div
+            className="absolute w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(79,70,229,0.07) 0%, transparent 70%)", left: "-10%", top: "10%" }}
+            animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)", right: "-5%", bottom: "10%" }}
+            animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </>
+      )}
 
       {!isMobile && <SeaProps />}
 
