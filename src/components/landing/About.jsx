@@ -85,7 +85,7 @@ export default function About({ appIconUrl }) {
       {LOGOS.map((logo) => (
         <motion.div
           key={logo.name}
-          className="absolute pointer-events-none select-none hidden sm:block"
+          className="absolute pointer-events-none select-none"
           style={{ left: logo.x, top: logo.y, width: logo.size, height: logo.size, opacity: 0.14, willChange: "transform, opacity" }}
           animate={{ y: [0, -14, 0], rotate: [logo.rot, logo.rot + 5, logo.rot], opacity: [0.08, 0.18, 0.08] }}
           transition={{ duration: logo.dur, repeat: Infinity, ease: "easeInOut", delay: logo.delay }}
