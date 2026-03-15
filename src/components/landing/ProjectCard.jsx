@@ -81,7 +81,7 @@ export default function ProjectCard({ iconUrl }) {
               </span>
             </div>
 
-            <p className="text-slate-500 text-sm text-center font-light leading-relaxed relative z-10 max-w-[220px]">
+            <p className="text-slate-700 text-sm text-start font-light leading-relaxed relative z-10">
               AI-powered accountability app with a patent-pending lock-and-schedule system.
             </p>
 
