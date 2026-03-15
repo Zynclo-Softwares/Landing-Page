@@ -21,12 +21,12 @@ const successParticles = Array.from({ length: 8 }, (_, i) => ({
 
 /* ── Shooting Stars ── */
 function ShootingStars() {
-  const stars = Array.from({ length: 16 }, (_, i) => ({
+  const stars = Array.from({ length: 24 }, (_, i) => ({
     id: i,
-    x: (i % 8) * 12.5,
-    delay: Math.floor(i / 8) * 1.5,
+    x: (i / 24) * 100,
+    delay: (i % 6) * 0.5,
     duration: 2.5,
-    angle: Math.random() * 90 - 45,
+    sway: Math.random() * 40 - 20,
   }));
 
   return (
@@ -35,16 +35,16 @@ function ShootingStars() {
         <motion.svg
           key={star.id}
           className="absolute top-0 pointer-events-none"
-          style={{ left: star.x, width: 80, height: 80 }}
+          style={{ left: `${star.x}%`, width: 80, height: 80 }}
           viewBox="0 0 80 80"
-          initial={{ opacity: 0, y: 0, x: 0 }}
+          initial={{ opacity: 0, y: -100, x: 0 }}
           animate={{
             opacity: [0, 1, 0],
-            y: [0, 800],
-            x: [0, Math.tan((star.angle * Math.PI) / 180) * 800],
+            y: [0, window.innerHeight + 200],
+            x: [0, star.sway],
           }}
           transition={{
-            duration: 5,
+            duration: 4 + Math.random() * 2,
             delay: star.delay,
             repeat: Infinity,
             repeatDelay: 0,
