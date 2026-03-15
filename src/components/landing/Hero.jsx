@@ -70,6 +70,7 @@ const stagger = {
 
 
 export default function Hero() {
+  const isMobile = useMobile();
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
