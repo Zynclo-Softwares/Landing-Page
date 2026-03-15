@@ -63,7 +63,7 @@ export default function ProjectCard({ iconUrl }) {
             </p>
 
             {/* Legal links */}
-            <div className="flex gap-2 mt-6 relative z-10">
+            <div className="flex gap-2 mt-3 relative z-10">
               <Link to="/TermsAndConditions" target="_blank" className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-medium text-white/80 transition-colors">
                 Terms
               </Link>
