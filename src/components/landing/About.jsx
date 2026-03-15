@@ -20,7 +20,9 @@ export default function About({ appIconUrl }) {
           </h2>
         </motion.div>
 
-        <ProjectCard iconUrl={appIconUrl} />
+        <div className="flex flex-wrap gap-6 justify-start">
+          <ProjectCard iconUrl={appIconUrl} />
+        </div>
       </div>
     </section>
   );
