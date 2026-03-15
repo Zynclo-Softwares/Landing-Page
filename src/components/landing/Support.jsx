@@ -23,9 +23,9 @@ const successParticles = Array.from({ length: 8 }, (_, i) => ({
 function ShootingStars() {
   const stars = [
     { id: 1, x: "15%", delay: 0, duration: 2.5, angle: 45 },
-    { id: 2, x: "35%", delay: 3, duration: 2.5, angle: 35 },
-    { id: 3, x: "60%", delay: 6, duration: 2.5, angle: 55 },
-    { id: 4, x: "80%", delay: 9, duration: 2.5, angle: 40 },
+    { id: 2, x: "35%", delay: 0.3, duration: 2.5, angle: 35 },
+    { id: 3, x: "60%", delay: 0.6, duration: 2.5, angle: 55 },
+    { id: 4, x: "80%", delay: 0.9, duration: 2.5, angle: 40 },
   ];
 
   return (
