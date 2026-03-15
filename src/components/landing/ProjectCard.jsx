@@ -23,9 +23,7 @@ export default function ProjectCard({ iconUrl }) {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="w-full max-w-xs"
       style={{ perspective: 1000 }}
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
-      onTouchStart={() => setFlipped((f) => !f)}
+      onClick={() => setFlipped((f) => !f)}
     >
       <motion.div
         style={{ transformStyle: "preserve-3d", position: "relative", width: "100%", height: 340 }}
