@@ -56,6 +56,14 @@ function App() {
         </Router>
         <Toaster />
       </QueryClientProvider>
+      <style>{`
+        html {
+          scrollbar-width: none;
+        }
+        html::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </AuthProvider>
   )
 }
