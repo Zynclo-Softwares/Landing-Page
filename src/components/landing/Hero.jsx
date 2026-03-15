@@ -138,7 +138,8 @@ export default function Hero() {
 
       {!isMobile && <ParticleField />}
 
-      {/* ── SPACE OBJECTS ── */}
+      {/* ── SPACE OBJECTS — desktop only ── */}
+      {isMobile ? null : <>
 
       {/* Rocket — top right */}
       <motion.svg className="absolute top-[8%] right-[7%] opacity-[0.13] pointer-events-none" width="36" height="60" viewBox="0 0 36 60" fill="none"
