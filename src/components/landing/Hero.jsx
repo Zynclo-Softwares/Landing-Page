@@ -38,6 +38,26 @@ function ParticleField() {
   );
 }
 
+function StarField() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {STARS.map((star) => (
+        <motion.svg
+          key={star.id}
+          className="absolute"
+          style={{ left: `${star.x}%`, top: `${star.y}%`, width: 16, height: 16 }}
+          viewBox="0 0 16 16"
+          fill="none"
+          animate={{ opacity: [0, 0.8, 0] }}
+          transition={{ duration: 2.5, delay: star.delay, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <path d="M8 1L10.39 6.26H16L11.81 10.37L13.92 15.58L8 11.47L2.08 15.58L4.19 10.37L0 6.26H5.61L8 1Z" fill="#6366f1" />
+        </motion.svg>
+      ))}
+    </div>
+  );
+}
+
 const wordVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i) => ({
