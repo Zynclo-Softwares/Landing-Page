@@ -62,11 +62,21 @@ export default function ProjectCard({ iconUrl }) {
 
             {/* Legal links */}
             <div className="flex gap-2 mt-3 relative z-10">
-              <Link to="/TermsAndConditions" target="_blank" className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-medium text-white/80 transition-colors">
-                Terms
+              <Link
+                to="/TermsAndConditions"
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-indigo-700 hover:bg-indigo-50 border border-white/60 text-xs font-semibold transition-colors shadow-sm"
+              >
+                <ScrollText className="w-3 h-3" /> Terms
               </Link>
-              <Link to="/PrivacyPolicy" target="_blank" className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-medium text-white/80 transition-colors">
-                Privacy
+              <Link
+                to="/PrivacyPolicy"
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-indigo-700 hover:bg-indigo-50 border border-white/60 text-xs font-semibold transition-colors shadow-sm"
+              >
+                <Lock className="w-3 h-3" /> Privacy
               </Link>
             </div>
 
