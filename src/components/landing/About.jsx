@@ -74,8 +74,8 @@ export default function About({ appIconUrl }) {
         </motion.div>
       ))}
 
-      <div className="relative max-w-2xl mx-auto px-6">
-        {/* Section header with scroll animation */}
+      <div className="relative max-w-5xl mx-auto px-6">
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,6 @@ export default function About({ appIconUrl }) {
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">
             What We're Building.
           </h2>
-          {/* Purple underline accent */}
           <motion.div
             className="mt-3 h-1.5 w-28 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-400 opacity-60 mx-auto"
             initial={{ scaleX: 0 }}
@@ -106,16 +105,83 @@ export default function About({ appIconUrl }) {
           />
         </motion.div>
 
-        {/* Card with padding buffer so icons don't overlap */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="flex justify-center"
-        >
-          <ProjectCard iconUrl={appIconUrl} />
-        </motion.div>
+        {/* Card + side decorations */}
+        <div className="flex items-center justify-center gap-8 lg:gap-12">
+
+          {/* Left floating pills */}
+          <div className="hidden lg:flex flex-col gap-4 w-48">
+            {[
+              { icon: "🤖", label: "AI-Powered", sub: "Smart verification" },
+              { icon: "🔒", label: "Lock System", sub: "Patent-pending" },
+              { icon: "📅", label: "Scheduling", sub: "Flexible cadence" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                animate={{ y: [0, -6, 0] }}
+                style={{ willChange: "transform" }}
+              >
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.8 }}
+                  style={{ willChange: "transform" }}
+                  className="bg-white border border-slate-200/80 rounded-2xl px-4 py-3 shadow-md shadow-indigo-50"
+                >
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-lg">{item.icon}</span>
+                    <span className="text-xs font-bold text-slate-800">{item.label}</span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 font-light pl-7">{item.sub}</p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="shrink-0"
+          >
+            <ProjectCard iconUrl={appIconUrl} />
+          </motion.div>
+
+          {/* Right floating pills */}
+          <div className="hidden lg:flex flex-col gap-4 w-48">
+            {[
+              { icon: "🔥", label: "Streak Tracking", sub: "Stay consistent" },
+              { icon: "📸", label: "Photo Proof", sub: "Image verification" },
+              { icon: "📱", label: "iOS & Android", sub: "Cross-platform" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 4.5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.7 + 1 }}
+                  style={{ willChange: "transform" }}
+                  className="bg-white border border-slate-200/80 rounded-2xl px-4 py-3 shadow-md shadow-indigo-50"
+                >
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-lg">{item.icon}</span>
+                    <span className="text-xs font-bold text-slate-800">{item.label}</span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 font-light pl-7">{item.sub}</p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
       </div>
     </section>
   );
