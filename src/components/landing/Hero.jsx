@@ -71,149 +71,145 @@ function RocketLaunch() {
   const [nitro, setNitro]   = useState(false);
   const [gone, setGone]     = useState(false);
 
-  // Total ~10s. Entry delay: 1200ms.
-  // Nitro fires at closest point: 1200 + 10000*0.70 = 8200ms
   useEffect(() => {
-    const t1 = setTimeout(() => setActive(true), 1200);
-    const t2 = setTimeout(() => setNitro(true), 8200);
-    const t3 = setTimeout(() => setGone(true), 12000);
+    const t1 = setTimeout(() => setActive(true), 1500);
+    // nitro at closest point: 1500ms start + 9500ms * 0.50 = ~6250ms
+    const t2 = setTimeout(() => setNitro(true), 6400);
+    const t3 = setTimeout(() => setGone(true), 11500);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
   if (gone) return null;
 
-  // Keyframes: rocket travels top-right → center-left (closest) → bottom-left (away)
-  // left/top are absolute % positions within the hero section
-  // scale simulates depth (small=far, big=close)
-  // rotate: nose faces direction of travel (~215° = pointing down-left)
-  const lv = ["87%","74%","60%","46%","33%","22%","12%","3%","-6%"];
-  const tv = [ "5%","14%","24%","36%","50%","62%","74%","87%","102%"];
-  const sv = [0.04, 0.10, 0.22, 0.44, 0.90, 0.46, 0.18, 0.07, 0.02];
-  const rv = [ 212,  214,  217,  220,  222,  224,  226,  228,  230];
-  const ov = [   0,    1,    1,    1,    1,    1,    1,  0.6,    0];
-  // 9 keyframes → 8 segments
-  // Times: slow in first half (approach), fast in second half (exit after nitro)
-  const tv2= [0, 0.10, 0.21, 0.34, 0.50, 0.62, 0.73, 0.85, 1.0];
+  // All positions are x/y pixel offsets from anchor point (50%, 48%) center of hero.
+  // Path: top-right corner → arcs down-left → closest point center → exits bottom-left fast.
+  // scale = depth perception: 0.10 = far away, 1.0 = closest to viewer
+  const xs = [ 500,  310,   90,  -130,  -370,  -580];
+  const ys = [-320, -170,   -10,   110,   270,   430];
+  const sc = [0.10, 0.22,  0.52,  1.00,  0.38,  0.08];
+  const ro = [ 218,  220,   224,   228,   233,   238];
+  const tm = [   0, 0.13,  0.30,  0.50,  0.72,  1.00];
+  // 5 easing values for 5 segments (6 keyframes)
+  const ez = ["easeIn", "easeIn", "easeIn", [0.5,0,1,1], [0.7,0,1,1]];
 
   return (
     <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
-      <AnimatePresence>
-        {active && (
+      {active && (
+        <motion.div
+          key="rocket"
+          className="absolute"
+          style={{ left: "50%", top: "48%", marginLeft: -26, marginTop: -45 }}
+          initial={{ x: xs[0], y: ys[0], scale: sc[0], rotate: ro[0], opacity: 0 }}
+          animate={{
+            x: xs, y: ys, scale: sc, rotate: ro,
+            opacity: [0, 1, 1, 1, 0.7, 0],
+          }}
+          transition={{
+            duration: 9.5,
+            times: tm,
+            ease: ez,
+            opacity: { times: [0, 0.06, 0.40, 0.55, 0.85, 1.0], ease: "linear" },
+          }}
+        >
+          {/* Engine exhaust glow */}
           <motion.div
-            key="rocket"
             className="absolute"
-            style={{ originX: 0.5, originY: 0.5 }}
-            initial={{ left: lv[0], top: tv[0], scale: sv[0], rotate: rv[0], opacity: 0 }}
-            animate={{ left: lv, top: tv, scale: sv, rotate: rv, opacity: ov }}
-            transition={{
-              duration: 10.0,
-              times: tv2,
-              // position ease: slow approach (ease-in), fast exit after nitro
-              ease: ["easeIn","easeIn","easeIn","easeIn",[0.3,0,0.7,1],[0.5,0,1,1],[0.6,0,1,1],"easeOut"],
-              scale: {
-                times: tv2,
-                ease: ["easeIn","easeIn","easeIn","easeIn",[0.2,0,0.5,1],[0.5,0,1,1],[0.7,0,1,1],"easeOut"],
-              },
+            style={{
+              width: 14, height: 75,
+              background: "linear-gradient(to bottom, rgba(242,98,34,0.95), rgba(251,191,36,0.5), transparent)",
+              filter: "blur(8px)",
+              left: 19, top: 78,
+              borderRadius: "50%",
+              transformOrigin: "top center",
             }}
-          >
-            {/* Engine glow trail — elongates as rocket gets closer */}
-            <motion.div
-              className="absolute"
-              style={{
-                width: 14, height: 80,
-                background: "linear-gradient(to bottom, rgba(242,98,34,0.95), rgba(251,191,36,0.55), transparent)",
-                filter: "blur(8px)",
-                left: 19, top: 78,
-                borderRadius: "50%",
-                transformOrigin: "top center",
-              }}
-              animate={{ scaleY: [1, 2.3, 0.4, 2.0, 1], opacity: [0.8, 1, 0.15, 1, 0.8] }}
-              transition={{ duration: 0.14, repeat: Infinity }}
+            animate={{ scaleY: [1, 2.4, 0.4, 2.1, 1], opacity: [0.9, 1, 0.1, 1, 0.9] }}
+            transition={{ duration: 0.15, repeat: Infinity }}
+          />
+          {/* Body rim glow */}
+          <motion.div
+            className="absolute"
+            style={{
+              width: 70, height: 110,
+              background: "radial-gradient(ellipse, rgba(242,98,34,0.20) 0%, transparent 65%)",
+              filter: "blur(10px)",
+              left: -9, top: -10,
+            }}
+            animate={{ opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 0.7, repeat: Infinity }}
+          />
+
+          {/* Rocket SVG */}
+          <svg width="52" height="90" viewBox="0 0 52 90" fill="none">
+            <ellipse cx="26" cy="40" rx="12" ry="28" fill="url(#rkB)" />
+            <path d="M14 22 Q26 0 38 22Z" fill="url(#rkN)" />
+            <circle cx="26" cy="36" r="6" fill="#cbd5e1" stroke="#475569" strokeWidth="1.5" />
+            <circle cx="26" cy="36" r="3" fill="url(#rkW)" />
+            <path d="M14 56 L5 73 L14 68Z" fill="#1e293b" />
+            <path d="M38 56 L47 73 L38 68Z" fill="#1e293b" />
+            <path d="M18 68 L26 79 L34 68Z" fill="#fbbf24" opacity="0.9" />
+            <motion.ellipse cx="26" cy="83" rx="7" ry="13" fill="url(#rkF)"
+              animate={{ ry: [13, 22, 5, 20, 13] }}
+              transition={{ duration: 0.15, repeat: Infinity }}
             />
-            {/* Outer glow rim on rocket body */}
+            <motion.ellipse cx="26" cy="84" rx="4" ry="8" fill="#fef9c3"
+              animate={{ ry: [8, 15, 3, 13, 8], opacity: [0.8, 1, 0.1, 0.95, 0.8] }}
+              transition={{ duration: 0.13, repeat: Infinity }}
+            />
+            <defs>
+              <linearGradient id="rkB" x1="14" y1="12" x2="38" y2="68" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#334155" /><stop offset="1" stopColor="#0f172a" />
+              </linearGradient>
+              <linearGradient id="rkN" x1="14" y1="22" x2="38" y2="0" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#475569" /><stop offset="1" stopColor="#0f172a" />
+              </linearGradient>
+              <radialGradient id="rkW" cx="50%" cy="50%" r="50%">
+                <stop stopColor="#bae6fd" /><stop offset="1" stopColor="#64748b" />
+              </radialGradient>
+              <linearGradient id="rkF" x1="19" y1="72" x2="33" y2="96" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#f26222" />
+                <stop offset="0.5" stopColor="#fbbf24" />
+                <stop offset="1" stopColor="#fde68a" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </motion.div>
+      )}
+
+      {/* Nitro burst at closest point — positioned near center */}
+      {nitro && (
+        <>
+          {/* Flash */}
+          <motion.div
+            className="absolute rounded-full"
+            style={{
+              left: "50%", top: "48%",
+              marginLeft: -130 - 50, marginTop: 110 - 50,
+              width: 100, height: 100,
+              background: "radial-gradient(circle, rgba(242,98,34,0.95) 0%, rgba(251,191,36,0.5) 40%, transparent 70%)",
+              filter: "blur(6px)",
+            }}
+            initial={{ scale: 0.3, opacity: 1 }}
+            animate={{ scale: 4, opacity: 0 }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+          />
+          {/* Shockwave rings */}
+          {[0, 1, 2, 3].map((i) => (
             <motion.div
+              key={i}
               className="absolute rounded-full"
               style={{
-                width: 52, height: 90,
-                background: "radial-gradient(ellipse, rgba(242,98,34,0.18) 0%, transparent 70%)",
-                filter: "blur(12px)",
-                left: 0, top: 0,
+                left: "50%", top: "48%",
+                marginLeft: -130 - 6, marginTop: 110 - 6,
+                width: 12, height: 12,
+                border: `2px solid ${i % 2 === 0 ? "rgba(242,98,34,0.65)" : "rgba(251,191,36,0.5)"}`,
               }}
-              animate={{ opacity: [0.4, 0.9, 0.4] }}
-              transition={{ duration: 0.6, repeat: Infinity }}
+              initial={{ scale: 1, opacity: 1 }}
+              animate={{ scale: 15 + i * 8, opacity: 0 }}
+              transition={{ duration: 1.2, delay: i * 0.13, ease: "easeOut" }}
             />
-
-            {/* Rocket SVG */}
-            <svg width="52" height="90" viewBox="0 0 52 90" fill="none">
-              <ellipse cx="26" cy="40" rx="12" ry="28" fill="url(#rkB)" />
-              <path d="M14 22 Q26 0 38 22Z" fill="url(#rkN)" />
-              <circle cx="26" cy="36" r="6" fill="#cbd5e1" stroke="#475569" strokeWidth="1.5" />
-              <circle cx="26" cy="36" r="3" fill="url(#rkW)" />
-              <path d="M14 56 L5 73 L14 68Z" fill="#1e293b" />
-              <path d="M38 56 L47 73 L38 68Z" fill="#1e293b" />
-              <path d="M18 68 L26 79 L34 68Z" fill="#fbbf24" opacity="0.9" />
-              <motion.ellipse cx="26" cy="83" rx="7" ry="13" fill="url(#rkF)"
-                animate={{ ry: [13, 22, 6, 20, 13] }}
-                transition={{ duration: 0.15, repeat: Infinity }}
-              />
-              <motion.ellipse cx="26" cy="84" rx="4" ry="8" fill="#fef3c7"
-                animate={{ ry: [8, 15, 3, 13, 8], opacity: [0.7, 1, 0.15, 0.95, 0.7] }}
-                transition={{ duration: 0.12, repeat: Infinity }}
-              />
-              <defs>
-                <linearGradient id="rkB" x1="14" y1="12" x2="38" y2="68" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#334155" /><stop offset="1" stopColor="#0f172a" />
-                </linearGradient>
-                <linearGradient id="rkN" x1="14" y1="22" x2="38" y2="0" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#475569" /><stop offset="1" stopColor="#0f172a" />
-                </linearGradient>
-                <radialGradient id="rkW" cx="50%" cy="50%" r="50%">
-                  <stop stopColor="#bae6fd" /><stop offset="1" stopColor="#64748b" />
-                </radialGradient>
-                <linearGradient id="rkF" x1="19" y1="72" x2="33" y2="96" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#f26222" />
-                  <stop offset="0.5" stopColor="#fbbf24" />
-                  <stop offset="1" stopColor="#fde68a" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Nitro burst — fires at closest point (33% x, 50% y) */}
-      <AnimatePresence>
-        {nitro && (
-          <>
-            {/* Lens flare flash */}
-            <motion.div
-              className="absolute rounded-full"
-              style={{ left: "33%", top: "50%", marginLeft: -40, marginTop: -40, width: 80, height: 80,
-                background: "radial-gradient(circle, rgba(242,98,34,0.9) 0%, rgba(251,191,36,0.4) 40%, transparent 70%)",
-                filter: "blur(4px)" }}
-              initial={{ scale: 0.2, opacity: 1 }}
-              animate={{ scale: 3.5, opacity: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            />
-            {/* Shockwave rings */}
-            {[0, 1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                className="absolute rounded-full"
-                style={{
-                  left: "33%", top: "50%",
-                  marginLeft: -5, marginTop: -5,
-                  width: 10, height: 10,
-                  border: `1.5px solid ${i % 2 === 0 ? "rgba(242,98,34,0.7)" : "rgba(251,191,36,0.5)"}`,
-                }}
-                initial={{ scale: 1, opacity: 0.9 }}
-                animate={{ scale: 18 + i * 9, opacity: 0 }}
-                transition={{ duration: 1.3, delay: i * 0.14, ease: "easeOut" }}
-              />
-            ))}
-          </>
-        )}
-      </AnimatePresence>
+          ))}
+        </>
+      )}
     </div>
   );
 }
