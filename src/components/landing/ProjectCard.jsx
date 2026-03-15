@@ -33,7 +33,7 @@ export default function ProjectCard({ iconUrl }) {
       >
         {/* ── FRONT ── */}
         <div
-          style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+          style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", opacity: flipped ? 0 : 1 }}
           className="absolute inset-0 rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl shadow-indigo-100"
         >
           <div className="relative h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden bg-white">
