@@ -46,7 +46,7 @@ function ShootingStars() {
             duration: 5,
             delay: star.delay,
             repeat: Infinity,
-            repeatDelay: 8,
+            repeatDelay: 0,
             ease: "easeIn",
           }}
           >
