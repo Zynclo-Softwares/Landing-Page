@@ -125,18 +125,21 @@ export default function ProjectCard({ iconUrl }) {
             style={{ background: "radial-gradient(circle, #ede9fe, transparent 70%)" }} />
 
           <div className="flex-1 px-6 py-5 flex flex-col relative z-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-indigo-500 mb-4">Features</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-indigo-500 mb-3">Features</p>
 
-            <div className="grid grid-cols-2 gap-1.5 flex-1">
-              {features.map((f) => (
+            <div className="flex-1 overflow-y-auto pr-2 space-y-2">
+              {features.map((f, idx) => (
                 <div
                   key={f.label}
-                  className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border text-xs font-medium ${f.soon ? "bg-amber-50 border-amber-100 text-amber-600" : "bg-indigo-50/60 border-indigo-100 text-slate-700"}`}
+                  className={`flex items-start gap-3 p-2.5 rounded-lg border text-xs font-medium transition-colors ${f.soon ? "bg-amber-50 border-amber-100 text-amber-600" : "bg-indigo-50/60 border-indigo-100 text-slate-700"}`}
                 >
-                  <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 ${f.soon ? "bg-amber-100" : "bg-indigo-100"}`}>
-                    <f.icon className={`w-3.5 h-3.5 ${f.soon ? "text-amber-500" : "text-indigo-500"}`} />
+                  <span className="font-bold text-sm mt-0.5 w-5 shrink-0">{idx + 1}</span>
+                  <div className="flex items-start gap-2 flex-1 min-w-0">
+                    <div className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 mt-0.5 ${f.soon ? "bg-amber-100" : "bg-indigo-100"}`}>
+                      <f.icon className={`w-3 h-3 ${f.soon ? "text-amber-500" : "text-indigo-500"}`} />
+                    </div>
+                    <span className="leading-snug break-words">{f.label}</span>
                   </div>
-                  <span className="leading-tight">{f.label}</span>
                 </div>
               ))}
             </div>
