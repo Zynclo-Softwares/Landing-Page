@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const features = [
   { icon: Camera, label: "AI Image Verification" },
   { icon: Brain, label: "LLM Based Judge" },
-  { icon: Shield, label: "Patent-Pending Locks" },
+  { icon: Shield, label: "Pending Locks" },
   { icon: Calendar, label: "Flexible Scheduling" },
   { icon: Flame, label: "Streak Tracking" },
   { icon: Utensils, label: "Food Lock — Soon", soon: true },
