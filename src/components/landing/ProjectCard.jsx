@@ -127,7 +127,7 @@ export default function ProjectCard({ iconUrl }) {
           <div className="flex-1 px-6 py-5 flex flex-col relative z-10">
             <p className="text-xs font-bold uppercase tracking-widest text-indigo-500 mb-3">Features</p>
 
-            <div className="h-24 overflow-y-auto pr-2 space-y-1.5">
+            <div className="flex-1 overflow-y-auto pr-2 space-y-1.5">
               {features.map((f, idx) => (
                 <div
                   key={f.label}
