@@ -264,7 +264,8 @@ export default function Hero() {
         <circle cx="39" cy="25" r="1.5" stroke="#6366f1" strokeWidth="1" fill="none" />
       </motion.svg>
 
-      {/* Floating geometric props */}
+      {/* Floating geometric props — desktop only */}
+      {isMobile ? null : <>}
 
       {/* Top-left triangle */}
       <motion.svg
