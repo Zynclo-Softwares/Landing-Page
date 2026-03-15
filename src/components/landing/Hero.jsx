@@ -412,6 +412,15 @@ export default function Hero() {
           </motion.div>
         </div>
 
+        {/* Purple underline under headline */}
+        <motion.div
+          className="mt-4 h-1.5 w-32 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-400 opacity-50 mx-auto"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          style={{ transformOrigin: "center" }}
+        />
+
         {/* Subtitle */}
         <motion.p
           className="mt-8 text-lg sm:text-xl text-slate-500 max-w-xl mx-auto leading-relaxed font-light"
