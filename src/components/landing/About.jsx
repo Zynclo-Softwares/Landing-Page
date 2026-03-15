@@ -103,14 +103,7 @@ export default function About({ appIconUrl }) {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16 relative"
         >
-          {/* Astronaut decoration */}
-          <div className="absolute left-0 top-0 opacity-40" style={{ width: 100, height: 100 }}>
-            <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b591daf6da87ce28f820e7/93ac9cbfe_astronaut1.png"
-              alt="Astronaut"
-              className="w-full h-full"
-            />
-          </div>
+
         
           <motion.span
             className="text-xs font-semibold tracking-widest text-indigo-500 uppercase mb-4 block"
