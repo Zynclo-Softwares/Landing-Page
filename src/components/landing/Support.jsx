@@ -52,19 +52,19 @@ function ShootingStars() {
             ease: "easeIn",
           }}
         >
-          {/* Star core */}
-          <circle cx="40" cy="40" r="2.5" fill="#fbbf24" opacity="0.9" />
+          {/* Star core - oval shaped */}
+          <ellipse cx="40" cy="40" rx="4" ry="6" fill="#fbbf24" opacity="0.95" />
           
           {/* Trailing glow */}
           <line
             x1="40"
             y1="40"
             x2="40"
-            y2="80"
+            y2="100"
             stroke="url(#starGradient)"
-            strokeWidth="2"
+            strokeWidth="3"
             strokeLinecap="round"
-            opacity="0.8"
+            opacity="0.85"
           />
           
           <defs>
