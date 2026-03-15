@@ -214,7 +214,7 @@ export default function Support() {
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <SeaProps />
+      {!isMobile && <SeaProps />}
 
       <div className="relative max-w-2xl mx-auto px-6">
         {/* Header */}
