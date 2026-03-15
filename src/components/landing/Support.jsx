@@ -13,9 +13,9 @@ const fieldVariants = {
   }),
 };
 
-const successParticles = Array.from({ length: 14 }, (_, i) => ({
+const successParticles = Array.from({ length: 8 }, (_, i) => ({
   id: i,
-  angle: (i / 14) * 360,
+  angle: (i / 8) * 360,
   distance: 55 + Math.random() * 35,
 }));
 
@@ -26,8 +26,6 @@ function ShootingStars() {
     { id: 2, x: "35%", delay: 3, duration: 2.5, angle: 35 },
     { id: 3, x: "60%", delay: 6, duration: 2.5, angle: 55 },
     { id: 4, x: "80%", delay: 9, duration: 2.5, angle: 40 },
-    { id: 5, x: "25%", delay: 12, duration: 2.5, angle: 50 },
-    { id: 6, x: "70%", delay: 15, duration: 2.5, angle: 45 },
   ];
 
   return (
@@ -209,7 +207,7 @@ function SeaProps() {
       </motion.svg>
 
       {/* Bubble cluster — right bottom area */}
-      {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+      {[0, 1, 2, 3, 4].map((i) => (
         <motion.div
           key={i}
           className="absolute rounded-full border border-cyan-400/30 pointer-events-none"

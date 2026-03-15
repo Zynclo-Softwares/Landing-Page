@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 import { useMobile } from "@/components/hooks/useMobile";
 
 
-const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
+const PARTICLES = Array.from({ length: 8 }, (_, i) => ({
   id: i,
   x: Math.random() * 100,
   y: Math.random() * 100,
@@ -12,7 +12,7 @@ const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
   delay: Math.random() * 5,
 }));
 
-const STARS = Array.from({ length: 18 }, (_, i) => ({
+const STARS = Array.from({ length: 10 }, (_, i) => ({
   id: i,
   x: Math.random() * 100,
   y: Math.random() * 100,
