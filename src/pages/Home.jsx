@@ -8,6 +8,16 @@ import Footer from "../components/landing/Footer";
 const APP_ICON_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b591daf6da87ce28f820e7/f2ff9b2d7_pp-app-logo.png";
 
 export default function Home() {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#fafafa]" style={{ scrollBehavior: "smooth" }}>
       <Navbar />
