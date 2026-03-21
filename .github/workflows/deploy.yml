@@ -28,8 +28,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE44_APP_ID: ${{ secrets.VITE_BASE44_APP_ID }}
-          VITE_BASE44_APP_BASE_URL: ${{ secrets.VITE_BASE44_APP_BASE_URL }}
+          VITE_REDIS_TOKEN: ${{ secrets.VITE_REDIS_TOKEN }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
