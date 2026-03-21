@@ -9,6 +9,15 @@ const APP_ICON_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object
 
 export default function Home() {
   useEffect(() => {
+    const scrollTo = sessionStorage.getItem("scrollTo");
+    if (scrollTo) {
+      sessionStorage.removeItem("scrollTo");
+      setTimeout(() => {
+        const el = document.getElementById(scrollTo);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 200);
+      return;
+    }
     const hash = window.location.hash;
     if (hash) {
       setTimeout(() => {
