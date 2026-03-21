@@ -266,7 +266,8 @@ export default function Support() {
     setLoading(true);
     setSubmitError(false);
     try {
-      await base44.entities.Contact.create(form);
+      const key = `support:${Date.now()}`;
+      await redis.set(key, JSON.stringify({ ...form, submitted_at: new Date().toISOString() }));
       setSubmitted(true);
     } catch (err) {
       console.error("Contact form error:", err);
