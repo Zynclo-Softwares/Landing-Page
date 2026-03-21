@@ -259,13 +259,13 @@ export default function Support() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setSubmitError(false);
     try {
       await base44.entities.Contact.create(form);
       setSubmitted(true);
     } catch (err) {
       console.error("Contact form error:", err);
-      // Still show success to user — message was attempted
-      setSubmitted(true);
+      setSubmitError(true);
     } finally {
       setLoading(false);
     }
