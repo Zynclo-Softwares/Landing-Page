@@ -34,7 +34,7 @@ jobs:
           VITE_REDIS_TOKEN: ${{ secrets.VITE_REDIS_TOKEN }}
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4    # ← bumped
         with:
           path: ./dist
 
