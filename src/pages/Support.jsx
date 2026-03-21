@@ -5,11 +5,8 @@ export default function Support() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    sessionStorage.setItem("scrollTo", "support");
     navigate("/", { replace: true });
-    setTimeout(() => {
-      const el = document.getElementById("support");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 150);
   }, []);
 
   return null;
