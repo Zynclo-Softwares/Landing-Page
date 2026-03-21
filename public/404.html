@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zynclo</title>
     <script>
-      // GitHub Pages SPA fix: store the path in sessionStorage, then load index.html
-      sessionStorage.setItem('spa_redirect', window.location.pathname + window.location.search + window.location.hash);
-      window.location.replace('/');
+      // GitHub Pages SPA fix: redirect to index.html preserving the path
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      var redirectUrl = '/?p=' + encodeURIComponent(path) + (search ? '&q=' + encodeURIComponent(search.slice(1)) : '') + (hash ? '#' + hash.slice(1) : '');
+      window.location.replace(redirectUrl);
     </script>
   </head>
   <body></body>
