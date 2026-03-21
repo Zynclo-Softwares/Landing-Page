@@ -249,6 +249,7 @@ export default function Support() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [focused, setFocused] = useState(null);
 
   const handleChange = (e) => {
