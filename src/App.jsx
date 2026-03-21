@@ -25,6 +25,7 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/pledgeproof/terms" element={<TermsAndConditions />} />
         <Route path="/pledgeproof/privacy" element={<PrivacyPolicy />} />
+        <Route path="/support" element={<Support />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Toaster />
