@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # 👈 added back
     steps:
       - uses: actions/checkout@v5
 
@@ -34,13 +36,15 @@ jobs:
           VITE_REDIS_TOKEN: ${{ secrets.VITE_REDIS_TOKEN }}
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4    # ← bumped
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # 👈 added here too
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
