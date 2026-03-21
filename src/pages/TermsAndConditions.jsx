@@ -189,7 +189,7 @@ const sections = [
       <p>
         PledgeProof reserves the right to suspend or permanently terminate your account if you violate these Terms or engage in behavior harmful to the app or its users.
         <br /><br />
-        You may delete your account at any time by contacting support. Upon deletion, all associated data will be removed in accordance with our <Link to="/PrivacyPolicy" className="text-indigo-600 hover:underline font-medium">Privacy Policy</Link>.
+        You may delete your account at any time by contacting support. Upon deletion, all associated data will be removed in accordance with our <Link to="/pledgeproof/privacy" className="text-indigo-600 hover:underline font-medium">Privacy Policy</Link>.
       </p>
     ),
   },
