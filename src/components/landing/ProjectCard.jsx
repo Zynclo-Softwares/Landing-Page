@@ -91,7 +91,7 @@ export default function ProjectCard({ iconUrl }) {
             {/* Legal links */}
             <div className="flex gap-2 mt-4 relative z-10">
               <Link
-                to="/TermsAndConditions"
+                to="/pledgeproof/terms"
                 target="_blank"
                 onClick={(e) => e.stopPropagation()}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-indigo-50 border border-slate-200 text-xs font-semibold text-slate-600 hover:text-indigo-600 transition-colors"
@@ -99,7 +99,7 @@ export default function ProjectCard({ iconUrl }) {
                 <ScrollText className="w-3 h-3" /> Terms
               </Link>
               <Link
-                to="/PrivacyPolicy"
+                to="/pledgeproof/privacy"
                 target="_blank"
                 onClick={(e) => e.stopPropagation()}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-violet-50 border border-slate-200 text-xs font-semibold text-slate-600 hover:text-violet-600 transition-colors"
