@@ -1,8 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useMobile } from "@/components/hooks/useMobile";
 import { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { Redis } from "@upstash/redis";
 import { Send, CheckCircle2, Mail, User, MessageSquare } from "lucide-react";
+
+const redis = new Redis({
+  url: "https://musical-zebra-80134.upstash.io",
+  token: import.meta.env.VITE_REDIS_TOKEN,
+});
 
 const fieldVariants = {
   hidden: { opacity: 0, x: -20 },
