@@ -518,6 +518,15 @@ export default function Support() {
                         )}
                       </span>
                     </motion.button>
+                  {submitError && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-center text-sm text-red-500 mt-2"
+                    >
+                      Something went wrong — we couldn't send your message. Please try again later.
+                    </motion.p>
+                  )}
                   </motion.div>
                 </motion.form>
               )}
