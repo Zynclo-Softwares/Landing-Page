@@ -5,6 +5,7 @@ import PageNotFound from './lib/PageNotFound';
 import Home from './pages/Home';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Support from './pages/Support';
 // Add page imports here
 
 function App() {
