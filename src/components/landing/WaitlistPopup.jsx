@@ -51,7 +51,7 @@ export default function WaitlistPopup({ open, onClose }) {
       if (added === 0) {
         setStatus("duplicate");
       } else {
-        await redis.hset(WAITLIST_NAMES_KEY, { [email]: form.name.trim() });
+        await redis.hset(WAITLIST_NAMES_KEY, { [email]: `${form.name.trim()} | ${form.platform}` });
         const newCount = await redis.scard(WAITLIST_SET_KEY);
         setCount(newCount);
         setStatus("success");
