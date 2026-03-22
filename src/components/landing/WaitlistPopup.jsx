@@ -305,7 +305,8 @@ const GOOGLE_PLAY_IMG = "https://media.base44.com/images/public/69b591daf6da87ce
                           </AnimatePresence>
 
                           <p className="text-xs text-slate-500 leading-relaxed border border-white/5 bg-white/[0.03] rounded-xl px-4 py-3">
-                             ⚠️ <span className="text-slate-400 font-medium">Please only join if you're willing to voluntarily test the app for 14 days.</span> You'll receive a confirmation email when it's time to opt out.
+                             ⚠️ <span className="text-slate-400 font-medium">Please only join if you're willing to voluntarily test the app for{" "}
+                             <button type="button" onClick={() => setShowWhyImage(true)} className="text-indigo-400 underline underline-offset-2 hover:text-indigo-300 transition-colors">14 days</button>.</span> You'll receive a confirmation email when it's time to opt out.
                            </p>
 
                           <motion.button
