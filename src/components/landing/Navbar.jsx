@@ -87,5 +87,6 @@ export default function Navbar() {
       <WaitlistPopup open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />,
       document.body
     )}
+    </>
   );
 }
