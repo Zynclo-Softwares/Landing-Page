@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Navbar from "../components/landing/Navbar";
 import Hero from "../components/landing/Hero";
 import About from "../components/landing/About";
-import Waitlist from "../components/landing/Waitlist";
 import Support from "../components/landing/Support";
 import Footer from "../components/landing/Footer";
 
