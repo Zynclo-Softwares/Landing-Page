@@ -30,7 +30,7 @@ export default function WaitlistPopup({ open, onClose }) {
     if (open) {
       redis.scard(WAITLIST_SET_KEY).then(setCount).catch(() => {});
       setStatus(null);
-      setForm({ name: "", email: "" });
+      setForm({ name: "", email: "", platform: "" });
     }
   }, [open]);
 
