@@ -343,6 +343,39 @@ const GOOGLE_PLAY_IMG = "https://media.base44.com/images/public/69b591daf6da87ce
           </motion.div>
         </>
       )}
+
+      {/* Why 14 days lightbox */}
+      <AnimatePresence>
+        {showWhyImage && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm"
+              onClick={() => setShowWhyImage(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed inset-0 z-[201] flex items-center justify-center p-6 pointer-events-none"
+            >
+              <div className="relative pointer-events-auto max-w-2xl w-full">
+                <button
+                  onClick={() => setShowWhyImage(false)}
+                  className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-colors z-10"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                <img
+                  src={GOOGLE_PLAY_IMG}
+                  alt="Google Play production requirements — 12 testers for 14 days"
+                  className="w-full rounded-2xl shadow-2xl border border-white/10"
+                />
+                <p className="text-center text-xs text-slate-500 mt-3">Google Play requires a closed test with 12+ testers for at least 14 days before production access.</p>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </AnimatePresence>
   );
 }
