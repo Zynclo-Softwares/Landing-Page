@@ -10,6 +10,8 @@ const redis = new Redis({
 
 const WAITLIST_SET_KEY = "waitlist:emails";
 const WAITLIST_NAMES_KEY = "waitlist:names";
+const WAITLIST_IOS_KEY = "waitlist:ios";
+const WAITLIST_ANDROID_KEY = "waitlist:android";
 
 const floatingParticles = Array.from({ length: 12 }, (_, i) => ({
   id: i,
