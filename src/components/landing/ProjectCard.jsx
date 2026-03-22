@@ -38,6 +38,13 @@ export default function ProjectCard({ iconUrl }) {
         >
           <div className="relative h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden bg-white">
 
+            {/* Beta tag — top right */}
+            <div className="absolute top-3 right-3 z-10">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-violet-200">
+                Beta
+              </span>
+            </div>
+
             {/* Soft color wash blobs */}
             <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full opacity-30 pointer-events-none"
               style={{ background: "radial-gradient(circle, #e0e7ff, transparent 70%)" }} />
