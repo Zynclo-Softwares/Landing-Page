@@ -27,6 +27,8 @@ export default function WaitlistPopup({ open, onClose }) {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null); // "success" | "duplicate" | "error"
   const [count, setCount] = useState(null);
+  const [iosCount, setIosCount] = useState(null);
+  const [androidCount, setAndroidCount] = useState(null);
 
   useEffect(() => {
     if (open) {
