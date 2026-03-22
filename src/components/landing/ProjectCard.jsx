@@ -41,7 +41,7 @@ export default function ProjectCard({ iconUrl }) {
             {/* Beta tag — top right */}
             <div className="absolute top-3 right-3 z-10">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-violet-200">
-                Beta
+                Alpha
               </span>
             </div>
 
