@@ -46,12 +46,16 @@ export default function WaitlistPopup({ open, onClose }) {
     }
   }, [open]);
 
-  // Close on Escape
+  // Close on Escape + disable scroll when open
   useEffect(() => {
     const handler = (e) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [onClose]);
+    if (open) document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handler);
+      document.body.style.overflow = "";
+    };
+  }, [open, onClose]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
