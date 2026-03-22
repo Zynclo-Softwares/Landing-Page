@@ -210,6 +210,28 @@ export default function WaitlistPopup({ open, onClose }) {
                             />
                           </div>
 
+                          <div>
+                            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                              Platform
+                            </label>
+                            <div className="flex gap-3">
+                              {["iOS", "Android"].map((p) => (
+                                <button
+                                  key={p}
+                                  type="button"
+                                  onClick={() => setForm(prev => ({ ...prev, platform: p }))}
+                                  className={`flex-1 py-3 rounded-xl border text-sm font-semibold transition-all ${
+                                    form.platform === p
+                                      ? "border-indigo-500 bg-indigo-500/15 text-indigo-300"
+                                      : "border-white/10 bg-white/5 text-slate-400 hover:border-white/20 hover:text-white"
+                                  }`}
+                                >
+                                  {p === "iOS" ? "🍎 iOS" : "🤖 Android"}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+
                           <AnimatePresence>
                             {status === "duplicate" && (
                               <motion.p
