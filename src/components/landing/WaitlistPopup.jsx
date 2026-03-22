@@ -253,7 +253,7 @@ export default function WaitlistPopup({ open, onClose }) {
 
                           <motion.button
                             type="submit"
-                            disabled={loading}
+                            disabled={loading || !form.platform}
                             whileHover={{ scale: 1.02, y: -1 }}
                             whileTap={{ scale: 0.97 }}
                             className="w-full relative flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-sm font-semibold tracking-wide shadow-lg shadow-indigo-500/25 overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
