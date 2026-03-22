@@ -29,6 +29,9 @@ export default function WaitlistPopup({ open, onClose }) {
   const [count, setCount] = useState(null);
   const [iosCount, setIosCount] = useState(null);
   const [androidCount, setAndroidCount] = useState(null);
+  const [showWhyImage, setShowWhyImage] = useState(false);
+
+const GOOGLE_PLAY_IMG = "https://media.base44.com/images/public/69b591daf6da87ce28f820e7/7abfa8dac_Screenshot2026-03-22at114848AM.png";
 
   useEffect(() => {
     if (open) {
