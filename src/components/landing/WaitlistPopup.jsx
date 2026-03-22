@@ -301,8 +301,12 @@ export default function WaitlistPopup({ open, onClose }) {
                             )}
                           </AnimatePresence>
 
+                          <p className="text-xs text-slate-500 leading-relaxed border border-white/5 bg-white/[0.03] rounded-xl px-4 py-3">
+                             ⚠️ <span className="text-slate-400 font-medium">Please only join if you're willing to voluntarily test the app for 14 days.</span> You'll receive a confirmation email when it's time to opt out.
+                           </p>
+
                           <motion.button
-                            type="submit"
+                           type="submit"
                             disabled={loading || !form.platform}
                             whileHover={{ scale: 1.02, y: -1 }}
                             whileTap={{ scale: 0.97 }}
