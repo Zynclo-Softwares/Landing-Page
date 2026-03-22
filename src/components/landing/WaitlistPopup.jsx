@@ -64,8 +64,16 @@ export default function WaitlistPopup({ open, onClose }) {
         setStatus("duplicate");
       } else {
         await redis.hset(WAITLIST_NAMES_KEY, { [email]: `${form.name.trim()} | ${form.platform}` });
-        const newCount = await redis.scard(WAITLIST_SET_KEY);
-        setCount(newCount);
+        const platformKey = form.platform === "iOS" ? WAITLIST_IOS_KEY : WAITLIST_ANDROID_KEY;
+        await redis.sadd(platformKey, email);
+        const [newTotal, newIos, newAndroid] = await Promise.all([
+          redis.scard(WAITLIST_SET_KEY),
+          redis.scard(WAITLIST_IOS_KEY),
+          redis.scard(WAITLIST_ANDROID_KEY),
+        ]);
+        setCount(newTotal);
+        setIosCount(newIos);
+        setAndroidCount(newAndroid);
         setStatus("success");
       }
     } catch (err) {
