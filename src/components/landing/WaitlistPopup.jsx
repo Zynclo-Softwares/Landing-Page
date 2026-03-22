@@ -196,9 +196,25 @@ export default function WaitlistPopup({ open, onClose }) {
                             Be first in line to test PledgeProof. We'll notify you the moment it's ready.
                           </p>
                           {count !== null && (
-                            <div className="flex items-center gap-2 mt-3 text-sm text-slate-400">
-                              <Users className="w-4 h-4 text-indigo-400" />
-                              <span><span className="font-bold text-white">{count}</span> {count === 1 ? "tester" : "testers"} already signed up</span>
+                            <div className="mt-3 space-y-2">
+                              <div className="flex items-center gap-2 text-sm text-slate-400">
+                                <Users className="w-4 h-4 text-indigo-400" />
+                                <span><span className="font-bold text-white">{count}</span> {count === 1 ? "tester" : "testers"} already signed up</span>
+                              </div>
+                              <div className="flex gap-2">
+                                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs">
+                                  <span>🍎</span>
+                                  <span className="text-slate-300 font-semibold">{iosCount ?? 0}</span>
+                                  <span className="text-slate-500">iOS</span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs">
+                                  <span>🤖</span>
+                                  <span className="text-slate-300 font-semibold">{androidCount ?? 0}</span>
+                                  <span className="text-slate-500">Android</span>
+                                  <span className="text-slate-600">/</span>
+                                  <span className="text-green-500 font-medium">12 goal</span>
+                                </div>
+                              </div>
                             </div>
                           )}
                         </div>
