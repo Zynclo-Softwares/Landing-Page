@@ -32,7 +32,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About appIconUrl={APP_ICON_URL} />
-      <Waitlist />
       <Support />
       <Footer />
     </div>
