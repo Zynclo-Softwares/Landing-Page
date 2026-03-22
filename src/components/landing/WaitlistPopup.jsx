@@ -153,7 +153,7 @@ const GOOGLE_PLAY_IMG = "https://media.base44.com/images/public/69b591daf6da87ce
                   <X className="w-4 h-4" />
                 </button>
 
-                <div className="relative p-8">
+                <div className="relative p-4 sm:p-8">
                   <AnimatePresence mode="wait">
                     {status === "success" ? (
                       <motion.div
