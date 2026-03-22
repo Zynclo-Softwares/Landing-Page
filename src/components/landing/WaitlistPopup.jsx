@@ -207,12 +207,12 @@ export default function WaitlistPopup({ open, onClose }) {
                               </div>
                               <div className="flex gap-2">
                                 <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs">
-                                  <span>🍎</span>
+                                  <svg className="w-3 h-3 text-slate-300" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.8 134.4-318 266.5-318 79.5 0 145.6 52.4 195.6 52.4 47.8 0 122.7-56.1 209.8-56.1 33.5 0 121.9 3.2 185.9 85.9zm-124.6-174.4c33.8-40.1 57.9-95.9 57.9-151.7 0-7.7-.6-15.4-1.9-22.4-54.4 1.9-119.4 36.2-158.6 82.8-31.4 37.1-61.2 93-61.2 149.5 0 8.3 1.3 16.6 1.9 19.1 3.2.6 8.4 1.3 13.6 1.3 49 0 109.5-32.7 148.3-78.6z"/></svg>
                                   <span className="text-slate-300 font-semibold">{iosCount ?? 0}</span>
                                   <span className="text-slate-500">iOS</span>
                                 </div>
                                 <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs">
-                                  <span>🤖</span>
+                                  <svg className="w-3 h-3 text-slate-300" viewBox="0 0 32 32" fill="currentColor"><path d="M18.677 5.245l1.32-2.424a.277.277 0 0 0-.114-.375.277.277 0 0 0-.375.114l-1.336 2.453A8.937 8.937 0 0 0 16 4.75a8.937 8.937 0 0 0-2.172.263L12.492 2.56a.277.277 0 0 0-.375-.114.277.277 0 0 0-.114.375l1.32 2.424C10.856 6.42 9.124 8.52 9 11h14c-.124-2.48-1.856-4.58-4.323-5.755zM13 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM9 12v13.5A1.5 1.5 0 0 0 10.5 27H12v3.5A1.5 1.5 0 0 0 13.5 32a1.5 1.5 0 0 0 1.5-1.5V27h2v3.5A1.5 1.5 0 0 0 18.5 32a1.5 1.5 0 0 0 1.5-1.5V27h1.5A1.5 1.5 0 0 0 23 25.5V12zm-2.5 0A1.5 1.5 0 0 0 5 13.5v9A1.5 1.5 0 0 0 6.5 24 1.5 1.5 0 0 0 8 22.5v-9A1.5 1.5 0 0 0 6.5 12zm19 0A1.5 1.5 0 0 0 24 13.5v9a1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 25.5 12z"/></svg>
                                   <span className="text-slate-300 font-semibold">{androidCount ?? 0}</span>
                                   <span className="text-slate-500">Android</span>
                                   <span className="text-slate-600">/</span>
