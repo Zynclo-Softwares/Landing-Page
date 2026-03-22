@@ -80,7 +80,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      <WaitlistPopup open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </motion.nav>
+
+    {createPortal(
+      <WaitlistPopup open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />,
+      document.body
+    )}
   );
 }
