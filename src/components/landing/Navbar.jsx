@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 import WaitlistPopup from "./WaitlistPopup";
