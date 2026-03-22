@@ -258,8 +258,8 @@ export default function PrivacyPolicy() {
             <a href="mailto:support@zynclo.com" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-sm font-medium transition-colors">
               ✉️ support@zynclo.com
             </a>
-            <a href="https://zynclo-softwares.base44.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-sm font-medium transition-colors">
-              🌐 zynclo-softwares.base44.app
+            <a href="https://www.zynclo.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-sm font-medium transition-colors">
+              🌐 www.zynclo.com
             </a>
           </div>
         </div>
