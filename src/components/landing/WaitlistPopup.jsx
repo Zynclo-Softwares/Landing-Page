@@ -32,7 +32,15 @@ export default function WaitlistPopup({ open, onClose }) {
 
   useEffect(() => {
     if (open) {
-      redis.scard(WAITLIST_SET_KEY).then(setCount).catch(() => {});
+      Promise.all([
+        redis.scard(WAITLIST_SET_KEY),
+        redis.scard(WAITLIST_IOS_KEY),
+        redis.scard(WAITLIST_ANDROID_KEY),
+      ]).then(([total, ios, android]) => {
+        setCount(total);
+        setIosCount(ios);
+        setAndroidCount(android);
+      }).catch(() => {});
       setStatus(null);
       setForm({ name: "", email: "", platform: "" });
     }
