@@ -21,7 +21,7 @@ const floatingParticles = Array.from({ length: 12 }, (_, i) => ({
 }));
 
 export default function WaitlistPopup({ open, onClose }) {
-  const [form, setForm] = useState({ name: "", email: "" });
+  const [form, setForm] = useState({ name: "", email: "", platform: "" });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null); // "success" | "duplicate" | "error"
   const [count, setCount] = useState(null);
