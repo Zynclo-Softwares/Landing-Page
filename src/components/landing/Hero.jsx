@@ -228,6 +228,7 @@ export default function Hero() {
           <div className="overflow-hidden mt-1">
             <motion.span
               className="inline-block bg-gradient-to-r from-indigo-600 via-violet-500 to-purple-600 bg-clip-text text-transparent"
+              style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
               variants={wordVariants} custom={WORDS.length}
             >
               {GRADIENT_WORD}
