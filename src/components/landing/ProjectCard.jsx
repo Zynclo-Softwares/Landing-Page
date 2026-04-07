@@ -172,7 +172,7 @@ export default function ProjectCard({ iconUrl }) {
                   <span className="text-xs font-semibold">App Store</span>
                 </div>
               </a>
-              <a href="#" className="flex-1 inline-flex items-center gap-2 px-3 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white transition-all">
+              <a href="https://play.google.com/store/apps/details?id=com.zynclo.pledgeproof" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="flex-1 inline-flex items-center gap-2 px-3 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white transition-all">
                 <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="none">
                   <path d="M3.18 23.76a2 2 0 001.09-.31l11.83-6.76L13 13.5 3.18 23.76z" fill="white" opacity="0.9"/>
                   <path d="M20.82 10.32L16.1 7.62 12.76 10.7l3.34 3.08 4.72-2.7a1.5 1.5 0 000-2.76z" fill="white"/>

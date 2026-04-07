@@ -57,8 +57,8 @@ export default function Navbar() {
             </a>
           ))}
 
-          {/* Become a Tester button */}
-          <motion.button
+          {/* Become a Tester button — hidden until next beta */}
+          {false && <motion.button
             onClick={() => setWaitlistOpen(true)}
             whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.96 }}
@@ -77,7 +77,7 @@ export default function Navbar() {
               <Zap className="w-3.5 h-3.5 text-yellow-300" />
               Become a Tester
             </span>
-          </motion.button>
+          </motion.button>}
         </div>
       </div>
 
