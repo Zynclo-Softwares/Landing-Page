@@ -13,6 +13,12 @@ export default function Footer() {
           </svg>
           <span className="text-sm font-medium">LinkedIn</span>
         </a>
+        <a
+          href="mailto:support@zynclo.com"
+          className="text-sm text-slate-400 hover:text-slate-600 transition-colors"
+        >
+          support@zynclo.com
+        </a>
         <p className="text-sm text-slate-400 font-light">
           © 2026 Zynclo. All rights reserved.
         </p>
