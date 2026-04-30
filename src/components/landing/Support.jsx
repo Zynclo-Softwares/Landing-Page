@@ -334,6 +334,12 @@ export default function Support() {
           <p className="text-lg text-slate-500 font-light">
             Have questions about our apps? Reach out and we'll get back to you.
           </p>
+          <p className="text-sm text-slate-400 font-light mt-2">
+            Or email us directly at{" "}
+            <a href="mailto:support@zynclo.com" className="text-indigo-500 hover:text-indigo-600 transition-colors font-medium">
+              support@zynclo.com
+            </a>
+          </p>
         </motion.div>
 
         {/* Card */}
