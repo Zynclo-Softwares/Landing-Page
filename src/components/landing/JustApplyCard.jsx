@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Sparkles, Smartphone, FileText, Zap, Bell, BarChart2, Globe } from "lucide-react";
 
 const features = [
-  { icon: FileText, label: "AI Resume Builder" },
-  { icon: Zap, label: "One-Tap Apply" },
-  { icon: Bell, label: "Application Tracker" },
-  { icon: BarChart2, label: "Success Analytics" },
-  { icon: Globe, label: "Multi-Platform Jobs" },
+  { icon: FileText, label: "Tailored resume + cover letter in your own template" },
+  { icon: Zap, label: "20× faster — no copy-pasting, no tab switching" },
+  { icon: Globe, label: "Browser agent fills & submits forms for you" },
+  { icon: Bell, label: "Deep company research before every application" },
+  { icon: BarChart2, label: "Smart job tracker — every artifact auto-logged" },
 ];
 
 export default function JustApplyCard({ iconUrl }) {
@@ -82,15 +82,15 @@ export default function JustApplyCard({ iconUrl }) {
 
             <div className="flex items-center gap-2 mb-3 relative z-10">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-100 text-xs font-semibold text-amber-600">
-                <Sparkles className="w-3 h-3" /> AI-Powered
+                <Sparkles className="w-3 h-3" /> Semi-Autonomous
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-500">
-                <Smartphone className="w-3 h-3" /> iOS & Android
+                <Zap className="w-3 h-3" /> Private Beta
               </span>
             </div>
 
             <p className="text-slate-700 text-sm text-center font-light leading-relaxed relative z-10">
-              AI-powered job application assistant that helps you apply faster and smarter.
+              The semi-autonomous apply studio. Build your profile once — Just Apply researches, writes, fills, and tracks every application at 20× the speed.
             </p>
           </div>
         </div>
