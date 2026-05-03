@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
+import JustApplyCard from "./JustApplyCard";
 
 /* Icons kept strictly to the outer edges/corners, away from the card area */
 const LOGOS = [
@@ -94,7 +95,7 @@ export default function About({ appIconUrl }) {
         </motion.div>
       ))}
 
-      <div className="relative max-w-2xl mx-auto px-6">
+      <div className="relative max-w-4xl mx-auto px-6">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -127,15 +128,10 @@ export default function About({ appIconUrl }) {
           />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="flex justify-center"
-        >
+        <div className="flex flex-wrap justify-center gap-8">
           <ProjectCard iconUrl={appIconUrl} />
-        </motion.div>
+          <JustApplyCard iconUrl="https://media.base44.com/images/public/69b591daf6da87ce28f820e7/df8bb7713_logo.png" />
+        </div>
       </div>
     </section>
   );
