@@ -82,7 +82,7 @@ export default function JustApplyCard({ iconUrl }) {
 
             <div className="flex items-center gap-2 mb-3 relative z-10">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-100 text-xs font-semibold text-amber-600">
-                <Sparkles className="w-3 h-3" /> Semi-Autonomous
+                <Sparkles className="w-3 h-3" /> AI-Powered
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-500">
                 <Zap className="w-3 h-3" /> Private Beta
