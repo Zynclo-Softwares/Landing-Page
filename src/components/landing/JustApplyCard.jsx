@@ -39,7 +39,7 @@ export default function JustApplyCard({ iconUrl }) {
             {/* Coming Soon tag */}
             <div className="absolute top-3 right-3 z-10">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-amber-200">
-                Coming Soon
+                Preview Release
               </span>
             </div>
 
