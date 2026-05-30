@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import JustApplyCard from "./JustApplyCard";
+import ZoomifyCard from "./ZoomifyCard";
 
 /* Icons kept strictly to the outer edges/corners, away from the card area */
 const LOGOS = [
@@ -131,6 +132,7 @@ export default function About({ appIconUrl }) {
         <div className="flex flex-wrap justify-center gap-8">
           <ProjectCard iconUrl={appIconUrl} />
           <JustApplyCard iconUrl="https://media.base44.com/images/public/69b591daf6da87ce28f820e7/df8bb7713_logo.png" />
+          <ZoomifyCard />
         </div>
       </div>
     </section>
