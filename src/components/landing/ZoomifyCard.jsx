@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Globe, Grid, TreePine, FileJson, Undo2, SlidersHorizontal } from "lucide-react";
+import { Sparkles, Globe, Grid, TreePine, FileJson, Undo2, SlidersHorizontal, Github } from "lucide-react";
 
 const features = [
   { icon: Globe, label: "Vision extraction — AI reads maps, scans & diagrams" },
@@ -135,16 +135,25 @@ export default function ZoomifyCard() {
               ))}
             </div>
 
-            {/* Website link */}
-            <div className="mt-auto pt-3 border-t border-sky-100 text-center">
+            {/* Links */}
+            <div className="mt-auto pt-3 border-t border-sky-100 flex gap-2">
               <a
                 href="https://zoomify.zynclo.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-400 hover:from-sky-500 hover:to-cyan-500 text-white text-xs font-semibold transition-all shadow-sm shadow-sky-200"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-400 hover:from-sky-500 hover:to-cyan-500 text-white text-xs font-semibold transition-all shadow-sm shadow-sky-200"
               >
-                <Globe className="w-3.5 h-3.5" /> zoomify.zynclo.com
+                <Globe className="w-3.5 h-3.5" /> Website
+              </a>
+              <a
+                href="https://github.com/Zynclo-Softwares/Zoomify"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold transition-all shadow-sm shadow-slate-300"
+              >
+                <Github className="w-3.5 h-3.5" /> GitHub
               </a>
             </div>
           </div>
