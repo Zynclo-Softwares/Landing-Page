@@ -143,7 +143,7 @@ export default function JustApplyCard({ iconUrl }) {
                 onClick={(e) => e.stopPropagation()}
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 text-white text-xs font-semibold transition-all shadow-sm shadow-amber-200"
               >
-                <Globe className="w-3.5 h-3.5" /> just-apply.zynclo.com
+                <Globe className="w-3.5 h-3.5" /> Website
               </a>
             </div>
           </div>
