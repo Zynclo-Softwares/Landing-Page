@@ -131,7 +131,7 @@ export default function About({ appIconUrl }) {
 
         <div className="flex flex-wrap justify-center gap-8">
           <ProjectCard iconUrl={appIconUrl} />
-          <JustApplyCard iconUrl="https://media.base44.com/images/public/69b591daf6da87ce28f820e7/df8bb7713_logo.png" />
+          <JustApplyCard iconUrl="https://media.base44.com/images/public/69b591daf6da87ce28f820e7/092d9fb3c_just-apply-icon-knockout.svg" />
           <ZoomifyCard />
         </div>
       </div>
