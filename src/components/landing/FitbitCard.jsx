@@ -39,7 +39,7 @@ export default function FitbitCard() {
             {/* Beta tag */}
             <div className="absolute top-3 right-3 z-10">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-emerald-200">
-                Beta
+                v1.0
               </span>
             </div>
 
