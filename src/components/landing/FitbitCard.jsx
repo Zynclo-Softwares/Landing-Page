@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Globe, Dumbbell, Users, MessageSquare, TrendingUp, Calendar, Award, Brain } from "lucide-react";
+import { Sparkles, Globe, Dumbbell, Users, TrendingUp, Calendar, Award, Brain, Utensils } from "lucide-react";
 
 const features = [
   { icon: Users, label: "Real-time trainer–client collaboration" },
@@ -8,6 +8,7 @@ const features = [
   { icon: Brain, label: "Coach AI chat with personalized health insights" },
   { icon: Award, label: "Suggestions based on recorded PRs & bests" },
   { icon: Calendar, label: "AI-assisted session planning" },
+  { icon: Utensils, label: "Snap a meal photo for calories & macros" },
 ];
 
 export default function FitbitCard() {
@@ -90,7 +91,7 @@ export default function FitbitCard() {
             </div>
 
             <p className="text-slate-700 text-sm text-center font-light leading-relaxed relative z-10">
-              Real-time collaboration platform for personal trainers and clients — track progress and get AI-powered coaching from your own recorded PRs and workouts.
+              Workout and nutrition tracker for trainers and clients. Log sessions and meals, follow your progress, and get AI coaching built on your own PRs and food logs.
             </p>
           </div>
         </div>

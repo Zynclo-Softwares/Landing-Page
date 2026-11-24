@@ -3,6 +3,7 @@ import ProjectCard from "./ProjectCard";
 import JustApplyCard from "./JustApplyCard";
 import ZoomifyCard from "./ZoomifyCard";
 import FitbitCard from "./FitbitCard";
+import TomatoCard from "./TomatoCard";
 
 /* Icons kept strictly to the outer edges/corners, away from the card area */
 const LOGOS = [
@@ -135,6 +136,7 @@ export default function About({ appIconUrl }) {
           <JustApplyCard iconUrl="https://media.base44.com/images/public/69b591daf6da87ce28f820e7/092d9fb3c_just-apply-icon-knockout.svg" />
           <ZoomifyCard />
           <FitbitCard />
+          <TomatoCard />
         </div>
       </div>
     </section>
