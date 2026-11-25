@@ -125,10 +125,9 @@ export default function ZoomifyCard() {
                     animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    <Sparkles className="w-3.5 h-3.5 shrink-0 text-sky-400" />
+                    <f.icon className="w-3.5 h-3.5 shrink-0 text-sky-500" />
                   </motion.div>
                   <div className="flex items-start gap-1.5 flex-1 min-w-0">
-                    <f.icon className="w-3 h-3 shrink-0 mt-0.5 text-sky-500" />
                     <span className="leading-snug break-words text-slate-700">{f.label}</span>
                   </div>
                 </div>
