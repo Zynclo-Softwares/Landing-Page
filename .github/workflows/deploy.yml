@@ -34,6 +34,7 @@ jobs:
         run: npm run build
         env:
           VITE_REDIS_TOKEN: ${{ secrets.VITE_REDIS_TOKEN }}
+          VITE_TICKETS_ADMIN_TOKEN_ENC: ${{ secrets.VITE_TICKETS_ADMIN_TOKEN_ENC }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

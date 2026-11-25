@@ -267,7 +267,7 @@ export default function Support() {
     setSubmitError(false);
     try {
       const key = `support:${Date.now()}`;
-      await redis.set(key, JSON.stringify({ ...form, submitted_at: new Date().toISOString() }));
+      await redis.set(key, JSON.stringify({ ...form, status: "On hold", submitted_at: new Date().toISOString() }));
       setSubmitted(true);
     } catch (err) {
       console.error("Contact form error:", err);

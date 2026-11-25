@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Support from './pages/Support';
+import Tickets from './pages/Tickets';
 // Add page imports here
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/pledgeproof/terms" element={<TermsAndConditions />} />
         <Route path="/pledgeproof/privacy" element={<PrivacyPolicy />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/tickets" element={<Tickets />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Toaster />
