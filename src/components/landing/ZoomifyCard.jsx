@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Globe, Grid, TreePine, FileJson, Undo2, SlidersHorizontal, Github } from "lucide-react";
+import { Sparkles, Globe, Grid, Undo2, Github, Plug, FileText, BookOpen, Upload } from "lucide-react";
 
 const features = [
-  { icon: Globe, label: "Vision extraction — AI reads maps, scans & diagrams" },
-  { icon: Grid, label: "Smart zoom grid for tiny text and dense regions" },
-  { icon: TreePine, label: "Live zoom tree with breadcrumb trail" },
-  { icon: FileJson, label: "Structured JSON output with typed schemas" },
-  { icon: Undo2, label: "Undo & redo — agent backtracks and refines" },
-  { icon: SlidersHorizontal, label: "Custom extraction schemas" },
+  { icon: Plug, label: "MCP server for Claude Code, Cursor, VS Code & more" },
+  { icon: Grid, label: "Grid + zoom tools for tiny text and dense regions" },
+  { icon: FileText, label: "Blueprints, site maps, scans, long screenshots & PDFs" },
+  { icon: Undo2, label: "Undo, redo & restore — the agent backtracks and refines" },
+  { icon: BookOpen, label: "Built-in skills that teach your agent to zoom well" },
+  { icon: Upload, label: "Open source, with one-time uploads for local files" },
 ];
 
 export default function ZoomifyCard() {
@@ -86,12 +86,12 @@ export default function ZoomifyCard() {
                 <Sparkles className="w-3 h-3" /> AI-Powered
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-500">
-                <Globe className="w-3 h-3" /> Web App
+                <Plug className="w-3 h-3" /> MCP Server
               </span>
             </div>
 
             <p className="text-slate-700 text-sm text-center font-light leading-relaxed relative z-10">
-              Extract detail from any complex image. Zoomify grids hard-to-read maps, diagrams & scans — then zooms with AI until every field is captured.
+              A zoom lens for AI agents. Connect the Zoomify MCP server and your agent can grid hard-to-read maps, diagrams & scans, then zoom in until every detail is sharp.
             </p>
           </div>
         </div>
