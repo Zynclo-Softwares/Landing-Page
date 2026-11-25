@@ -14,6 +14,17 @@
     <meta name="twitter:title" content="Zynclo" />
     <meta name="twitter:description" content="software that surprises." />
     <meta name="google-site-verification" content="ekW_O6SyQ08OQlXiT93sUR9rcrd6xjhNGNZLNAolyVg" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          var dark = t === "dark" || ((!t || t === "system") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          var root = document.documentElement;
+          if (dark) root.classList.add("dark");
+          root.style.colorScheme = dark ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

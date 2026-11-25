@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#fafafa]" style={{ scrollBehavior: "smooth" }}>
+    <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950" style={{ scrollBehavior: "smooth" }}>
       <Navbar />
       <Hero />
       <About appIconUrl={APP_ICON_URL} />

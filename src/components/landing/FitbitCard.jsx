@@ -33,21 +33,21 @@ export default function FitbitCard() {
         {/* ── FRONT ── */}
         <div
           style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", opacity: flipped ? 0 : 1 }}
-          className="absolute inset-0 rounded-3xl overflow-hidden border border-emerald-200/80 shadow-xl shadow-emerald-100"
+          className="absolute inset-0 rounded-3xl overflow-hidden border border-emerald-200/80 dark:border-emerald-500/30 shadow-xl shadow-emerald-100 dark:shadow-black/40"
         >
-          <div className="relative h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden bg-white">
+          <div className="relative h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden bg-white dark:bg-slate-900">
 
             {/* Beta tag */}
             <div className="absolute top-3 right-3 z-10">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-emerald-200">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-emerald-200 dark:shadow-emerald-900/30">
                 v1.0
               </span>
             </div>
 
             {/* Blobs */}
-            <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full opacity-30 pointer-events-none"
+            <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full opacity-30 pointer-events-none dark:opacity-10"
               style={{ background: "radial-gradient(circle, #d1fae5, transparent 70%)" }} />
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-25 pointer-events-none"
+            <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-25 pointer-events-none dark:opacity-10"
               style={{ background: "radial-gradient(circle, #ccfbf1, transparent 70%)" }} />
 
             {/* Dot grid */}
@@ -72,25 +72,25 @@ export default function FitbitCard() {
                 animate={{ scale: [0.95, 1.08, 0.95], opacity: [0.3, 0.55, 0.3] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
               />
-              <div className="w-24 h-24 rounded-3xl overflow-hidden ring-2 ring-emerald-200 shadow-lg shadow-emerald-100 relative bg-white flex items-center justify-center">
+              <div className="w-24 h-24 rounded-3xl overflow-hidden ring-2 ring-emerald-200 dark:ring-emerald-500/40 shadow-lg shadow-emerald-100 dark:shadow-black/40 relative bg-white dark:bg-slate-900 flex items-center justify-center">
                 <Dumbbell className="w-14 h-14 text-emerald-500" strokeWidth={1.75} />
               </div>
             </div>
 
-            <h3 className="text-3xl font-bold tracking-tight mb-2 relative z-10 text-slate-900">
+            <h3 className="text-3xl font-bold tracking-tight mb-2 relative z-10 text-slate-900 dark:text-slate-50">
               Fitbit
             </h3>
 
             <div className="flex items-center gap-2 mb-3 relative z-10">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-xs font-semibold text-emerald-600">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
                 <Sparkles className="w-3 h-3" /> AI-Powered
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-500">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-xs font-medium text-slate-500 dark:text-slate-400">
                 <Globe className="w-3 h-3" /> Web App
               </span>
             </div>
 
-            <p className="text-slate-700 text-sm text-center font-light leading-relaxed relative z-10">
+            <p className="text-slate-700 dark:text-slate-300 text-sm text-center font-light leading-relaxed relative z-10">
               Workout and nutrition tracker for trainers and clients. Log sessions and meals, follow your progress, and get AI coaching built on your own PRs and food logs.
             </p>
           </div>
@@ -99,7 +99,7 @@ export default function FitbitCard() {
         {/* ── BACK ── */}
         <div
           style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)", opacity: flipped ? 1 : 0 }}
-          className="absolute inset-0 rounded-3xl overflow-hidden border border-emerald-200/80 shadow-xl shadow-emerald-100 bg-white flex flex-col"
+          className="absolute inset-0 rounded-3xl overflow-hidden border border-emerald-200/80 dark:border-emerald-500/30 shadow-xl shadow-emerald-100 dark:shadow-black/40 bg-white dark:bg-slate-900 flex flex-col"
         >
           <motion.div className="h-[2px]"
             style={{ background: "linear-gradient(90deg, transparent, #10b981, #14b8a6, transparent)" }}
@@ -107,9 +107,9 @@ export default function FitbitCard() {
             transition={{ duration: 3, repeat: Infinity }}
           />
 
-          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-20 pointer-events-none"
+          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-20 pointer-events-none dark:opacity-10"
             style={{ background: "radial-gradient(circle, #d1fae5, transparent 70%)" }} />
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full opacity-20 pointer-events-none"
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full opacity-20 pointer-events-none dark:opacity-10"
             style={{ background: "radial-gradient(circle, #ccfbf1, transparent 70%)" }} />
 
           <div className="flex-1 px-6 py-5 flex flex-col relative z-10">
@@ -128,20 +128,20 @@ export default function FitbitCard() {
                     <f.icon className="w-3.5 h-3.5 shrink-0 text-emerald-500" />
                   </motion.div>
                   <div className="flex items-start gap-1.5 flex-1 min-w-0">
-                    <span className="leading-snug break-words text-slate-700">{f.label}</span>
+                    <span className="leading-snug break-words text-slate-700 dark:text-slate-300">{f.label}</span>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Website link */}
-            <div className="mt-auto pt-3 border-t border-emerald-100 text-center">
+            <div className="mt-auto pt-3 border-t border-emerald-100 dark:border-emerald-500/20 text-center">
               <a
                 href="https://fitbit.zynclo.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white text-xs font-semibold transition-all shadow-sm shadow-emerald-200"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white text-xs font-semibold transition-all shadow-sm shadow-emerald-200 dark:shadow-emerald-900/30"
               >
                 <Globe className="w-3.5 h-3.5" /> Website
               </a>

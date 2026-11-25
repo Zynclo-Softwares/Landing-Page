@@ -312,7 +312,7 @@ export default function Support() {
           className="text-center mb-14"
         >
           <motion.span
-            className="text-xs font-semibold tracking-widest text-indigo-500 uppercase mb-4 block"
+            className="text-xs font-semibold tracking-widest text-indigo-500 dark:text-indigo-400 uppercase mb-4 block"
             initial={{ opacity: 0, letterSpacing: "0.3em" }}
             whileInView={{ opacity: 1, letterSpacing: "0.2em" }}
             viewport={{ once: true }}
@@ -320,7 +320,7 @@ export default function Support() {
           >
             Support
           </motion.span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-3">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-slate-50 tracking-tight mb-3">
             Get In Touch.
           </h2>
           <motion.div
@@ -331,12 +331,12 @@ export default function Support() {
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             style={{ transformOrigin: "center" }}
           />
-          <p className="text-lg text-slate-500 font-light">
+          <p className="text-lg text-slate-500 dark:text-slate-400 font-light">
             Have questions about our apps? Reach out and we'll get back to you.
           </p>
           <p className="text-sm text-slate-400 font-light mt-2">
             Or email us directly at{" "}
-            <a href="mailto:support@zynclo.com" className="text-indigo-500 hover:text-indigo-600 transition-colors font-medium">
+            <a href="mailto:support@zynclo.com" className="text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
               support@zynclo.com
             </a>
           </p>
@@ -358,7 +358,7 @@ export default function Support() {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          <div className="relative bg-white/80 backdrop-blur-xl border border-slate-200/80 rounded-3xl p-8 sm:p-10 overflow-hidden">
+          <div className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/80 dark:border-slate-700/80 rounded-3xl p-8 sm:p-10 overflow-hidden">
 
             {/* Animated top accent line */}
             <motion.div
@@ -430,8 +430,8 @@ export default function Support() {
                     </motion.div>
                   </div>
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-1">Message sent!</h3>
-                    <p className="text-slate-500 font-light">We'll get back to you at <span className="text-indigo-600 font-medium">{form.email}</span> shortly.</p>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">Message sent!</h3>
+                    <p className="text-slate-500 dark:text-slate-400 font-light">We'll get back to you at <span className="text-indigo-600 dark:text-indigo-400 font-medium">{form.email}</span> shortly.</p>
                   </motion.div>
                 </motion.div>
               ) : (
@@ -446,7 +446,7 @@ export default function Support() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     {/* Name */}
                     <motion.div custom={0} variants={fieldVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                      <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                         <User className="w-3 h-3" /> Name
                       </label>
                       <motion.input
@@ -455,13 +455,13 @@ export default function Support() {
                         onFocus={() => setFocused("name")} onBlur={() => setFocused(null)}
                         placeholder="Your name"
                         whileFocus={{ scale: 1.015, boxShadow: "0 0 0 3px rgba(99,102,241,0.12)" }}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/10 transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-slate-50 placeholder-slate-400 dark:placeholder-slate-500 text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/10 transition-all"
                       />
                     </motion.div>
 
                     {/* Email */}
                     <motion.div custom={1} variants={fieldVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                      <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                         <Mail className="w-3 h-3" /> Email
                       </label>
                       <motion.input
@@ -470,14 +470,14 @@ export default function Support() {
                         onFocus={() => setFocused("email")} onBlur={() => setFocused(null)}
                         placeholder="you@example.com"
                         whileFocus={{ scale: 1.015, boxShadow: "0 0 0 3px rgba(99,102,241,0.12)" }}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/10 transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-slate-50 placeholder-slate-400 dark:placeholder-slate-500 text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/10 transition-all"
                       />
                     </motion.div>
                   </div>
 
                   {/* Message */}
                   <motion.div custom={2} variants={fieldVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                       <MessageSquare className="w-3 h-3" /> Message
                     </label>
                     <motion.textarea
@@ -487,7 +487,7 @@ export default function Support() {
                       placeholder="How can we help?"
                       rows={5}
                       whileFocus={{ scale: 1.008, boxShadow: "0 0 0 3px rgba(99,102,241,0.12)" }}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/10 transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-slate-50 placeholder-slate-400 dark:placeholder-slate-500 text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/10 transition-all resize-none"
                     />
                   </motion.div>
 
@@ -498,7 +498,7 @@ export default function Support() {
                       disabled={loading}
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.97 }}
-                      className="w-full relative flex items-center justify-center gap-2 py-4 rounded-xl bg-slate-900 text-white text-sm font-medium tracking-wide overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-slate-900/10"
+                      className="w-full relative flex items-center justify-center gap-2 py-4 rounded-xl bg-slate-900 text-white dark:bg-indigo-600 text-sm font-medium tracking-wide overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-slate-900/10 dark:shadow-black/30"
                     >
                       {/* Animated shimmer sweep on hover */}
                       <motion.div

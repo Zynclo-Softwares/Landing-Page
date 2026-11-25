@@ -34,21 +34,21 @@ export default function ProjectCard({ iconUrl }) {
         {/* ── FRONT ── */}
         <div
           style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", opacity: flipped ? 0 : 1 }}
-          className="absolute inset-0 rounded-3xl overflow-hidden border border-orange-200/80 shadow-xl shadow-orange-100"
+          className="absolute inset-0 rounded-3xl overflow-hidden border border-orange-200/80 dark:border-orange-500/30 shadow-xl shadow-orange-100 dark:shadow-black/40"
         >
-          <div className="relative h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden bg-white">
+          <div className="relative h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden bg-white dark:bg-slate-900">
 
             {/* Beta tag — top right */}
             <div className="absolute top-3 right-3 z-10">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-orange-400 to-amber-400 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-orange-200">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-orange-400 to-amber-400 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-orange-200 dark:shadow-orange-900/30">
                 v2.0
               </span>
             </div>
 
             {/* Soft color wash blobs */}
-            <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full opacity-30 pointer-events-none"
+            <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full opacity-30 pointer-events-none dark:opacity-10"
               style={{ background: "radial-gradient(circle, #ffedd5, transparent 70%)" }} />
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-25 pointer-events-none"
+            <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-25 pointer-events-none dark:opacity-10"
               style={{ background: "radial-gradient(circle, #fed7aa, transparent 70%)" }} />
 
             {/* Subtle dot grid */}
@@ -73,25 +73,25 @@ export default function ProjectCard({ iconUrl }) {
                 animate={{ scale: [0.95, 1.08, 0.95], opacity: [0.3, 0.55, 0.3] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
               />
-              <div className="w-24 h-24 rounded-3xl overflow-hidden ring-2 ring-orange-200 shadow-lg shadow-orange-100 relative">
+              <div className="w-24 h-24 rounded-3xl overflow-hidden ring-2 ring-orange-200 dark:ring-orange-500/40 shadow-lg shadow-orange-100 dark:shadow-black/40 relative">
                 <img src={iconUrl} alt="PledgeProof app icon" className="w-24 h-24 object-cover" />
               </div>
             </div>
 
-            <h3 className="text-3xl font-bold tracking-tight mb-2 relative z-10 text-slate-900">
+            <h3 className="text-3xl font-bold tracking-tight mb-2 relative z-10 text-slate-900 dark:text-slate-50">
               PledgeProof
             </h3>
 
             <div className="flex items-center gap-2 mb-3 relative z-10">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-50 border border-orange-100 text-xs font-semibold text-orange-600">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-50 dark:bg-orange-500/10 border border-orange-100 dark:border-orange-500/20 text-xs font-semibold text-orange-600 dark:text-orange-400">
                 <Sparkles className="w-3 h-3" /> AI-Powered
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-500">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-xs font-medium text-slate-500 dark:text-slate-400">
                 <Smartphone className="w-3 h-3" /> iOS & Android
               </span>
             </div>
 
-            <p className="text-slate-700 text-sm text-center font-light leading-relaxed relative z-10">
+            <p className="text-slate-700 dark:text-slate-300 text-sm text-center font-light leading-relaxed relative z-10">
               AI-powered accountability app with a patent-pending lock-and-schedule system.
             </p>
 
@@ -101,7 +101,7 @@ export default function ProjectCard({ iconUrl }) {
                 to="/pledgeproof/terms"
                 target="_blank"
                 onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-orange-50 border border-slate-200 text-xs font-semibold text-slate-600 hover:text-orange-600 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-orange-50 dark:hover:bg-orange-500/10 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
               >
                 <ScrollText className="w-3 h-3" /> Terms
               </Link>
@@ -109,7 +109,7 @@ export default function ProjectCard({ iconUrl }) {
                 to="/pledgeproof/privacy"
                 target="_blank"
                 onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-amber-50 border border-slate-200 text-xs font-semibold text-slate-600 hover:text-amber-600 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-amber-50 dark:hover:bg-amber-500/10 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
               >
                 <Lock className="w-3 h-3" /> Privacy
               </Link>
@@ -122,7 +122,7 @@ export default function ProjectCard({ iconUrl }) {
         {/* ── BACK ── */}
         <div
           style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)", opacity: flipped ? 1 : 0 }}
-          className="absolute inset-0 rounded-3xl overflow-hidden border border-orange-200/80 shadow-xl shadow-orange-100 bg-white flex flex-col"
+          className="absolute inset-0 rounded-3xl overflow-hidden border border-orange-200/80 dark:border-orange-500/30 shadow-xl shadow-orange-100 dark:shadow-black/40 bg-white dark:bg-slate-900 flex flex-col"
         >
           {/* Top accent */}
           <motion.div className="h-[2px]"
@@ -132,9 +132,9 @@ export default function ProjectCard({ iconUrl }) {
           />
 
           {/* Soft blob */}
-          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-20 pointer-events-none"
+          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-20 pointer-events-none dark:opacity-10"
             style={{ background: "radial-gradient(circle, #ffedd5, transparent 70%)" }} />
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full opacity-20 pointer-events-none"
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full opacity-20 pointer-events-none dark:opacity-10"
             style={{ background: "radial-gradient(circle, #fed7aa, transparent 70%)" }} />
 
           <div className="flex-1 px-6 py-5 flex flex-col relative z-10">
@@ -156,7 +156,7 @@ export default function ProjectCard({ iconUrl }) {
                     <f.icon className={`w-3.5 h-3.5 shrink-0 ${f.soon ? "text-amber-500" : "text-orange-500"}`} />
                   </motion.div>
                   <div className="flex items-start gap-1.5 flex-1 min-w-0">
-                    <span className={`leading-snug break-words ${f.soon ? "text-amber-600" : "text-slate-700"}`}>{f.label}</span>
+                    <span className={`leading-snug break-words ${f.soon ? "text-amber-600 dark:text-amber-400" : "text-slate-700 dark:text-slate-300"}`}>{f.label}</span>
                   </div>
                 </div>
               ))}

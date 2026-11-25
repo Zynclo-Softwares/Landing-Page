@@ -110,7 +110,7 @@ export default function About({ appIconUrl }) {
 
         
           <motion.span
-            className="text-xs font-semibold tracking-widest text-indigo-500 uppercase mb-4 block"
+            className="text-xs font-semibold tracking-widest text-indigo-500 dark:text-indigo-400 uppercase mb-4 block"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -118,7 +118,7 @@ export default function About({ appIconUrl }) {
           >
             Our Projects
           </motion.span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
             What We're Building.
           </h2>
           <motion.div

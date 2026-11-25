@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Toaster } from "@/components/ui/toaster"
+import { ThemeProvider } from 'next-themes';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import Home from './pages/Home';
@@ -19,6 +20,7 @@ function App() {
   }, []);
 
   return (
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
     <Router basename="/">
       <Routes>
         <Route path="/" element={<Home />} />
@@ -38,6 +40,7 @@ function App() {
         }
       `}</style>
     </Router>
+    </ThemeProvider>
   )
 }
 

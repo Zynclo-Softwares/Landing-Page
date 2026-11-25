@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import ThemeToggle from "../components/theme/ThemeToggle";
 
 const sections = [
   {
@@ -28,11 +29,11 @@ const sections = [
           ].map(([title, desc]) => (
             <li key={title} className="flex gap-3">
               <span className="mt-0.5 w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0 mt-2" />
-              <span><strong className="text-slate-800">{title}</strong> — {desc}</span>
+              <span><strong className="text-slate-800 dark:text-slate-100">{title}</strong> — {desc}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-slate-500 italic text-sm">PledgeProof is for personal use only. The app does not facilitate communication, messaging, or content sharing between users.</p>
+        <p className="mt-4 text-slate-500 dark:text-slate-400 italic text-sm">PledgeProof is for personal use only. The app does not facilitate communication, messaging, or content sharing between users.</p>
       </>
     ),
   },
@@ -44,10 +45,10 @@ const sections = [
         <p className="mb-4">To use PledgeProof, you must create an account using one of the following methods:</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {["Email & Password", "Google Sign-In", "Apple Sign-In"].map((m) => (
-            <span key={m} className="px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-sm font-medium text-indigo-700">{m}</span>
+            <span key={m} className="px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 text-sm font-medium text-indigo-700 dark:text-indigo-300">{m}</span>
           ))}
         </div>
-        <ul className="space-y-2 text-slate-600">
+        <ul className="space-y-2 text-slate-600 dark:text-slate-300">
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> You are responsible for keeping your login credentials secure.</li>
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> You must not share your account with others.</li>
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> Each person is limited to one account.</li>
@@ -64,10 +65,10 @@ const sections = [
         <p className="mb-4">PledgeProof offers a <strong>free tier</strong> allowing up to 5 active locks. For expanded access, we offer paid subscription plans:</p>
         <div className="flex gap-3 mb-5 flex-wrap">
           {["Monthly Plan", "Yearly Plan"].map((plan) => (
-            <div key={plan} className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-50 to-violet-50 border border-indigo-100 text-sm font-semibold text-indigo-700">{plan}</div>
+            <div key={plan} className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-50 dark:from-indigo-500/10 to-violet-50 dark:to-violet-500/10 border border-indigo-100 dark:border-indigo-500/20 text-sm font-semibold text-indigo-700 dark:text-indigo-300">{plan}</div>
           ))}
         </div>
-        <ul className="space-y-2 text-slate-600">
+        <ul className="space-y-2 text-slate-600 dark:text-slate-300">
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> All subscriptions are billed through the Apple App Store or Google Play Store.</li>
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> Subscriptions automatically renew unless cancelled at least 24 hours before the billing period ends.</li>
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> To cancel, use your App Store or Play Store account settings — not within PledgeProof itself.</li>
@@ -85,10 +86,10 @@ const sections = [
         <p className="mb-4">PledgeProof offers an in-app currency called <strong>"Coins"</strong>, obtainable by:</p>
         <div className="flex flex-wrap gap-2 mb-5">
           {["Starter Pack", "Standard Pack", "Premium Pack", "Rewarded Ads (free)"].map((p) => (
-            <span key={p} className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-700">{p}</span>
+            <span key={p} className="px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30 text-xs font-semibold text-amber-700 dark:text-amber-300">{p}</span>
           ))}
         </div>
-        <ul className="space-y-2 text-slate-600">
+        <ul className="space-y-2 text-slate-600 dark:text-slate-300">
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> Coins are used exclusively within PledgeProof for in-app features.</li>
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> Coins are non-transferable and non-refundable.</li>
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> Coins hold no real-world monetary value and cannot be exchanged for cash.</li>
@@ -114,7 +115,7 @@ const sections = [
     content: (
       <>
         <p className="mb-4">When using Image Locks and Proof Locks, you may upload images, documents, or photos for verification purposes.</p>
-        <ul className="space-y-2 text-slate-600">
+        <ul className="space-y-2 text-slate-600 dark:text-slate-300">
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> You retain full ownership of any content you upload.</li>
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> PledgeProof processes uploaded content solely to verify lock completion.</li>
           <li className="flex gap-2"><span className="text-indigo-400 mt-1">→</span> We do not share, publish, or distribute your uploaded content to third parties.</li>
@@ -130,7 +131,7 @@ const sections = [
     content: (
       <>
         <p className="mb-4">You agree <strong>not to</strong>:</p>
-        <ul className="space-y-2 text-slate-600">
+        <ul className="space-y-2 text-slate-600 dark:text-slate-300">
           {[
             "Reverse-engineer, decompile, disassemble, or tamper with PledgeProof or its systems.",
             "Use the app for any unlawful purpose.",
@@ -165,7 +166,7 @@ const sections = [
     content: (
       <>
         <p className="mb-4">PledgeProof is provided on an <strong>"as is"</strong> and <strong>"as available"</strong> basis without warranties of any kind. To the fullest extent permitted by law, Zynclo shall not be liable for damages arising from:</p>
-        <ul className="space-y-2 text-slate-600">
+        <ul className="space-y-2 text-slate-600 dark:text-slate-300">
           {[
             "Data loss or corruption",
             "Missed deadlines or commitments",
@@ -189,7 +190,7 @@ const sections = [
       <p>
         PledgeProof reserves the right to suspend or permanently terminate your account if you violate these Terms or engage in behavior harmful to the app or its users.
         <br /><br />
-        You may delete your account at any time by contacting support. Upon deletion, all associated data will be removed in accordance with our <Link to="/pledgeproof/privacy" className="text-indigo-600 hover:underline font-medium">Privacy Policy</Link>.
+        You may delete your account at any time by contacting support. Upon deletion, all associated data will be removed in accordance with our <Link to="/pledgeproof/privacy" className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Privacy Policy</Link>.
       </p>
     ),
   },
@@ -217,32 +218,33 @@ const sections = [
 
 export default function TermsAndConditions() {
   return (
-    <div className="min-h-screen bg-[#fafafa]">
+    <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950">
       {/* Header */}
-      <div className="bg-white border-b border-slate-100 sticky top-0 z-10 backdrop-blur-xl bg-white/80">
+      <div className="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 sticky top-0 z-10 backdrop-blur-xl bg-white/80 dark:bg-slate-900/80">
         <div className="max-w-3xl mx-auto px-6 h-14 flex items-center gap-4">
-          <Link to="/" className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 active:text-slate-800 transition-colors px-2 py-1 -mx-2 rounded touch-target">
+          <Link to="/" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white active:text-slate-800 dark:active:text-slate-200 transition-colors px-2 py-1 -mx-2 rounded touch-target">
             <ArrowLeft className="w-4 h-4" />
             <span className="hidden sm:inline">Back</span>
           </Link>
-          <span className="text-slate-200">|</span>
-          <span className="text-sm font-medium text-slate-700">Terms & Conditions</span>
+          <span className="text-slate-200 dark:text-slate-700">|</span>
+          <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Terms & Conditions</span>
+          <ThemeToggle className="ml-auto" />
         </div>
       </div>
 
       <div className="max-w-3xl mx-auto px-6 py-16">
         {/* Hero */}
         <div className="mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-xs font-semibold text-indigo-600 mb-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-5">
             PledgeProof · Zynclo
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-slate-50 tracking-tight mb-4">
             Terms & Conditions
           </h1>
-          <p className="text-slate-500 text-lg font-light">
-            Effective Date: <strong className="text-slate-700 font-medium">March 2026</strong>
+          <p className="text-slate-500 dark:text-slate-400 text-lg font-light">
+            Effective Date: <strong className="text-slate-700 dark:text-slate-300 font-medium">March 2026</strong>
           </p>
-          <div className="mt-6 p-5 rounded-2xl bg-white border border-slate-200 text-slate-600 leading-relaxed text-sm">
+          <div className="mt-6 p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
             These Terms & Conditions ("Terms") govern your use of <strong>PledgeProof</strong>, a mobile application developed and operated by <strong>Zynclo</strong>. PledgeProof is available on iOS (Apple App Store) and Android (Google Play Store).
             <br /><br />
             By downloading, installing, or using PledgeProof, you agree to be bound by these Terms. If you do not agree, do not use the app.
@@ -254,16 +256,16 @@ export default function TermsAndConditions() {
           {sections.map((section, i) => (
             <div
               key={section.number}
-              className="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-indigo-200 hover:shadow-md hover:shadow-indigo-500/5 transition-all duration-300"
+              className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden hover:border-indigo-200 dark:hover:border-indigo-500/40 hover:shadow-md hover:shadow-indigo-500/5 transition-all duration-300"
             >
               <div className="p-6 sm:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-50 to-violet-50 border border-indigo-100 flex items-center justify-center">
-                    <span className="text-xs font-bold text-indigo-600">{section.number}</span>
+                  <div className="shrink-0 w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-50 dark:from-indigo-500/10 to-violet-50 dark:to-violet-500/10 border border-indigo-100 dark:border-indigo-500/20 flex items-center justify-center">
+                    <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">{section.number}</span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h2 className="text-lg font-semibold text-slate-900 mb-4">{section.title}</h2>
-                    <div className="text-slate-600 text-sm leading-relaxed">
+                    <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-4">{section.title}</h2>
+                    <div className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                       {section.content}
                     </div>
                   </div>

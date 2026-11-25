@@ -33,21 +33,21 @@ export default function ZoomifyCard() {
         {/* ── FRONT ── */}
         <div
           style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", opacity: flipped ? 0 : 1 }}
-          className="absolute inset-0 rounded-3xl overflow-hidden border border-sky-200/80 shadow-xl shadow-sky-100"
+          className="absolute inset-0 rounded-3xl overflow-hidden border border-sky-200/80 dark:border-sky-500/30 shadow-xl shadow-sky-100 dark:shadow-black/40"
         >
-          <div className="relative h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden bg-white">
+          <div className="relative h-full flex flex-col items-center justify-center px-8 py-10 overflow-hidden bg-white dark:bg-slate-900">
 
             {/* v1.0 tag */}
             <div className="absolute top-3 right-3 z-10">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-sky-200">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-[10px] font-bold tracking-widest uppercase shadow-md shadow-sky-200 dark:shadow-sky-900/30">
                 v1.0
               </span>
             </div>
 
             {/* Blobs */}
-            <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full opacity-30 pointer-events-none"
+            <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full opacity-30 pointer-events-none dark:opacity-10"
               style={{ background: "radial-gradient(circle, #e0f2fe, transparent 70%)" }} />
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-25 pointer-events-none"
+            <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-25 pointer-events-none dark:opacity-10"
               style={{ background: "radial-gradient(circle, #cffafe, transparent 70%)" }} />
 
             {/* Dot grid */}
@@ -72,25 +72,25 @@ export default function ZoomifyCard() {
                 animate={{ scale: [0.95, 1.08, 0.95], opacity: [0.3, 0.55, 0.3] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
               />
-              <div className="w-24 h-24 rounded-3xl overflow-hidden ring-2 ring-sky-200 shadow-lg shadow-sky-100 relative bg-white flex items-center justify-center">
+              <div className="w-24 h-24 rounded-3xl overflow-hidden ring-2 ring-sky-200 dark:ring-sky-500/40 shadow-lg shadow-sky-100 dark:shadow-black/40 relative bg-white flex items-center justify-center">
                 <img src="https://zoomify.zynclo.com/zoomify-logo.png" alt="Zoomify app icon" className="w-20 h-20 object-contain" />
               </div>
             </div>
 
-            <h3 className="text-3xl font-bold tracking-tight mb-2 relative z-10 text-slate-900">
+            <h3 className="text-3xl font-bold tracking-tight mb-2 relative z-10 text-slate-900 dark:text-slate-50">
               Zoomify
             </h3>
 
             <div className="flex items-center gap-2 mb-3 relative z-10">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-50 border border-sky-100 text-xs font-semibold text-sky-600">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-50 dark:bg-sky-500/10 border border-sky-100 dark:border-sky-500/20 text-xs font-semibold text-sky-600 dark:text-sky-400">
                 <Sparkles className="w-3 h-3" /> AI-Powered
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-500">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-xs font-medium text-slate-500 dark:text-slate-400">
                 <Plug className="w-3 h-3" /> MCP Server
               </span>
             </div>
 
-            <p className="text-slate-700 text-sm text-center font-light leading-relaxed relative z-10">
+            <p className="text-slate-700 dark:text-slate-300 text-sm text-center font-light leading-relaxed relative z-10">
               A zoom lens for AI agents. Connect the Zoomify MCP server and your agent can grid hard-to-read maps, diagrams & scans, then zoom in until every detail is sharp.
             </p>
           </div>
@@ -99,7 +99,7 @@ export default function ZoomifyCard() {
         {/* ── BACK ── */}
         <div
           style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)", opacity: flipped ? 1 : 0 }}
-          className="absolute inset-0 rounded-3xl overflow-hidden border border-sky-200/80 shadow-xl shadow-sky-100 bg-white flex flex-col"
+          className="absolute inset-0 rounded-3xl overflow-hidden border border-sky-200/80 dark:border-sky-500/30 shadow-xl shadow-sky-100 dark:shadow-black/40 bg-white dark:bg-slate-900 flex flex-col"
         >
           <motion.div className="h-[2px]"
             style={{ background: "linear-gradient(90deg, transparent, #0ea5e9, #06b6d4, transparent)" }}
@@ -107,9 +107,9 @@ export default function ZoomifyCard() {
             transition={{ duration: 3, repeat: Infinity }}
           />
 
-          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-20 pointer-events-none"
+          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-20 pointer-events-none dark:opacity-10"
             style={{ background: "radial-gradient(circle, #e0f2fe, transparent 70%)" }} />
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full opacity-20 pointer-events-none"
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full opacity-20 pointer-events-none dark:opacity-10"
             style={{ background: "radial-gradient(circle, #cffafe, transparent 70%)" }} />
 
           <div className="flex-1 px-6 py-5 flex flex-col relative z-10">
@@ -128,20 +128,20 @@ export default function ZoomifyCard() {
                     <f.icon className="w-3.5 h-3.5 shrink-0 text-sky-500" />
                   </motion.div>
                   <div className="flex items-start gap-1.5 flex-1 min-w-0">
-                    <span className="leading-snug break-words text-slate-700">{f.label}</span>
+                    <span className="leading-snug break-words text-slate-700 dark:text-slate-300">{f.label}</span>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Links */}
-            <div className="mt-auto pt-3 border-t border-sky-100 flex gap-2">
+            <div className="mt-auto pt-3 border-t border-sky-100 dark:border-sky-500/20 flex gap-2">
               <a
                 href="https://zoomify.zynclo.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-400 hover:from-sky-500 hover:to-cyan-500 text-white text-xs font-semibold transition-all shadow-sm shadow-sky-200"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-400 hover:from-sky-500 hover:to-cyan-500 text-white text-xs font-semibold transition-all shadow-sm shadow-sky-200 dark:shadow-sky-900/30"
               >
                 <Globe className="w-3.5 h-3.5" /> Website
               </a>
@@ -150,7 +150,7 @@ export default function ZoomifyCard() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold transition-all shadow-sm shadow-slate-300"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold transition-all shadow-sm shadow-slate-300 dark:shadow-black/40"
               >
                 <Github className="w-3.5 h-3.5" /> GitHub
               </a>

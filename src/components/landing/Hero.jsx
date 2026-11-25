@@ -80,7 +80,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-[#fafafa]" />
+      <div className="absolute inset-0 bg-[#fafafa] dark:bg-slate-950" />
 
       {/* Grid */}
       <div
@@ -202,18 +202,18 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-sm mb-10"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm mb-10"
         >
           <motion.div
             className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600"
             animate={{ scale: [1, 1.6, 1], opacity: [1, 0.5, 1] }}
             transition={{ duration: 2.5, repeat: Infinity }}
           />
-          <span className="text-xs font-medium tracking-wide text-slate-500 uppercase">Building the future</span>
+          <span className="text-xs font-medium tracking-wide text-slate-500 dark:text-slate-400 uppercase">Building the future</span>
         </motion.div>
 
         <motion.div
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 leading-[0.95] mb-2"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 dark:text-slate-50 leading-[0.95] mb-2"
           variants={stagger}
           initial="hidden"
           animate="visible"
@@ -227,7 +227,7 @@ export default function Hero() {
           </div>
           <div className="overflow-hidden mt-1">
             <motion.span
-              className="inline-block bg-gradient-to-r from-indigo-600 via-violet-500 to-purple-600 bg-clip-text text-transparent"
+              className="inline-block bg-gradient-to-r from-indigo-600 via-violet-500 to-purple-600 bg-clip-text dark:from-indigo-400 dark:via-violet-400 dark:to-purple-400 text-transparent"
               style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
               variants={wordVariants} custom={WORDS.length}
             >
@@ -245,7 +245,7 @@ export default function Hero() {
         />
 
         <motion.p
-          className="mt-8 text-lg sm:text-xl text-slate-500 max-w-xl mx-auto leading-relaxed font-light"
+          className="mt-8 text-lg sm:text-xl text-slate-500 dark:text-slate-400 max-w-xl mx-auto leading-relaxed font-light"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -268,7 +268,7 @@ export default function Hero() {
             onClick={scrollToAbout}
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
-            className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-900 text-white text-sm font-medium tracking-wide shadow-xl shadow-indigo-500/10 transition-colors duration-300 hover:bg-slate-800"
+            className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-900 text-white text-sm font-medium tracking-wide shadow-xl shadow-indigo-500/10 transition-colors duration-300 hover:bg-slate-800 dark:bg-indigo-600 dark:hover:bg-indigo-500 dark:shadow-indigo-500/20"
           >
             See Our Work
             <motion.span
@@ -289,12 +289,12 @@ export default function Hero() {
         transition={{ delay: 1.2, duration: 0.8 }}
       >
         <motion.div
-          className="w-5 h-8 rounded-full border-2 border-slate-300 flex justify-center pt-1.5"
+          className="w-5 h-8 rounded-full border-2 border-slate-300 dark:border-slate-600 flex justify-center pt-1.5"
           animate={{ opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           <motion.div
-            className="w-1 h-2 rounded-full bg-slate-400"
+            className="w-1 h-2 rounded-full bg-slate-400 dark:bg-slate-500"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />

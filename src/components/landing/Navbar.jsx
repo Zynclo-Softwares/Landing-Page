@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 import WaitlistPopup from "./WaitlistPopup";
+import ThemeToggle from "../theme/ThemeToggle";
 
 const links = [
   { label: "About", href: "#about" },
@@ -32,7 +33,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, delay: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm"
+          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -41,7 +42,12 @@ export default function Navbar() {
           <img
             src="https://media.base44.com/images/public/69b591daf6da87ce28f820e7/2a0ae168a_zynclo-logo-clean.svg"
             alt="Zynclo"
-            className="h-10 w-auto md:h-16"
+            className="h-10 w-auto md:h-16 dark:hidden"
+          />
+          <img
+            src="/zynclo-logo-dark.svg"
+            alt="Zynclo"
+            className="h-10 w-auto md:h-16 hidden dark:block"
           />
         </a>
 
@@ -51,11 +57,13 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               onClick={(e) => handleClick(e, link.href)}
-              className="text-sm text-slate-500 hover:text-slate-900 transition-colors font-medium hidden sm:block"
+              className="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-medium hidden sm:block"
             >
               {link.label}
             </a>
           ))}
+
+          <ThemeToggle />
 
           {/* Become a Tester button — hidden until next beta */}
           {false && <motion.button
